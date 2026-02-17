@@ -36,7 +36,8 @@ export default function Home() {
                   Get Started <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="/services"
+                  href="/it-buddy"
+                  title="IT Services Company UK"
                   className="border-2 transition-all font-bold text-lg px-10 py-4 rounded-lg"
                   style={{ 
                     borderColor: "var(--accent-teal)", 
@@ -49,7 +50,7 @@ export default function Home() {
                     e.currentTarget.style.backgroundColor = "transparent";
                   }}
                 >
-                  Explore Services
+                  Explore Our Professional IT Services
                 </Link>
               </div>
             </div>

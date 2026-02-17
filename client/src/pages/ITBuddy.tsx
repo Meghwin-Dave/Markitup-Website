@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { Code, Smartphone, Server, Zap, Users, TrendingUp } from "lucide-react";
@@ -31,8 +32,51 @@ export default function ITBuddy() {
     return () => clearInterval(interval);
   }, [carouselApi]);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "MarkitUp Group",
+    url: "https://markitupgroup.com",
+    logo: "https://markitupgroup.com/logo.png",
+    sameAs: [],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      areaServed: "Worldwide",
+      availableLanguage: ["English"],
+    },
+    description:
+      "IT services company providing ERPNext, Django, React, Node.js, PHP, mobile app development, and custom software solutions globally including UK.",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "GB",
+      addressLocality: "London",
+    },
+    offers: {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "IT Services",
+        description:
+          "Professional IT services including ERPNext development, Django development, React development, Node.js development, mobile app development, and website development.",
+      },
+    },
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <SEOHead
+        title="IT Services Company | ERPNext, Django, React, Node, Mobile App Development | MarkitUp Group"
+        description="MarkitUp Group provides expert IT services including ERPNext development, Django, React, Node.js, PHP, mobile app development, and custom software solutions worldwide, including the UK."
+        keywords="IT services UK, software development company UK, ERPNext developer UK, Django developer UK, React developer UK, Node.js developer UK, mobile app development UK, website development UK, PHP developer UK, IT company UK, global IT services, Flutter developer UK"
+        canonical="https://markitupgroup.com/it-buddy"
+        ogTitle="Professional IT Services Company – ERPNext, Django, React, Node | MarkitUp Group"
+        ogDescription="Expert IT services and software development company serving clients globally and in the UK. Specializing in ERPNext, Django, React, Node.js, PHP, Flutter, and mobile app development."
+        ogUrl="https://markitupgroup.com/it-buddy"
+        twitterTitle="Top IT Services Company | ERPNext, Django, React Experts | MarkitUp Group"
+        twitterDescription="Hire expert developers for ERPNext, Django, React, Node, PHP, Flutter, and mobile apps. Professional IT services company serving UK and worldwide."
+        structuredData={structuredData}
+      />
       <Header />
 
       <main className="flex-1">
@@ -44,8 +88,7 @@ export default function ITBuddy() {
                 ITBuddy · Digital Solutions & Product Studio
               </p>
               <h1 className="text-6xl md:text-7xl font-black mb-8 leading-tight">
-                Enterprise-Grade Software{" "}
-                <span style={{ color: "var(--accent-teal)" }}>for Modern Products</span>
+                Professional IT Services Company Serving UK and Worldwide
               </h1>
               <p className="text-2xl text-slate-200 leading-relaxed font-medium max-w-3xl mx-auto">
                 ITBuddy is the digital solutions and product development studio of MarkitUp Group—designing, building, and
@@ -399,6 +442,231 @@ export default function ITBuddy() {
               <CarouselPrevious className="hidden md:flex bg-slate-900/80 border-slate-700 text-slate-100 hover:bg-slate-800" />
               <CarouselNext className="hidden md:flex bg-slate-900/80 border-slate-700 text-slate-100 hover:bg-slate-800" />
             </Carousel>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Our IT Services */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+                Our IT Services
+              </h2>
+              <div className="prose prose-lg max-w-none text-slate-700">
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  MarkitUp Group's ITBuddy division delivers comprehensive IT services and software development solutions
+                  to businesses across the UK and globally. Our expertise spans multiple technology stacks, enabling us
+                  to build robust, scalable, and maintainable digital products.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">ERPNext Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We specialize in ERPNext implementation, customization, and development. Our ERPNext developers help
+                  businesses streamline operations, manage inventory, automate workflows, and integrate ERPNext with
+                  existing systems. Whether you need a complete ERPNext setup or custom modules for manufacturing,
+                  retail, or services, our team delivers enterprise-grade solutions.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our ERPNext services include custom app development, workflow automation, report customization, portal
+                  development, and third-party integrations. We work with Frappe Framework to extend ERPNext's
+                  capabilities and create tailored solutions for your business needs.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">Django Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  As experienced Django developers, we build high-performance web applications, RESTful APIs, and
+                  backend systems using Django and Django REST Framework. Our Django development services cover
+                  everything from MVP development to complex, scalable applications handling millions of requests.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We leverage Django's security features, ORM capabilities, and admin interface to accelerate development
+                  while maintaining code quality. Our Django projects include e-commerce platforms, content management
+                  systems, data analytics dashboards, and API backends for mobile applications.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">React Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our React developers create modern, interactive user interfaces using React, Next.js, and TypeScript.
+                  We build single-page applications (SPAs), server-side rendered (SSR) applications, and progressive
+                  web apps (PWAs) that deliver exceptional user experiences.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We follow React best practices, implement component-based architectures, optimize performance with
+                  code splitting and lazy loading, and ensure accessibility standards. Our React projects range from
+                  marketing websites to complex admin dashboards and real-time collaboration tools.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">Node.js Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our Node.js developers build scalable server-side applications, microservices, and real-time systems.
+                  We use Node.js with Express, NestJS, and other frameworks to create high-performance APIs, WebSocket
+                  servers, and backend services that power modern web and mobile applications.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Node.js development services include RESTful and GraphQL API development, real-time chat systems,
+                  microservices architecture, serverless functions, and integration with databases like MongoDB,
+                  PostgreSQL, and Redis. We optimize for performance, handle high concurrency, and implement robust error
+                  handling.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">Mobile App Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We develop native and cross-platform mobile applications for iOS and Android. Our mobile app
+                  development services include Flutter apps, React Native applications, and native iOS (Swift) and
+                  Android (Kotlin) development. We focus on performance, user experience, and app store optimization.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our mobile apps feature offline capabilities, push notifications, in-app purchases, analytics
+                  integration, and seamless backend connectivity. We follow platform-specific design guidelines and ensure
+                  apps are secure, performant, and user-friendly.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">Website Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We create fast, responsive, and SEO-optimized websites using React, Next.js, Node.js, and modern web
+                  technologies. Our website development services cover marketing sites, e-commerce platforms, corporate
+                  websites, and web applications with custom functionality.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Every website we build is optimized for Core Web Vitals, mobile-first responsive design, accessibility
+                  (WCAG compliance), and search engine visibility. We implement content management systems, integrate
+                  third-party services, and ensure fast load times and smooth user experiences.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">PHP Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our PHP developers modernize legacy PHP applications, build custom web solutions, and develop
+                  content management systems. We work with modern PHP frameworks and best practices to create secure,
+                  maintainable, and scalable PHP applications.
+                </p>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  PHP development services include Laravel and Symfony applications, WordPress customization, API
+                  development, and migration from legacy PHP codebases to modern architectures. We focus on security,
+                  performance optimization, and code quality.
+                </p>
+
+                <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">Custom Software Development</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Beyond specific technologies, we provide end-to-end custom software development services. We analyze
+                  your requirements, design system architecture, develop scalable solutions, and provide ongoing
+                  maintenance and support. Our custom software solutions integrate seamlessly with your existing
+                  infrastructure and workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Why Choose MarkitUp Group */}
+        <section className="py-24 md:py-32 bg-slate-50">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+                Why Choose MarkitUp Group for IT Services
+              </h2>
+              <div className="prose prose-lg max-w-none text-slate-700">
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  When you partner with MarkitUp Group's ITBuddy division, you gain access to a team of experienced
+                  developers, proven methodologies, and a commitment to delivering high-quality software solutions.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Expert Developers Across Multiple Stacks</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our team includes specialists in ERPNext, Django, React, Node.js, PHP, Flutter, and mobile
+                  development. We stay current with technology trends and best practices, ensuring your projects use the
+                  most appropriate and modern solutions.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Proven Track Record</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We've successfully delivered projects ranging from MVPs to enterprise-scale applications. Our
+                  portfolio includes ERPNext implementations, Django-powered platforms, React applications, Node.js
+                  microservices, and mobile apps serving thousands of users.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Agile Development Process</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  We follow agile methodologies, ensuring regular communication, iterative development, and the ability
+                  to adapt to changing requirements. Our development process includes code reviews, automated testing,
+                  continuous integration, and deployment pipelines.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Focus on Quality and Performance</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Every project undergoes rigorous testing, performance optimization, and security audits. We write
+                  clean, maintainable code and document our work thoroughly, making it easy for your team to take over
+                  or extend the solution.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Global Reach, Local Understanding</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  While we serve clients globally, we have deep understanding of UK business requirements, compliance
+                  standards, and market needs. Our team communicates effectively in English and understands cultural
+                  nuances that impact software development projects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO Content Section - Hire IT Developers */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+                Hire IT Developers in UK and Worldwide
+              </h2>
+              <div className="prose prose-lg max-w-none text-slate-700">
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Whether you need a dedicated development team, individual developers, or project-based support,
+                  MarkitUp Group offers flexible engagement models to suit your needs. Our developers work seamlessly
+                  with your existing team or operate independently to deliver your project.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Hire ERPNext Developers</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our ERPNext developers have extensive experience implementing and customizing ERPNext for various
+                  industries. They understand Frappe Framework, Python, and ERPNext's module structure, enabling them
+                  to build custom apps, workflows, and integrations efficiently.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Hire Django Developers</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our Django developers are proficient in Python, Django, Django REST Framework, and related
+                  technologies. They build scalable web applications, APIs, and backend systems following Django best
+                  practices and security guidelines.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Hire React Developers</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our React developers create modern, performant user interfaces using React, Next.js, TypeScript, and
+                  modern frontend tooling. They understand component architecture, state management, performance
+                  optimization, and accessibility requirements.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Hire Node.js Developers</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our Node.js developers build scalable server-side applications, APIs, and microservices. They
+                  understand asynchronous programming, event-driven architecture, and how to optimize Node.js
+                  applications for performance and reliability.
+                </p>
+
+                <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Hire Mobile App Developers</h3>
+                <p className="text-lg leading-relaxed mb-6 font-medium">
+                  Our mobile app developers specialize in Flutter, React Native, and native iOS/Android development.
+                  They create cross-platform and native mobile applications with excellent user experiences, performance,
+                  and app store compliance.
+                </p>
+
+                <p className="text-lg leading-relaxed mb-6 font-medium mt-8">
+                  To discuss your IT services requirements or hire developers,{" "}
+                  <Link href="/contact" className="font-bold" style={{ color: "var(--accent-teal)" }}>
+                    contact us today
+                  </Link>
+                  . We'll work with you to understand your needs and propose the best solution for your project.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

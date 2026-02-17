@@ -12,6 +12,11 @@ import DiscountBuddy from "./pages/DiscountBuddy";
 import ITBuddy from "./pages/ITBuddy";
 import MarketBuddy from "./pages/MarketBuddy";
 import Contact from "./pages/Contact";
+import ERPNextDevelopment from "./pages/services/ERPNextDevelopment";
+import DjangoDevelopment from "./pages/services/DjangoDevelopment";
+import ReactDevelopment from "./pages/services/ReactDevelopment";
+import NodeDevelopment from "./pages/services/NodeDevelopment";
+import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -31,6 +36,11 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/about"} component={About} />
         <Route path={"/services"} component={Services} />
+        <Route path={"/services/erpnext-development"} component={ERPNextDevelopment} />
+        <Route path={"/services/django-development"} component={DjangoDevelopment} />
+        <Route path={"/services/react-development"} component={ReactDevelopment} />
+        <Route path={"/services/node-development"} component={NodeDevelopment} />
+        <Route path={"/services/mobile-app-development"} component={MobileAppDevelopment} />
         <Route path={"/discount-buddy"} component={DiscountBuddy} />
         <Route path={"/it-buddy"} component={ITBuddy} />
         <Route path={"/market-buddy"} component={MarketBuddy} />
