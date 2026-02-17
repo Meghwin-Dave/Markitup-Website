@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
-import { Code, Smartphone, Server, Zap, Users, TrendingUp } from "lucide-react";
+import { Code, Smartphone, Server, Zap, Users, TrendingUp, ArrowRight } from "lucide-react";
 import {
   type CarouselApi,
   Carousel,
@@ -448,17 +448,77 @@ export default function ITBuddy() {
         {/* SEO Content Section - Our IT Services */}
         <section className="py-24 md:py-32 bg-white">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
+            <div className="max-w-4xl mx-auto mb-12">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
                 Our IT Services
               </h2>
-              <div className="prose prose-lg max-w-none text-slate-700">
-                <p className="text-lg leading-relaxed mb-6 font-medium">
-                  MarkitUp Group's ITBuddy division delivers comprehensive IT services and software development solutions
-                  to businesses across the UK and globally. Our expertise spans multiple technology stacks, enabling us
-                  to build robust, scalable, and maintainable digital products.
-                </p>
+              <p className="text-lg leading-relaxed mb-8 font-medium text-slate-700">
+                MarkitUp Group's ITBuddy division delivers comprehensive IT services and software development solutions
+                to businesses across the UK and globally. Our expertise spans multiple technology stacks, enabling us
+                to build robust, scalable, and maintainable digital products.
+              </p>
+            </div>
 
+            {/* Service Pages Navigation Cards */}
+            <div className="max-w-6xl mx-auto mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  {
+                    name: "ERPNext Development",
+                    href: "/services/erpnext-development",
+                    desc: "Expert ERPNext implementation, customization, and integration services.",
+                    accent: "teal",
+                  },
+                  {
+                    name: "Django Development",
+                    href: "/services/django-development",
+                    desc: "Professional Django web applications, APIs, and backend systems.",
+                    accent: "indigo",
+                  },
+                  {
+                    name: "React Development",
+                    href: "/services/react-development",
+                    desc: "Modern React and Next.js applications with TypeScript.",
+                    accent: "teal",
+                  },
+                  {
+                    name: "Node.js Development",
+                    href: "/services/node-development",
+                    desc: "Scalable Node.js APIs, microservices, and backend systems.",
+                    accent: "indigo",
+                  },
+                  {
+                    name: "Mobile App Development",
+                    href: "/services/mobile-app-development",
+                    desc: "Flutter, React Native, and native iOS/Android applications.",
+                    accent: "teal",
+                  },
+                ].map((service, idx) => {
+                  const accentVar =
+                    service.accent === "teal" ? "var(--accent-teal)" : "var(--accent-indigo)";
+                  return (
+                    <Link
+                      key={idx}
+                      href={service.href}
+                      className="bg-slate-50 rounded-xl p-6 border-l-4 shadow-sm hover:shadow-lg transition-all group"
+                      style={{ borderLeftColor: accentVar }}
+                    >
+                      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:underline">
+                        {service.name}
+                      </h3>
+                      <p className="text-slate-600 text-sm mb-4 font-medium">{service.desc}</p>
+                      <div className="flex items-center gap-2 text-sm font-bold" style={{ color: accentVar }}>
+                        Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Detailed Service Descriptions */}
+            <div className="max-w-4xl mx-auto">
+              <div className="prose prose-lg max-w-none text-slate-700">
                 <h3 className="text-3xl font-bold text-slate-900 mt-10 mb-4">ERPNext Development</h3>
                 <p className="text-lg leading-relaxed mb-6 font-medium">
                   We specialize in ERPNext implementation, customization, and development. Our ERPNext developers help

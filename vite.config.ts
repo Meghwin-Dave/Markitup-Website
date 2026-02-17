@@ -98,6 +98,30 @@ function vitePluginManusDebugCollector(): Plugin {
     },
 
     configureServer(server: ViteDevServer) {
+      // SPA fallback: serve index.html for all routes
+      // This ensures that reloading or direct access to routes like /it-buddy works
+      server.middlewares.use((req, res, next) => {
+        // Skip API routes, static assets, HMR, and non-GET requests
+        if (
+          req.url?.startsWith("/__manus__") ||
+          req.url?.startsWith("/@") ||
+          req.url?.startsWith("/node_modules") ||
+          req.method !== "GET"
+        ) {
+          return next();
+        }
+
+        // Check if it's a static file request (has file extension)
+        const hasExtension = /\.\w+$/.test(req.url || "");
+        if (hasExtension) {
+          return next();
+        }
+
+        // For all other routes (SPA routes), serve index.html
+        req.url = "/index.html";
+        next();
+      });
+
       // POST /__manus__/logs: Browser sends logs (written directly to files)
       server.middlewares.use("/__manus__/logs", (req, res, next) => {
         if (req.method !== "POST") {

@@ -145,6 +145,85 @@ export default function Services() {
           </div>
         </section>
 
+        {/* IT Service Pages */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">IT Services</p>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+                Our IT Development <span style={{ color: "var(--accent-teal)" }}>Services</span>
+              </h2>
+              <p className="text-lg text-slate-700 max-w-2xl mx-auto font-medium">
+                Explore our specialized IT development services. Click on any service to learn more.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "ERPNext Development",
+                  href: "/services/erpnext-development",
+                  desc: "Expert ERPNext implementation, customization, and integration services.",
+                  accent: "teal",
+                },
+                {
+                  name: "Django Development",
+                  href: "/services/django-development",
+                  desc: "Professional Django web applications, APIs, and backend systems.",
+                  accent: "indigo",
+                },
+                {
+                  name: "React Development",
+                  href: "/services/react-development",
+                  desc: "Modern React and Next.js applications with TypeScript.",
+                  accent: "teal",
+                },
+                {
+                  name: "Node.js Development",
+                  href: "/services/node-development",
+                  desc: "Scalable Node.js APIs, microservices, and backend systems.",
+                  accent: "indigo",
+                },
+                {
+                  name: "Mobile App Development",
+                  href: "/services/mobile-app-development",
+                  desc: "Flutter, React Native, and native iOS/Android applications.",
+                  accent: "teal",
+                },
+              ].map((service, idx) => {
+                const accentVar =
+                  service.accent === "teal" ? "var(--accent-teal)" : "var(--accent-indigo)";
+                return (
+                  <Link
+                    key={idx}
+                    href={service.href}
+                    className="bg-slate-50 rounded-xl p-6 border-l-4 shadow-sm hover:shadow-lg transition-all group"
+                    style={{ borderLeftColor: accentVar }}
+                  >
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:underline">
+                      {service.name}
+                    </h3>
+                    <p className="text-slate-600 text-sm mb-4 font-medium">{service.desc}</p>
+                    <div className="flex items-center gap-2 text-sm font-bold" style={{ color: accentVar }}>
+                      Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                href="/it-buddy"
+                className="inline-flex items-center gap-2 text-lg font-bold"
+                style={{ color: "var(--accent-teal)" }}
+              >
+                View All IT Services <ArrowRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Service Comparison */}
         <section className="py-32 md:py-40 bg-white">
           <div className="container mx-auto px-6">
