@@ -102,7 +102,7 @@ export default function DiscountBuddy() {
               <div>
                 <p className="eyebrow mb-6">Discount Buddy</p>
                 <h1 className="mb-8 text-slate-900">
-                  Discover the Best Restaurant Deals <span style={{ color: "var(--accent-teal)" }}>Near You</span>
+                  Discover the Best Restaurant Deals <span style={{ color: "var(--highlight-rose)" }}>Near You</span>
                 </h1>
                 <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl">
                   Discount Buddy helps you find exclusive offers, discounts, and deals from nearby
@@ -214,7 +214,7 @@ export default function DiscountBuddy() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">What Is Discount Buddy</p>
                 <h2 className="text-slate-900 mb-6">
-                  A simple platform connecting <span style={{ color: "var(--accent-teal)" }}>users and restaurants</span>
+                  A simple platform connecting <span style={{ color: "var(--highlight-rose)" }}>users and restaurants</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   Discount Buddy is a platform that connects users looking for deals with
@@ -262,7 +262,7 @@ export default function DiscountBuddy() {
             <div className="text-center mb-16">
               <p className="eyebrow mb-5">How It Works</p>
               <h2 className="text-slate-900">
-                Simple Steps from <span style={{ color: "var(--accent-teal)" }}>Discovery to Use</span>
+                Simple Steps from <span style={{ color: "var(--highlight-rose)" }}>Discovery to Use</span>
               </h2>
             </div>
 
@@ -313,7 +313,7 @@ export default function DiscountBuddy() {
               <div>
                 <p className="eyebrow mb-5">Key Features</p>
                 <h2 className="text-slate-900">
-                  Clear features with a <span style={{ color: "var(--accent-indigo)" }}>clean product focus</span>
+                  Clear features with a <span style={{ color: "var(--highlight-indigo)" }}>clean product focus</span>
                 </h2>
               </div>
               <p className="max-w-xl text-lg text-slate-600 font-medium leading-relaxed">
@@ -351,7 +351,7 @@ export default function DiscountBuddy() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">For Users</p>
                 <h2 className="text-slate-900 mb-6">
-                  Designed to make <span style={{ color: "var(--accent-teal)" }}>dining discovery easier</span>
+                  Designed to make <span style={{ color: "var(--highlight-rose)" }}>dining discovery easier</span>
                 </h2>
                 <div className="space-y-4">
                   {userBenefits.map((item) => (
@@ -366,7 +366,7 @@ export default function DiscountBuddy() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">For Businesses</p>
                 <h2 className="text-slate-900 mb-6">
-                  Turn Empty Tables Into <span style={{ color: "var(--accent-amber)" }}>Customers</span>
+                  Turn Empty Tables Into <span style={{ color: "var(--highlight-amber)" }}>Customers</span>
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed font-medium mb-8">
                   Discount Buddy helps restaurants attract more customers, promote offers instantly,

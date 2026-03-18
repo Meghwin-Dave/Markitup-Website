@@ -53,7 +53,7 @@ export default function Contact() {
                 Contact MarkitUp Group
               </p>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8">
-                Contact <span style={{ color: "var(--accent-teal)" }}>MarkitUp Group</span>
+                Contact <span style={{ color: "var(--highlight-rose)" }}>MarkitUp Group</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl mx-auto">
                 If you are looking to increase visibility, attract more customers, or grow your

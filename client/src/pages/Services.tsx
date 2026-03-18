@@ -107,7 +107,7 @@ export default function Services() {
                 Our Services
               </p>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8">
-                Marketing and <span style={{ color: "var(--accent-teal)" }}>Digital Growth Services</span>
+                Marketing and <span style={{ color: "var(--highlight-rose)" }}>Digital Growth Services</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
                 MarkitUp Group provides marketing, promotional, and technology services designed
@@ -163,7 +163,7 @@ export default function Services() {
                 Business Units
               </p>
               <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">
-                Explore the MarkitUp Group <span style={{ color: "var(--accent-indigo)" }}>Ecosystem</span>
+                Explore the MarkitUp Group <span style={{ color: "var(--highlight-indigo)" }}>Ecosystem</span>
               </h2>
               <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
                 Internal links across <Link href="/market-buddy" className="font-semibold hover:underline">Market Buddy</Link>,{" "}
@@ -203,11 +203,9 @@ export default function Services() {
                   <p className="text-slate-700 leading-relaxed font-medium mb-5">
                     {unit.description}
                   </p>
-                  <div
-                    className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all"
-                    style={{ color: unit.accent }}
-                  >
-                    Learn More <ArrowRight size={18} />
+                  <div className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-slate-900">
+                    <span>Learn More</span>
+                    <ArrowRight size={18} style={{ color: unit.accent }} />
                   </div>
                 </Link>
               ))}

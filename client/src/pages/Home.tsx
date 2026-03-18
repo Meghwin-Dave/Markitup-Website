@@ -43,6 +43,8 @@ const businessUnits = [
     description:
       "Marketing services designed to help businesses grow their online presence and reach more customers.",
     accent: "var(--accent-indigo)",
+    badgeBackground: "rgba(237, 226, 255, 0.45)",
+    iconBackground: "rgba(237, 226, 255, 0.34)",
     icon: Zap,
   },
   {
@@ -52,6 +54,8 @@ const businessUnits = [
     description:
       "A location-based product platform for nearby restaurant offers, local discovery, and customer footfall growth.",
     accent: "var(--accent-teal)",
+    badgeBackground: "rgba(255, 220, 232, 0.45)",
+    iconBackground: "rgba(255, 220, 232, 0.34)",
     icon: Smartphone,
   },
   {
@@ -61,6 +65,8 @@ const businessUnits = [
     description:
       "Technology development and IT services that support digital platforms and modern business infrastructure.",
     accent: "var(--accent-amber)",
+    badgeBackground: "rgba(255, 230, 216, 0.48)",
+    iconBackground: "rgba(255, 230, 216, 0.34)",
     icon: Code,
   },
 ];
@@ -112,7 +118,7 @@ export default function Home() {
               </p>
               <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight text-slate-900">
                 Marketing That Drives{" "}
-                <span style={{ color: "var(--accent-teal)" }}>Real Business Growth</span>
+                <span style={{ color: "var(--highlight-rose)" }}>Real Business Growth</span>
               </h1>
               <p className="text-lg md:text-2xl text-slate-700 mb-6 leading-relaxed max-w-4xl mx-auto font-medium">
                 MarkitUp Group is a UK-based digital marketing and promotion company helping
@@ -151,7 +157,7 @@ export default function Home() {
                 </p>
                 <h2 className="text-4xl md:text-6xl font-black mb-8 text-slate-900">
                   Marketing, Product, and Technology Built for{" "}
-                  <span style={{ color: "var(--accent-amber)" }}>Modern Businesses</span>
+                  <span style={{ color: "var(--highlight-amber)" }}>Modern Businesses</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   MarkitUp Group is the parent company. It brings together a digital marketing
@@ -207,7 +213,7 @@ export default function Home() {
               </p>
               <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">
                 Growth Services Backed by{" "}
-                <span style={{ color: "var(--accent-teal)" }}>Product Thinking</span>
+                <span style={{ color: "var(--highlight-rose)" }}>Product Thinking</span>
               </h2>
               <p className="text-xl text-slate-700 max-w-3xl mx-auto font-medium">
                 MarkitUp Group combines marketing, business visibility campaigns, product-led
@@ -253,9 +259,9 @@ export default function Home() {
               </p>
               <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">
                 Three Focused Businesses Inside{" "}
-                <span style={{ color: "var(--accent-indigo)" }}>One Growth Vision</span>
+                <span style={{ color: "#6d57bf" }}>One Growth Vision</span>
               </h2>
-              <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-slate-700 max-w-3xl mx-auto font-medium leading-relaxed">
                 Market Buddy is the marketing company, Discount Buddy is the app-like offers
                 product, and IT Buddy is the software company powering both client work and
                 internal products.
@@ -273,25 +279,27 @@ export default function Home() {
                   >
                     <div
                       className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                      style={{ backgroundColor: "rgba(15, 23, 42, 0.04)" }}
+                      style={{ backgroundColor: unit.iconBackground }}
                     >
                       <Icon size={32} style={{ color: unit.accent }} />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-2">{unit.name}</h3>
                     <p
-                      className="inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold tracking-wide mb-4"
-                      style={{ backgroundColor: "rgba(15, 23, 42, 0.06)", color: unit.accent }}
+                      className="inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold tracking-wide mb-4 border"
+                      style={{
+                        backgroundColor: unit.badgeBackground,
+                        color: "#243047",
+                        borderColor: "rgba(36, 48, 71, 0.08)",
+                      }}
                     >
                       {unit.badge}
                     </p>
                     <p className="text-slate-700 mb-6 leading-relaxed font-medium">
                       {unit.description}
                     </p>
-                    <div
-                      className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-lg"
-                      style={{ color: unit.accent }}
-                    >
-                      Learn More <ArrowRight size={20} />
+                    <div className="flex items-center gap-2 font-bold group-hover:gap-3 transition-all text-lg text-slate-900">
+                      <span>Learn More</span>
+                      <ArrowRight size={20} style={{ color: unit.accent }} />
                     </div>
                   </Link>
                 );
@@ -307,7 +315,7 @@ export default function Home() {
                 <p className="eyebrow mb-5">Discount Buddy Product</p>
                 <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">
                   Discover the best restaurant offers{" "}
-                  <span style={{ color: "var(--accent-teal)" }}>near you</span>
+                  <span style={{ color: "var(--highlight-rose)" }}>near you</span>
                 </h2>
                 <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-medium mb-6">
                   Discount Buddy is a product and app concept designed around nearby restaurant

@@ -83,7 +83,7 @@ export default function MarketBuddy() {
               <div>
                 <p className="eyebrow mb-6">Market Buddy</p>
                 <h1 className="mb-8 text-slate-900">
-                  Marketing That Drives <span style={{ color: "var(--accent-indigo)" }}>Real Growth</span>
+                  Marketing That Drives <span style={{ color: "var(--highlight-indigo)" }}>Real Growth</span>
                 </h1>
                 <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl">
                   Market Buddy is a results-driven marketing company helping businesses increase
@@ -151,7 +151,7 @@ export default function MarketBuddy() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">Marketing Company</p>
                 <h2 className="text-slate-900 mb-6">
-                  Built for businesses that need <span style={{ color: "var(--accent-teal)" }}>growth and visibility</span>
+                  Built for businesses that need <span style={{ color: "var(--highlight-rose)" }}>growth and visibility</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   Market Buddy helps brands and businesses improve their digital presence through
@@ -194,7 +194,7 @@ export default function MarketBuddy() {
               <div>
                 <p className="eyebrow mb-5">Services</p>
                 <h2 className="text-slate-900">
-                  Marketing Services Designed for <span style={{ color: "var(--accent-indigo)" }}>results-driven growth</span>
+                  Marketing Services Designed for <span style={{ color: "var(--highlight-indigo)" }}>results-driven growth</span>
                 </h2>
               </div>
               <p className="max-w-xl text-lg text-slate-600 font-medium leading-relaxed">

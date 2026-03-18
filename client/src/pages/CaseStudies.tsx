@@ -74,7 +74,7 @@ export default function CaseStudies() {
             <div className="section-panel max-w-5xl mx-auto rounded-[2rem] px-6 py-12 md:px-12 text-center">
               <p className="eyebrow mb-6">Case Studies</p>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8">
-                Business Growth Examples Built Around <span style={{ color: "var(--accent-teal)" }}>Real Visibility</span>
+                Business Growth Examples Built Around <span style={{ color: "var(--highlight-rose)" }}>Real Visibility</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
                 MarkitUp Group supports businesses through strategy, promotion, and technology.

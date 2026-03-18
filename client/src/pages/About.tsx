@@ -57,7 +57,7 @@ export default function About() {
             <div className="section-panel max-w-5xl mx-auto rounded-[2rem] px-6 py-12 md:px-12 text-center">
               <p className="eyebrow mb-6">About MarkitUp Group</p>
               <h1 className="mb-8 text-slate-900">
-                Building Businesses Through <span style={{ color: "var(--accent-teal)" }}>Marketing, Technology, and Innovation</span>
+                Building Businesses Through <span style={{ color: "var(--highlight-rose)" }}>Marketing, Technology, and Innovation</span>
               </h1>
               <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-4xl mx-auto">
                 MarkitUp Group combines marketing expertise, promotional platforms, and technology
@@ -73,7 +73,7 @@ export default function About() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">Who We Are</p>
                 <h2 className="text-slate-900 mb-6">
-                  More than a service provider, built as a <span style={{ color: "var(--accent-indigo)" }}>business ecosystem</span>
+                  More than a service provider, built as a <span style={{ color: "var(--highlight-indigo)" }}>business ecosystem</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   MarkitUp Group is not just a marketing agency or a software company. It is a
@@ -121,7 +121,7 @@ export default function About() {
             <div className="premium-card max-w-5xl mx-auto rounded-[2rem] p-8 md:p-10">
               <p className="eyebrow mb-5">Our Approach</p>
               <h2 className="text-slate-900 mb-6">
-                A Different Approach to <span style={{ color: "var(--accent-teal)" }}>Business Growth</span>
+                A Different Approach to <span style={{ color: "var(--highlight-rose)" }}>Business Growth</span>
               </h2>
               <p className="text-lg text-slate-700 leading-relaxed font-medium">
                 Instead of offering isolated services, MarkitUp Group builds integrated solutions
@@ -138,7 +138,7 @@ export default function About() {
             <div className="text-center mb-16">
               <p className="eyebrow mb-5">Our Ecosystem</p>
               <h2 className="text-slate-900">
-                Three business units inside <span style={{ color: "var(--accent-indigo)" }}>one parent company</span>
+                Three business units inside <span style={{ color: "var(--highlight-indigo)" }}>one parent company</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-3xl mx-auto mt-6 font-medium leading-relaxed">
                 MarkitUp Group acts as the parent ecosystem, bringing together marketing,
@@ -173,7 +173,7 @@ export default function About() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">Mission & Vision</p>
                 <h2 className="text-slate-900 mb-6">
-                  Focused on <span style={{ color: "var(--accent-amber)" }}>Real Business Growth</span>
+                  Focused on <span style={{ color: "var(--highlight-amber)" }}>Real Business Growth</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   MarkitUp Group is focused on customer acquisition, brand visibility, sustainable

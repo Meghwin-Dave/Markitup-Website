@@ -92,10 +92,9 @@ export default function ReactDevelopment() {
                 <div className="mt-10">
                   <Link
                     href="/it-buddy"
-                    className="inline-flex items-center gap-2 text-lg font-bold"
-                    style={{ color: "var(--accent-teal)" }}
+                    className="inline-flex items-center gap-2 text-lg font-bold text-slate-900"
                   >
-                    Explore All IT Services <ArrowRight size={20} />
+                    Explore All IT Services <ArrowRight size={20} style={{ color: "var(--highlight-rose)" }} />
                   </Link>
                 </div>
               </div>

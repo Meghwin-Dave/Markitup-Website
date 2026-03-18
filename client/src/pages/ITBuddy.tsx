@@ -81,7 +81,7 @@ export default function ITBuddy() {
               <div className="premium-card border border-[var(--surface-border)] bg-white rounded-[2rem] px-6 py-10 md:px-12 md:py-14">
                 <p className="eyebrow mb-6">IT Buddy</p>
                 <h1 className="mb-8 text-slate-900">
-                  Technology That Powers <span style={{ color: "var(--accent-indigo)" }}>Modern Businesses</span>
+                  Technology That Powers <span style={{ color: "var(--highlight-indigo)" }}>Modern Businesses</span>
                 </h1>
                 <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl">
                   IT Buddy is a software development company focused on building websites, SaaS
@@ -151,7 +151,7 @@ export default function ITBuddy() {
               <div className="premium-card">
                 <p className="eyebrow mb-5">Technology Services</p>
                 <h2 className="text-slate-900 mb-6">
-                  A software company built around <span style={{ color: "var(--accent-indigo)" }}>trust and capability</span>
+                  A software company built around <span style={{ color: "var(--highlight-indigo)" }}>trust and capability</span>
                 </h2>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
                   IT Buddy helps businesses plan, build, and improve their digital systems through
@@ -183,7 +183,7 @@ export default function ITBuddy() {
               <div>
                 <p className="eyebrow mb-5">Services</p>
                 <h2 className="text-slate-900">
-                  Core Services from a <span style={{ color: "var(--accent-amber)" }}>serious software team</span>
+                  Core Services from a <span style={{ color: "var(--highlight-amber)" }}>serious software team</span>
                 </h2>
               </div>
               <p className="max-w-xl text-lg text-slate-600 font-medium leading-relaxed">

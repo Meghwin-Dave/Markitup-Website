@@ -65,7 +65,7 @@ export default function Industries() {
             <div className="section-panel max-w-5xl mx-auto rounded-[2rem] px-6 py-12 md:px-12 text-center">
               <p className="eyebrow mb-6">Industries</p>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8">
-                Marketing and Growth Support for <span style={{ color: "var(--accent-indigo)" }}>Modern Businesses</span>
+                Marketing and Growth Support for <span style={{ color: "var(--highlight-indigo)" }}>Modern Businesses</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
                 MarkitUp Group works with businesses that want stronger visibility, better

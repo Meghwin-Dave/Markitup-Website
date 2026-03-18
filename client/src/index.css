@@ -56,6 +56,9 @@
   --accent-indigo: #ede2ff;
   --accent-pink: #ff5fa2;
   --accent-orange: #ffa24c;
+  --highlight-rose: #b64d78;
+  --highlight-amber: #b26a31;
+  --highlight-indigo: #6a58b6;
   --accent-teal-rgb: 255, 220, 232;
   --accent-amber-rgb: 255, 230, 216;
   --accent-indigo-rgb: 237, 226, 255;
@@ -74,15 +77,15 @@
   
   --radius: 1.5rem;
   --background: #fffdfc;
-  --foreground: #25324b;
+  --foreground: #1e2a3f;
   --card: #ffffff;
-  --card-foreground: #25324b;
+  --card-foreground: #1e2a3f;
   --popover: #ffffff;
-  --popover-foreground: #25324b;
+  --popover-foreground: #1e2a3f;
   --secondary: #fdfbff;
-  --secondary-foreground: #25324b;
+  --secondary-foreground: #1e2a3f;
   --muted: #fbf8fe;
-  --muted-foreground: #5f6980;
+  --muted-foreground: #4e596f;
   --accent: #f7f2ff;
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.6 0.2 25);
@@ -91,9 +94,9 @@
   --input: #ffffff;
   --ring: #f2bfd3;
   --sidebar: #ffffff;
-  --sidebar-foreground: #25324b;
+  --sidebar-foreground: #1e2a3f;
   --sidebar-accent: #fdfbff;
-  --sidebar-accent-foreground: #25324b;
+  --sidebar-accent-foreground: #1e2a3f;
   --sidebar-border: #e8e3f2;
   --sidebar-ring: #f2bfd3;
 }
@@ -157,6 +160,7 @@
     min-height: 100vh;
     font-size: 16px;
     line-height: 1.7;
+    color: #1e2a3f;
   }
   h1,
   h2,
@@ -338,6 +342,22 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+  }
+
+  .text-slate-500 {
+    color: #556176;
+  }
+
+  .text-slate-400 {
+    color: #6b768c;
+  }
+
+  .text-slate-600 {
+    color: #465267;
+  }
+
+  .text-slate-700 {
+    color: #2d3950;
   }
 
   /* Accent color utilities */
