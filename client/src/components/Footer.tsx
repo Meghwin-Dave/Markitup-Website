@@ -11,9 +11,23 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-14">
           <div>
             <div className="mb-6">
-              <div className="text-2xl font-black tracking-tight text-slate-900">
-                Mark<span style={{ color: "var(--accent-teal)" }}>it</span>Up
-              </div>
+              <Link href="/" className="inline-flex items-center gap-2">
+                <div className="flex flex-col leading-none">
+                  <div
+                    className="text-[1.65rem] font-extrabold tracking-tight"
+                    style={{
+                      color: "#1E1E2F",
+                      backgroundImage:
+                        "linear-gradient(90deg, #1E1E2F 0%, #1E1E2F 64%, #ff7aa8 82%, #ffa24c 100%)",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    MarkitUp
+                  </div>
+                </div>
+              </Link>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                 Group Limited
               </p>
