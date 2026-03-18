@@ -1,247 +1,393 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SEOHead from "@/components/SEOHead";
+import {
+  ArrowRight,
+  BadgePercent,
+  Compass,
+  MapPin,
+  Navigation,
+  Smartphone,
+  Store,
+  Tag,
+  TicketPercent,
+  Users,
+} from "lucide-react";
 import { Link } from "wouter";
-import { Smartphone, Users, TrendingUp, Zap, MapPin, Award } from "lucide-react";
+
+const features = [
+  {
+    title: "Location-Based Discovery",
+    description: "Help users discover nearby restaurant offers and discounts based on where they are.",
+    icon: Navigation,
+    accent: "var(--accent-teal)",
+  },
+  {
+    title: "Real-Time Offers",
+    description: "Make promotions feel timely, relevant, and easy to find when users are ready to dine.",
+    icon: BadgePercent,
+    accent: "var(--accent-amber)",
+  },
+  {
+    title: "Easy to Use Platform",
+    description: "Keep the product simple so users can move from discovery to action with less friction.",
+    icon: Smartphone,
+    accent: "var(--accent-indigo)",
+  },
+  {
+    title: "Business Promotion Tools",
+    description: "Give restaurants a clear way to promote offers and attract nearby customers.",
+    icon: Store,
+    accent: "var(--accent-teal)",
+  },
+];
+
+const steps = [
+  {
+    title: "Discover nearby offers",
+    description: "Users open Discount Buddy and explore nearby deals and discounts in their area.",
+  },
+  {
+    title: "Choose a restaurant",
+    description: "They select the restaurant or offer that fits what they want, when they want it.",
+  },
+  {
+    title: "Visit and redeem",
+    description: "They visit the restaurant and use the deal through a simple, easy-to-understand experience.",
+  },
+];
+
+const userBenefits = [
+  "Find nearby deals easily",
+  "Save money on dining",
+  "Discover new restaurants",
+];
+
+const businessBenefits = [
+  "Attract more customers",
+  "Promote offers instantly",
+  "Increase visibility in the local area",
+];
 
 export default function DiscountBuddy() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="page-shell min-h-screen flex flex-col bg-transparent">
+      <SEOHead
+        title="Discount Buddy | Restaurant Offer Discovery Platform | MarkitUp Group"
+        description="Discount Buddy is a location-based platform that helps users discover nearby restaurant offers, discounts, and deals while helping restaurants attract customers through promotions."
+        keywords="Discount Buddy, restaurant offer discovery platform, nearby restaurant offers, local restaurant promotions, MarkitUp Group"
+        canonical="https://markitupgroup.com/discount-buddy"
+        ogTitle="Discount Buddy | Restaurant Offer Discovery Platform"
+        ogDescription="Discover nearby restaurant offers, discounts, and deals with Discount Buddy."
+        ogUrl="https://markitupgroup.com/discount-buddy"
+        twitterTitle="Discount Buddy | Restaurant Offer Discovery Platform"
+        twitterDescription="A product-focused platform for discovering nearby restaurant offers and promotions."
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Discount Buddy",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web / Mobile",
+          publisher: { "@type": "Organization", name: "MarkitUp Group Limited" },
+          description:
+            "A location-based platform that helps users discover nearby restaurant offers and helps restaurants promote deals.",
+        }}
+      />
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="section-space bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-slate-600 font-semibold text-xs md:text-sm mb-3 tracking-wide uppercase">
-                DiscountBuddy · Consumer Platform Venture · Coming Soon
+            <div className="hero-shell grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-10 items-center px-6 py-10 md:px-12 md:py-14">
+              <div>
+                <p className="eyebrow mb-6">Discount Buddy</p>
+                <h1 className="mb-8 text-slate-900">
+                  Discover the Best Restaurant Deals <span style={{ color: "var(--accent-teal)" }}>Near You</span>
+                </h1>
+                <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl">
+                  Discount Buddy helps you find exclusive offers, discounts, and deals from nearby
+                  restaurants in real time.
+                </p>
+                <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/contact"
+                    className="premium-button inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full transition-all font-bold text-lg"
+                  >
+                    Explore Platform <ArrowRight size={20} />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="premium-button-soft inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full transition-all font-bold text-lg text-slate-800"
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              </div>
+
+              <div className="premium-card rounded-[2rem] p-6 md:p-8">
+                <div className="grid grid-cols-[0.95fr_1.05fr] gap-5 items-stretch">
+                  <div className="rounded-[1.75rem] border border-[var(--surface-border)] bg-white p-5 shadow-[0_12px_28px_rgba(55,65,92,0.06)]">
+                    <div className="flex items-center justify-between mb-5">
+                      <div>
+                        <p className="text-sm text-slate-500 font-semibold">Mobile-first product</p>
+                        <p className="text-xl font-bold text-slate-900 mt-1">Discount Buddy</p>
+                      </div>
+                      <div
+                        className="w-11 h-11 rounded-2xl flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(var(--accent-teal-rgb), 0.12)" }}
+                      >
+                        <Smartphone size={20} style={{ color: "var(--accent-teal)" }} />
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      {[
+                        "Nearby offers",
+                        "Restaurant discounts",
+                        "Simple discovery",
+                        "Easy redemption",
+                      ].map((item, index) => (
+                        <div key={item} className="rounded-xl border border-slate-100 px-4 py-4 bg-[#fffdfd]">
+                          <div className="flex items-center gap-3">
+                            <div
+                              className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
+                              style={{
+                                backgroundColor:
+                                  index % 2 === 0
+                                    ? "rgba(var(--accent-teal-rgb), 0.12)"
+                                    : "rgba(var(--accent-indigo-rgb), 0.12)",
+                                color: index % 2 === 0 ? "var(--accent-teal)" : "var(--accent-indigo)",
+                              }}
+                            >
+                              0{index + 1}
+                            </div>
+                            <p className="text-sm font-semibold text-slate-900">{item}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <div className="rounded-[1.5rem] bg-slate-900 text-white p-5">
+                      <p className="text-xs uppercase tracking-[0.18em] text-slate-400 font-semibold mb-3">
+                        Abstract Product Visual
+                      </p>
+                      <div className="rounded-[1.25rem] bg-white/8 border border-white/10 p-4">
+                        <div className="flex items-center justify-between mb-4">
+                          <p className="text-sm font-semibold text-slate-200">Discovery experience</p>
+                          <MapPin size={16} style={{ color: "var(--accent-teal)" }} />
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                          <div className="h-14 rounded-xl bg-white/10"></div>
+                          <div className="h-20 rounded-xl bg-white/6"></div>
+                          <div className="h-14 rounded-xl bg-white/10"></div>
+                          <div className="h-16 rounded-xl bg-white/8"></div>
+                          <div
+                            className="h-16 rounded-xl flex items-center justify-center text-xs font-bold"
+                            style={{ backgroundColor: "rgba(255, 162, 76, 0.2)", color: "#ffd8b1" }}
+                          >
+                            OFFER
+                          </div>
+                          <div className="h-16 rounded-xl bg-white/8"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="rounded-[1.5rem] bg-white border border-[var(--surface-border)] p-5">
+                      <p className="text-xs uppercase tracking-[0.18em] text-slate-500 font-semibold mb-3">
+                        Product Summary
+                      </p>
+                      <p className="text-lg text-slate-700 font-medium leading-relaxed">
+                        A location-based platform that connects users looking for deals with
+                        restaurants offering promotions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="soft-section">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+              <div className="premium-card">
+                <p className="eyebrow mb-5">What Is Discount Buddy</p>
+                <h2 className="text-slate-900 mb-6">
+                  A simple platform connecting <span style={{ color: "var(--accent-teal)" }}>users and restaurants</span>
+                </h2>
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
+                  Discount Buddy is a platform that connects users looking for deals with
+                  restaurants offering promotions.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                  It simplifies how people discover and use restaurant discounts while giving
+                  businesses a clearer way to attract nearby customers.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {[
+                  {
+                    title: "For users",
+                    description: "A clearer way to discover nearby offers and make dining decisions more easily.",
+                    icon: Users,
+                    accent: "var(--accent-indigo)",
+                  },
+                  {
+                    title: "For restaurants",
+                    description: "A practical platform for publishing promotions and improving visibility locally.",
+                    icon: Store,
+                    accent: "var(--accent-amber)",
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className="premium-card border-t-4" style={{ borderTopColor: item.accent }}>
+                      <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5">
+                        <Icon size={28} style={{ color: item.accent }} />
+                      </div>
+                      <h3 className="mb-3 text-slate-900">{item.title}</h3>
+                      <p className="text-slate-700 leading-relaxed font-medium">{item.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-space bg-transparent">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <p className="eyebrow mb-5">How It Works</p>
+              <h2 className="text-slate-900">
+                Simple Steps from <span style={{ color: "var(--accent-teal)" }}>Discovery to Use</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {steps.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="premium-card border-t-4"
+                  style={{
+                    borderTopColor:
+                      index === 1
+                        ? "var(--accent-amber)"
+                        : index === 2
+                        ? "var(--accent-indigo)"
+                        : "var(--accent-teal)",
+                  }}
+                >
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold mb-5"
+                    style={{
+                      backgroundColor:
+                        index === 1
+                          ? "rgba(var(--accent-amber-rgb), 0.14)"
+                          : index === 2
+                          ? "rgba(var(--accent-indigo-rgb), 0.14)"
+                          : "rgba(var(--accent-teal-rgb), 0.14)",
+                      color:
+                        index === 1
+                          ? "var(--accent-amber)"
+                          : index === 2
+                          ? "var(--accent-indigo)"
+                          : "var(--accent-teal)",
+                    }}
+                  >
+                    0{index + 1}
+                  </div>
+                  <h3 className="mb-3 text-slate-900">{step.title}</h3>
+                  <p className="text-slate-700 leading-relaxed font-medium">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="soft-section">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+              <div>
+                <p className="eyebrow mb-5">Key Features</p>
+                <h2 className="text-slate-900">
+                  Clear features with a <span style={{ color: "var(--accent-indigo)" }}>clean product focus</span>
+                </h2>
+              </div>
+              <p className="max-w-xl text-lg text-slate-600 font-medium leading-relaxed">
+                Minimal, icon-led explanations help users understand the platform quickly without
+                relying on sample restaurant data or listing-heavy layouts.
               </p>
-              <h1 className="text-6xl md:text-7xl font-black text-slate-900 mb-8">
-                Building the <span style={{ color: "var(--accent-teal)" }}>Next Consumer Platform</span>
-              </h1>
-              <p className="text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl mx-auto">
-                DiscountBuddy is a consumer-focused digital platform currently under development—designed to connect UK
-                consumers with verified, accessible, brand-driven discount opportunities through a centralised system.
-              </p>
-              <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium max-w-3xl mx-auto mt-6">
-                Built using real market insight from MarketBuddy and technical execution from ITBuddy, DiscountBuddy represents
-                the long-term product and platform direction of MarkitUp Group.
-              </p>
-              <div className="mt-12">
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+              {features.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={feature.title}
+                    className="premium-card border-t-4 hover:shadow-lg transition-all"
+                    style={{ borderTopColor: feature.accent }}
+                  >
+                    <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5">
+                      <Icon size={28} style={{ color: feature.accent }} />
+                    </div>
+                    <h3 className="mb-3 text-slate-900">{feature.title}</h3>
+                    <p className="text-slate-700 leading-relaxed font-medium">
+                      {feature.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-space bg-transparent">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 items-start">
+              <div className="premium-card">
+                <p className="eyebrow mb-5">For Users</p>
+                <h2 className="text-slate-900 mb-6">
+                  Designed to make <span style={{ color: "var(--accent-teal)" }}>dining discovery easier</span>
+                </h2>
+                <div className="space-y-4">
+                  {userBenefits.map((item) => (
+                    <div key={item} className="flex items-start gap-4">
+                      <Users size={20} className="mt-1 flex-shrink-0" style={{ color: "var(--accent-teal)" }} />
+                      <span className="text-slate-700 font-medium text-lg">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="premium-card">
+                <p className="eyebrow mb-5">For Businesses</p>
+                <h2 className="text-slate-900 mb-6">
+                  Turn Empty Tables Into <span style={{ color: "var(--accent-amber)" }}>Customers</span>
+                </h2>
+                <p className="text-lg text-slate-700 leading-relaxed font-medium mb-8">
+                  Discount Buddy helps restaurants attract more customers, promote offers instantly,
+                  and increase local visibility through a cleaner digital promotion experience.
+                </p>
+                <div className="space-y-4 mb-8">
+                  {businessBenefits.map((item) => (
+                    <div key={item} className="flex items-start gap-4">
+                      <TicketPercent size={20} className="mt-1 flex-shrink-0" style={{ color: "var(--accent-amber)" }} />
+                      <span className="text-slate-700 font-medium text-lg">{item}</span>
+                    </div>
+                  ))}
+                </div>
                 <Link
                   href="/contact"
-                  className="inline-block text-white px-10 py-4 rounded-lg hover:opacity-90 transition-all font-bold text-lg"
-                  style={{ backgroundColor: "var(--accent-teal)" }}
+                  className="premium-button inline-flex items-center gap-3 px-10 py-4 rounded-full transition-all font-bold text-lg"
                 >
-                  Join the Early Access List
+                  Start Promoting <ArrowRight size={20} />
                 </Link>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* For Consumers */}
-        <section className="py-24 md:py-32 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="bg-white rounded-xl p-12 h-80 flex items-center justify-center border-2" style={{ borderColor: "var(--accent-teal)" }}>
-                <div className="text-center">
-                  <Smartphone size={64} style={{ color: "var(--accent-teal)" }} className="mx-auto mb-4" />
-                  <p className="text-slate-700 font-bold text-xl">For Consumers</p>
-                </div>
-              </div>
-              <div>
-                <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8">
-                  Discover Amazing <span style={{ color: "var(--accent-teal)" }}>Deals</span>
-                </h2>
-                  <p className="text-lg text-slate-700 mb-8 leading-relaxed font-medium">
-                    Once live, DiscountBuddy will allow UK consumers to browse verified, brand-led discount opportunities in
-                    one place—helping people discover new experiences while saving money.
-                  </p>
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "Browse verified deals from local restaurants",
-                    "Real-time deal notifications",
-                    "Easy booking and redemption",
-                    "Loyalty rewards program",
-                    "Community reviews and ratings"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <span className="font-bold text-lg" style={{ color: "var(--accent-teal)" }}>✓</span>
-                      <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* For Restaurants & Brand Partners */}
-        <section className="py-24 md:py-32 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8">
-                  Reach More <span style={{ color: "var(--accent-amber)" }}>Customers</span>
-                </h2>
-                <p className="text-lg text-slate-700 mb-8 leading-relaxed font-medium">
-                  For restaurants and consumer brands, DiscountBuddy will act as a scalable, owned channel—enabling targeted
-                  promotions, better utilisation of off‑peak capacity, and cross‑promotion across the MarkitUp ecosystem.
-                </p>
-                <ul className="space-y-4 mb-10">
-                  {[
-                    "Targeted promotion to food enthusiasts",
-                    "Fill seats during off-peak hours",
-                    "Build customer loyalty and repeat visits",
-                    "Real-time analytics and insights",
-                    "Flexible deal management"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <span className="font-bold text-lg" style={{ color: "var(--accent-amber)" }}>✓</span>
-                      <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white rounded-xl p-12 h-80 flex items-center justify-center border-2" style={{ borderColor: "var(--accent-amber)" }}>
-                <div className="text-center">
-                  <Users size={64} style={{ color: "var(--accent-amber)" }} className="mx-auto mb-4" />
-                  <p className="text-slate-700 font-bold text-xl">For Restaurants</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Key Features */}
-        <section className="py-32 md:py-40 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Features</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Key <span style={{ color: "var(--accent-teal)" }}>Features</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {[
-                { icon: MapPin, title: "Location-Based Discovery", desc: "Find deals near you with smart location-based recommendations.", accent: "teal" },
-                { icon: Award, title: "Verified Deals", desc: "All deals are verified and updated in real-time for accuracy.", accent: "amber" },
-                { icon: Users, title: "Community Reviews", desc: "Read authentic reviews from other food lovers before you go.", accent: "indigo" },
-                { icon: TrendingUp, title: "Loyalty Rewards", desc: "Earn points with every deal and unlock exclusive rewards.", accent: "teal" },
-                { icon: Zap, title: "Real-Time Notifications", desc: "Get instant alerts for new deals from your favorite restaurants.", accent: "amber" },
-                { icon: Smartphone, title: "Easy Redemption", desc: "Seamless booking and redemption directly from the app.", accent: "indigo" }
-              ].map((feature, idx) => {
-                const Icon = feature.icon;
-                const accentVar = feature.accent === "teal" ? "var(--accent-teal)" : feature.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="bg-white rounded-xl p-10 border-t-4 shadow-sm hover:shadow-lg transition-all" style={{ borderTopColor: accentVar }}>
-                    <div className="bg-slate-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                      <Icon size={32} style={{ color: accentVar }} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4">{feature.title}</h3>
-                    <p className="text-slate-700 leading-relaxed font-medium text-lg">{feature.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="py-32 md:py-40 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Technology</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Built on Modern <span style={{ color: "var(--accent-amber)" }}>Tech</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {[
-                { title: "Mobile Apps", items: ["React Native", "iOS & Android", "Offline-first architecture", "Push notifications"], accent: "teal" },
-                { title: "Backend", items: ["Django & DRF", "PostgreSQL", "Real-time APIs", "Scalable infrastructure"], accent: "amber" },
-                { title: "Infrastructure", items: ["AWS cloud", "CDN distribution", "24/7 monitoring", "99.9% uptime"], accent: "indigo" }
-              ].map((tech, idx) => {
-                const accentVar = tech.accent === "teal" ? "var(--accent-teal)" : tech.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="bg-slate-50 rounded-xl p-10 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: accentVar }}>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-8">{tech.title}</h3>
-                    <ul className="space-y-4">
-                      {tech.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="font-bold text-lg" style={{ color: accentVar }}>✓</span>
-                          <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Roadmap */}
-        <section className="py-32 md:py-40 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Future</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Product <span style={{ color: "var(--accent-teal)" }}>Roadmap</span>
-              </h2>
-            </div>
-
-            <div className="space-y-10 max-w-4xl mx-auto">
-              {[
-                { phase: "Phase 1", title: "MVP Launch", items: ["Core marketplace platform", "Mobile app launch", "Initial restaurant partnerships", "Basic analytics"], accent: "teal" },
-                { phase: "Phase 2", title: "Growth & Expansion", items: ["Loyalty rewards program", "Advanced analytics", "Restaurant dashboard", "Multi-city expansion"], accent: "amber" },
-                { phase: "Phase 3", title: "Scale & Innovate", items: ["AI-powered recommendations", "Payment integration", "Enterprise features", "International expansion"], accent: "indigo" }
-              ].map((phase, idx) => {
-                const accentVar = phase.accent === "teal" ? "var(--accent-teal)" : phase.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="bg-white rounded-xl p-10 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: accentVar }}>
-                    <div className="flex items-start gap-6">
-                      <div className="text-white rounded-lg w-24 h-24 flex items-center justify-center flex-shrink-0 font-black text-2xl text-center" style={{ backgroundColor: accentVar }}>
-                        {phase.phase}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-3xl font-bold text-slate-900 mb-6">{phase.title}</h3>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {phase.items.map((item, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <span className="font-bold text-lg" style={{ color: accentVar }}>→</span>
-                              <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-32 md:py-40 bg-slate-900 text-white">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-5xl md:text-6xl font-black mb-8">
-              Ready to Join <span style={{ color: "var(--accent-teal)" }}>Discount Buddy?</span>
-            </h2>
-            <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-gray-300 font-medium">
-              Whether you're a food lover looking for deals or a restaurant wanting to reach more customers, let's get started.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block text-slate-900 px-12 py-5 rounded-lg hover:opacity-90 transition-all font-bold text-lg"
-              style={{ backgroundColor: "var(--accent-teal)" }}
-            >
-              Get Started
-            </Link>
           </div>
         </section>
       </main>

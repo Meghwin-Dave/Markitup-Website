@@ -1,185 +1,165 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle } from "lucide-react";
+import Header from "@/components/Header";
+import SEOHead from "@/components/SEOHead";
+import { ArrowRight, CheckCircle, Layers3, Megaphone, Server, TicketPercent } from "lucide-react";
+import { Link } from "wouter";
+
+const ecosystem = [
+  {
+    title: "Market Buddy",
+    description:
+      "Digital marketing services focused on visibility, branding, and lead generation.",
+    icon: Megaphone,
+    accent: "var(--accent-indigo)",
+  },
+  {
+    title: "Discount Buddy",
+    description:
+      "A platform that helps businesses attract customers through location-based offers and promotions.",
+    icon: TicketPercent,
+    accent: "var(--accent-teal)",
+  },
+  {
+    title: "IT Buddy",
+    description:
+      "Technology solutions including website development, software, and digital infrastructure.",
+    icon: Server,
+    accent: "var(--accent-amber)",
+  },
+];
+
+const reasons = [
+  "Integrated ecosystem, not isolated services",
+  "Business-focused approach built around growth",
+  "Modern digital solutions across marketing, platforms, and technology",
+  "Focus on real results and long-term value",
+];
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="page-shell min-h-screen flex flex-col bg-transparent">
+      <SEOHead
+        title="About MarkitUp Group | Business Growth Ecosystem"
+        description="MarkitUp Group Limited is a UK-based business growth company combining marketing expertise, promotional platforms, and technology solutions to help businesses scale."
+        keywords="About MarkitUp Group, business ecosystem, Market Buddy, Discount Buddy, IT Buddy, UK business growth company"
+        canonical="https://markitupgroup.com/about"
+        ogTitle="About MarkitUp Group"
+        ogDescription="A modern business growth ecosystem combining marketing, platforms, and technology."
+        ogUrl="https://markitupgroup.com/about"
+        twitterTitle="About MarkitUp Group"
+        twitterDescription="Learn how MarkitUp Group combines marketing, technology, and innovation."
+      />
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-32 md:py-40 bg-white">
+        <section className="section-space bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">About MarkItUp</p>
-              <h1 className="text-6xl md:text-7xl font-black text-slate-900 mb-8">
-                About <span style={{ color: "var(--accent-teal)" }}>MarkItUp</span>
+            <div className="section-panel max-w-5xl mx-auto rounded-[2rem] px-6 py-12 md:px-12 text-center">
+              <p className="eyebrow mb-6">About MarkitUp Group</p>
+              <h1 className="mb-8 text-slate-900">
+                Building Businesses Through <span style={{ color: "var(--accent-teal)" }}>Marketing, Technology, and Innovation</span>
               </h1>
-              <p className="text-2xl text-slate-700 leading-relaxed font-medium">
-                A modern digital-first company built on the principles of innovation, execution, and measurable impact.
+              <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-4xl mx-auto">
+                MarkitUp Group combines marketing expertise, promotional platforms, and technology
+                solutions to help businesses grow in the modern digital economy.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Vision & Mission */}
-        <section className="py-32 md:py-40 bg-slate-50">
+        <section className="soft-section">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              <div className="bg-white rounded-xl p-12 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: "var(--accent-teal)" }}>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
-                  Our <span style={{ color: "var(--accent-teal)" }}>Vision</span>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+              <div className="premium-card">
+                <p className="eyebrow mb-5">Who We Are</p>
+                <h2 className="text-slate-900 mb-6">
+                  More than a service provider, built as a <span style={{ color: "var(--accent-indigo)" }}>business ecosystem</span>
                 </h2>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6 font-medium">
-                  We envision a world where ambitious entrepreneurs and businesses have access to world-class product development, marketing expertise, and growth strategies under one unified partner.
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
+                  MarkitUp Group is not just a marketing agency or a software company. It is a
+                  UK-based business growth company designed to help businesses increase visibility,
+                  attract customers, and scale through connected solutions.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed font-medium">
-                  MarkItUp exists to break down the silos between product, engineering, and marketing—creating ventures that are built right, marketed well, and scaled sustainably.
+                  The ecosystem brings together marketing strategies, promotion platforms, and
+                  technology development so businesses can grow through a more integrated and
+                  modern approach.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-12 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: "var(--accent-amber)" }}>
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8">
-                  Our <span style={{ color: "var(--accent-amber)" }}>Mission</span>
-                </h2>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6 font-medium">
-                  To empower businesses to build, market, and launch modern brands through integrated product innovation, engineering excellence, and growth strategy.
-                </p>
-                <p className="text-lg text-slate-700 leading-relaxed font-medium">
-                  We're committed to delivering measurable results, building lasting partnerships, and creating ventures that make a real impact in their markets.
-                </p>
+
+              <div className="premium-card">
+                <div className="flex items-center gap-3 mb-6">
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(var(--accent-indigo-rgb), 0.14)" }}
+                  >
+                    <Layers3 size={22} style={{ color: "var(--accent-indigo)" }} />
+                  </div>
+                  <p className="text-sm uppercase tracking-[0.2em] font-semibold text-slate-500">
+                    MarkitUp Group = Parent Ecosystem
+                  </p>
+                </div>
+                <div className="space-y-5">
+                  {[
+                    ["Marketing strategies", "Built to improve visibility, branding, and growth."],
+                    ["Promotion platforms", "Designed to help businesses attract more customers."],
+                    ["Technology development", "Supporting websites, software, and scalable digital infrastructure."],
+                  ].map(([title, desc]) => (
+                    <div key={title} className="rounded-2xl bg-white border border-[var(--surface-border)] px-5 py-4">
+                      <p className="text-sm font-semibold text-slate-900 mb-2">{title}</p>
+                      <p className="text-slate-600 font-medium leading-relaxed">{desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why MarkItUp Was Started */}
-        <section className="py-32 md:py-40 bg-white">
+        <section className="section-space bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Our Story</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-12">
-                Why MarkItUp Was <span style={{ color: "var(--accent-indigo)" }}>Started</span>
+            <div className="premium-card max-w-5xl mx-auto rounded-[2rem] p-8 md:p-10">
+              <p className="eyebrow mb-5">Our Approach</p>
+              <h2 className="text-slate-900 mb-6">
+                A Different Approach to <span style={{ color: "var(--accent-teal)" }}>Business Growth</span>
               </h2>
-              <div className="space-y-8 text-lg text-slate-700 leading-relaxed font-medium">
-                <p>
-                  We noticed a critical gap in the market: most businesses struggle to coordinate between product development, technical execution, and marketing strategy. They hire separate agencies or consultants, each working in isolation, leading to misaligned goals, wasted resources, and missed opportunities.
-                </p>
-                <p>
-                  MarkItUp was founded to solve this problem. We created an integrated ecosystem where product thinking, engineering rigor, and marketing expertise work together seamlessly. Our three ventures—Discount Buddy, IT Buddy, and Market Buddy—are proof that this model works.
-                </p>
-                <p>
-                  Today, we help startups, SMEs, and established brands transform their vision into market-leading ventures. We're not just a service provider; we're a strategic partner invested in your success.
-                </p>
-              </div>
+              <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                Instead of offering isolated services, MarkitUp Group builds integrated solutions
+                that connect marketing, promotion, and technology into one growth system. This
+                approach helps businesses move with more clarity, stronger coordination, and better
+                long-term value.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Deep Expertise */}
-        <section className="py-32 md:py-40 bg-slate-50">
+        <section className="soft-section">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Our Expertise</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Our Deep <span style={{ color: "var(--accent-teal)" }}>Expertise</span>
+            <div className="text-center mb-16">
+              <p className="eyebrow mb-5">Our Ecosystem</p>
+              <h2 className="text-slate-900">
+                Three business units inside <span style={{ color: "var(--accent-indigo)" }}>one parent company</span>
               </h2>
+              <p className="text-lg text-slate-600 max-w-3xl mx-auto mt-6 font-medium leading-relaxed">
+                MarkitUp Group acts as the parent ecosystem, bringing together marketing,
+                product-led promotion, and technology solutions through three focused business units.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {/* Products */}
-              <div className="bg-white rounded-xl p-10 border-t-4 shadow-sm hover:shadow-lg transition-all" style={{ borderTopColor: "var(--accent-teal)" }}>
-                <h3 className="text-3xl font-black text-slate-900 mb-8">Products</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Product strategy & positioning",
-                    "User research & validation",
-                    "MVP development & iteration",
-                    "Scaling strategies & roadmaps",
-                    "Platform monetization"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <CheckCircle size={24} className="flex-shrink-0 mt-1 font-bold" style={{ color: "var(--accent-teal)" }} />
-                      <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Engineering */}
-              <div className="bg-white rounded-xl p-10 border-t-4 shadow-sm hover:shadow-lg transition-all" style={{ borderTopColor: "var(--accent-amber)" }}>
-                <h3 className="text-3xl font-black text-slate-900 mb-8">Engineering</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Mobile app development (iOS/Android)",
-                    "Web application development",
-                    "Backend systems & APIs",
-                    "Cloud infrastructure & DevOps",
-                    "Security & scalability"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <CheckCircle size={24} className="flex-shrink-0 mt-1 font-bold" style={{ color: "var(--accent-amber)" }} />
-                      <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Marketing */}
-              <div className="bg-white rounded-xl p-10 border-t-4 shadow-sm hover:shadow-lg transition-all" style={{ borderTopColor: "var(--accent-indigo)" }}>
-                <h3 className="text-3xl font-black text-slate-900 mb-8">Marketing</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Brand strategy & positioning",
-                    "Digital marketing campaigns",
-                    "Performance advertising",
-                    "Content & social media strategy",
-                    "Growth analytics & optimization"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <CheckCircle size={24} className="flex-shrink-0 mt-1 font-bold" style={{ color: "var(--accent-indigo)" }} />
-                      <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Team Philosophy */}
-        <section className="py-32 md:py-40 bg-slate-900 text-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-5xl md:text-6xl font-black mb-8">
-                Our Team <span style={{ color: "var(--accent-teal)" }}>Philosophy</span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">The principles that guide everything we do</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {[
-                {
-                  title: "Ownership",
-                  desc: "We take full ownership of outcomes. Every team member is invested in your success and accountable for delivering results.",
-                  accent: "teal"
-                },
-                {
-                  title: "Quality",
-                  desc: "We never compromise on quality. From code to copy to strategy, excellence is non-negotiable in everything we do.",
-                  accent: "amber"
-                },
-                {
-                  title: "Accountability",
-                  desc: "We set clear goals, track progress, and deliver on commitments. Transparency and honesty guide all our partnerships.",
-                  accent: "indigo"
-                }
-              ].map((item, idx) => {
-                const accentVar = item.accent === "teal" ? "var(--accent-teal)" : item.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {ecosystem.map((item) => {
+                const Icon = item.icon;
                 return (
-                  <div key={idx} className="bg-slate-800 rounded-lg p-10 border-t-4 hover:border-slate-600 transition-all" style={{ borderTopColor: accentVar }}>
-                    <h3 className="text-2xl font-black mb-6">{item.title}</h3>
-                    <p className="text-gray-300 leading-relaxed font-medium text-lg">{item.desc}</p>
+                  <div
+                    key={item.title}
+                    className="premium-card border-t-4 hover:shadow-lg transition-all"
+                    style={{ borderTopColor: item.accent }}
+                  >
+                    <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-5 border border-slate-100">
+                      <Icon size={28} style={{ color: item.accent }} />
+                    </div>
+                    <h3 className="mb-3 text-slate-900">{item.title}</h3>
+                    <p className="text-slate-700 leading-relaxed font-medium">{item.description}</p>
                   </div>
                 );
               })}
@@ -187,47 +167,83 @@ export default function About() {
           </div>
         </section>
 
-        {/* Industries Served */}
-        <section className="py-32 md:py-40 bg-white">
+        <section className="section-space bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Industries</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Industries We <span style={{ color: "var(--accent-amber)" }}>Serve</span>
-              </h2>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 items-start">
+              <div className="premium-card">
+                <p className="eyebrow mb-5">Mission & Vision</p>
+                <h2 className="text-slate-900 mb-6">
+                  Focused on <span style={{ color: "var(--accent-amber)" }}>Real Business Growth</span>
+                </h2>
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
+                  MarkitUp Group is focused on customer acquisition, brand visibility, sustainable
+                  growth, and long-term value. The aim is to help businesses build momentum in a
+                  way that is commercially practical and digitally modern.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                  The priority is not just activity, but meaningful outcomes that support stronger
+                  business performance over time.
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {[
-                {
-                  title: "Food & Hospitality",
-                  desc: "From restaurant discovery platforms to loyalty programs, we help food businesses scale through technology and marketing.",
-                  accent: "teal"
-                },
-                {
-                  title: "Startups",
-                  desc: "Early-stage companies benefit from our integrated approach: product validation, MVP development, and go-to-market strategy.",
-                  accent: "amber"
-                },
-                {
-                  title: "SMEs & Local Businesses",
-                  desc: "We help small and medium enterprises digitize operations, reach new customers, and compete with larger players.",
-                  accent: "indigo"
-                },
-                {
-                  title: "Digital & E-commerce",
-                  desc: "Online businesses leverage our expertise in platform development, customer acquisition, and retention strategies.",
-                  accent: "teal"
-                },
-              ].map((industry, idx) => {
-                const accentVar = industry.accent === "teal" ? "var(--accent-teal)" : industry.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="bg-slate-50 rounded-xl p-10 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: accentVar }}>
-                    <h3 className="text-2xl font-black text-slate-900 mb-4">{industry.title}</h3>
-                    <p className="text-slate-700 leading-relaxed font-medium text-lg">{industry.desc}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {reasons.map((item, index) => (
+                  <div
+                    key={item}
+                    className="premium-card border-t-4"
+                    style={{
+                      borderTopColor:
+                        index % 3 === 0
+                          ? "var(--accent-indigo)"
+                          : index % 3 === 1
+                          ? "var(--accent-teal)"
+                          : "var(--accent-amber)",
+                    }}
+                  >
+                    <CheckCircle
+                      size={22}
+                      className="mb-4"
+                      style={{
+                        color:
+                          index % 3 === 0
+                            ? "var(--accent-indigo)"
+                            : index % 3 === 1
+                            ? "var(--accent-teal)"
+                            : "var(--accent-amber)",
+                      }}
+                    />
+                    <p className="text-lg font-semibold text-slate-900 leading-relaxed">{item}</p>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-space bg-transparent text-white">
+          <div className="container mx-auto px-6 text-center">
+            <div className="rounded-[2rem] bg-slate-900 px-6 py-14 md:px-12">
+              <h2 className="mb-8 text-white">
+                Let&apos;s Build Your <span style={{ color: "var(--accent-teal)" }}>Growth Story</span>
+              </h2>
+              <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-slate-300 font-medium">
+                Connect with MarkitUp Group and explore how our ecosystem can help your business
+                grow with clearer strategy, stronger visibility, and modern digital support.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/contact"
+                  className="premium-button inline-flex items-center gap-3 px-10 py-4 rounded-full transition-all font-bold text-lg"
+                >
+                  Contact Us <ArrowRight size={20} />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="premium-button-soft inline-flex items-center gap-3 px-10 py-4 rounded-full transition-all font-bold text-lg text-slate-800"
+                >
+                  Start Your Journey
+                </Link>
+              </div>
             </div>
           </div>
         </section>

@@ -1,107 +1,232 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SEOHead from "@/components/SEOHead";
+import {
+  ArrowRight,
+  BarChart3,
+  Megaphone,
+  Palette,
+  Rocket,
+  Target,
+  Users,
+} from "lucide-react";
 import { Link } from "wouter";
-import { TrendingUp, Target, BarChart3, Users, Zap, Award } from "lucide-react";
+
+const services = [
+  {
+    title: "Social Media Marketing",
+    description: "Structured campaigns that help businesses stay visible, relevant, and active across modern channels.",
+    icon: Users,
+    accent: "var(--accent-indigo)",
+  },
+  {
+    title: "Content Strategy",
+    description: "Content planning and messaging that support consistency, trust, and long-term brand growth.",
+    icon: BarChart3,
+    accent: "var(--accent-teal)",
+  },
+  {
+    title: "Brand Promotion",
+    description: "Practical promotional activity designed to strengthen visibility and customer awareness.",
+    icon: Palette,
+    accent: "var(--accent-amber)",
+  },
+  {
+    title: "Lead Generation",
+    description: "Marketing systems focused on attracting enquiries and supporting customer acquisition.",
+    icon: Target,
+    accent: "var(--accent-indigo)",
+  },
+  {
+    title: "Campaign Management",
+    description: "Ongoing campaign coordination that keeps marketing activity aligned, measured, and results-driven.",
+    icon: Megaphone,
+    accent: "var(--accent-teal)",
+  },
+];
+
+const outcomes = [
+  "Stronger brand visibility",
+  "Clearer digital presence",
+  "Better lead generation support",
+  "More consistent campaign execution",
+];
 
 export default function MarketBuddy() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="page-shell min-h-screen flex flex-col bg-transparent">
+      <SEOHead
+        title="Market Buddy | Marketing Services Company | MarkitUp Group"
+        description="Market Buddy is a results-driven marketing company providing social media marketing, content strategy, brand promotion, lead generation, and campaign management."
+        keywords="Market Buddy, marketing company, social media marketing, content strategy, lead generation, campaign management"
+        canonical="https://markitupgroup.com/market-buddy"
+        ogTitle="Market Buddy | Marketing Services Company"
+        ogDescription="A results-driven marketing company focused on visibility, growth, and campaign execution."
+        ogUrl="https://markitupgroup.com/market-buddy"
+        twitterTitle="Market Buddy | Marketing Services Company"
+        twitterDescription="Social media marketing, content strategy, lead generation, and campaign management."
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Market Buddy",
+          provider: { "@type": "Organization", name: "MarkitUp Group Limited" },
+          description:
+            "Marketing services including social media marketing, content strategy, brand promotion, lead generation, and campaign management.",
+        }}
+      />
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="section-space bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Market Buddy</p>
-              <h1 className="text-6xl md:text-7xl font-black text-slate-900 mb-8">
-                Data-Driven Growth & <span style={{ color: "var(--accent-indigo)" }}>Marketing</span>
-              </h1>
-              <p className="text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl mx-auto">
-                MarketBuddy is the operating and revenue-focused brand of MarkitUp Group—working directly with businesses to
-                build visibility, engagement, and growth through structured, repeatable marketing systems.
-              </p>
-              <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium max-w-3xl mx-auto mt-6">
-                It also acts as the market-facing intelligence layer of the group, generating real-world data, partnerships,
-                and insight that feed into product and platform development.
-              </p>
-              <div className="mt-12">
-                <Link
-                  href="/contact"
-                  className="inline-block text-white px-10 py-4 rounded-lg hover:opacity-90 transition-all font-bold text-lg"
-                  style={{ backgroundColor: "var(--accent-indigo)" }}
-                >
-                  Schedule Consultation
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Who We Are */}
-        <section className="py-24 md:py-32 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="bg-white rounded-xl p-12 h-80 flex items-center justify-center border-2" style={{ borderColor: "var(--accent-indigo)" }}>
-                <div className="text-center">
-                  <TrendingUp size={64} style={{ color: "var(--accent-indigo)" }} className="mx-auto mb-4" />
-                  <p className="text-slate-700 font-bold text-xl">Data-Driven Growth</p>
+            <div className="hero-shell grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center px-6 py-10 md:px-12 md:py-14">
+              <div>
+                <p className="eyebrow mb-6">Market Buddy</p>
+                <h1 className="mb-8 text-slate-900">
+                  Marketing That Drives <span style={{ color: "var(--accent-indigo)" }}>Real Growth</span>
+                </h1>
+                <p className="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-3xl">
+                  Market Buddy is a results-driven marketing company helping businesses increase
+                  visibility, strengthen brand presence, and generate more consistent growth.
+                </p>
+                <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/contact"
+                    className="premium-button inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full transition-all font-bold text-lg"
+                  >
+                    Talk to Our Team <ArrowRight size={20} />
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="premium-button-soft inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full transition-all font-bold text-lg text-slate-800"
+                  >
+                    Explore Services
+                  </Link>
                 </div>
               </div>
-              <div>
-                <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8">
-                  Who We <span style={{ color: "var(--accent-indigo)" }}>Are</span>
-                </h2>
-                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
-                  MarketBuddy focuses on brand strategy and positioning, social media ecosystems, performance marketing and lead
-                  systems, conversion-focused websites, influencer campaigns, and market entry and growth consulting.
-                </p>
-                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
-                  We don’t just run campaigns—we build structured growth engines that compound over time and plug directly into
-                  the wider MarkitUp Group ecosystem.
-                </p>
+
+              <div className="premium-card rounded-[2rem] p-8 md:p-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                    style={{ backgroundColor: "rgba(var(--accent-indigo-rgb), 0.14)" }}
+                  >
+                    <Rocket size={22} style={{ color: "var(--accent-indigo)" }} />
+                  </div>
+                  <p className="text-sm uppercase tracking-[0.2em] font-semibold text-slate-500">
+                    Marketing Snapshot
+                  </p>
+                </div>
+                <div className="space-y-5">
+                  {[
+                    ["Focus", "Visibility, promotion, and lead generation"],
+                    ["Approach", "Structured campaigns with measurable business intent"],
+                    ["Position", "A results-driven marketing company within MarkitUp Group"],
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-2xl bg-white border border-[var(--surface-border)] px-5 py-4">
+                      <p className="text-xs uppercase tracking-[0.18em] text-slate-500 font-semibold mb-2">
+                        {label}
+                      </p>
+                      <p className="text-lg font-semibold text-slate-900">{value}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 rounded-[1.5rem] border border-[var(--surface-border)] bg-[linear-gradient(135deg,rgba(255,220,232,0.28),rgba(237,226,255,0.24))] px-6 py-7">
+                  <p className="text-sm uppercase tracking-[0.18em] text-slate-500 font-semibold mb-3">
+                    Positioning
+                  </p>
+                  <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                    A clean, premium marketing page with more energy than IT Buddy while still
+                    feeling commercially serious.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services */}
-        <section className="py-24 md:py-32 bg-white">
+        <section className="soft-section">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Services</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Our <span style={{ color: "var(--accent-indigo)" }}>Services</span>
-              </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-10 items-start">
+              <div className="premium-card">
+                <p className="eyebrow mb-5">Marketing Company</p>
+                <h2 className="text-slate-900 mb-6">
+                  Built for businesses that need <span style={{ color: "var(--accent-teal)" }}>growth and visibility</span>
+                </h2>
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
+                  Market Buddy helps brands and businesses improve their digital presence through
+                  clearer marketing, stronger campaigns, and more consistent promotion.
+                </p>
+                <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                  The focus is not just activity, but results: better visibility, stronger brand
+                  awareness, and more meaningful growth opportunities.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {outcomes.map((item, index) => (
+                  <div
+                    key={item}
+                    className="premium-card border-t-4"
+                    style={{
+                      borderTopColor:
+                        index % 3 === 0
+                          ? "var(--accent-indigo)"
+                          : index % 3 === 1
+                          ? "var(--accent-teal)"
+                          : "var(--accent-amber)",
+                    }}
+                  >
+                    <p className="text-sm uppercase tracking-[0.18em] text-slate-500 font-semibold mb-3">
+                      Outcome
+                    </p>
+                    <p className="text-lg font-semibold text-slate-900 leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-space bg-transparent">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+              <div>
+                <p className="eyebrow mb-5">Services</p>
+                <h2 className="text-slate-900">
+                  Marketing Services Designed for <span style={{ color: "var(--accent-indigo)" }}>results-driven growth</span>
+                </h2>
+              </div>
+              <p className="max-w-xl text-lg text-slate-600 font-medium leading-relaxed">
+                A cleaner service grid with light gradient accents, clear icons, and more direct
+                commercial positioning.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {[
-                { icon: Zap, title: "Digital Marketing", items: ["Search engine marketing (SEM)", "Social media advertising", "Email marketing campaigns", "Retargeting & remarketing"], accent: "teal" },
-                { icon: Users, title: "Social Media Management", items: ["Content strategy & planning", "Daily posting & engagement", "Community management", "Social listening & monitoring"], accent: "amber" },
-                { icon: Award, title: "Influencer Marketing", items: ["Influencer identification", "Campaign management", "Micro-influencer networks", "Performance tracking"], accent: "indigo" },
-                { icon: Target, title: "Performance Advertising", items: ["Google Ads management", "Meta advertising", "Conversion rate optimization", "A/B testing & experimentation"], accent: "teal" },
-                { icon: BarChart3, title: "Brand Strategy", items: ["Brand positioning & messaging", "Competitive analysis", "Brand identity development", "Market research & insights"], accent: "amber" },
-                { icon: Zap, title: "Content Creation", items: ["Blog posts & articles", "Video content production", "Infographics & visual content", "SEO-optimized content"], accent: "indigo" }
-              ].map((service, idx) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {services.map((service) => {
                 const Icon = service.icon;
-                const accentVar = service.accent === "teal" ? "var(--accent-teal)" : service.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
                 return (
-                  <div key={idx} className="bg-slate-50 rounded-xl shadow-sm hover:shadow-lg transition-all p-10 border-t-4" style={{ borderTopColor: accentVar }}>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="bg-white w-16 h-16 rounded-lg flex items-center justify-center">
-                        <Icon size={32} style={{ color: accentVar }} />
-                      </div>
-                      <h3 className="text-2xl font-bold text-slate-900">{service.title}</h3>
+                  <div
+                    key={service.title}
+                    className="premium-card border-t-4 hover:shadow-lg transition-all"
+                    style={{ borderTopColor: service.accent }}
+                  >
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                      style={{
+                        background:
+                          service.accent === "var(--accent-indigo)"
+                            ? "linear-gradient(135deg, rgba(237,226,255,0.8), rgba(255,220,232,0.35))"
+                            : service.accent === "var(--accent-amber)"
+                            ? "linear-gradient(135deg, rgba(255,230,216,0.82), rgba(255,220,232,0.32))"
+                            : "linear-gradient(135deg, rgba(255,220,232,0.45), rgba(237,226,255,0.45))",
+                      }}
+                    >
+                      <Icon size={28} style={{ color: service.accent }} />
                     </div>
-                    <ul className="space-y-3">
-                      {service.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="font-bold text-lg" style={{ color: accentVar }}>✓</span>
-                          <span className="text-slate-700 font-semibold text-lg">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <h3 className="mb-3 text-slate-900">{service.title}</h3>
+                    <p className="text-slate-700 leading-relaxed font-medium">{service.description}</p>
                   </div>
                 );
               })}
@@ -109,135 +234,23 @@ export default function MarketBuddy() {
           </div>
         </section>
 
-        {/* Execution Approach */}
-        <section className="py-32 md:py-40 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Approach</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Our Execution <span style={{ color: "var(--accent-teal)" }}>Approach</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {[
-                { step: "01", title: "Research & Strategy", desc: "Deep market analysis and strategic planning", accent: "teal" },
-                { step: "02", title: "Campaign Planning", desc: "Detailed campaign roadmaps and timelines", accent: "amber" },
-                { step: "03", title: "Execution", desc: "Flawless implementation across all channels", accent: "indigo" },
-                { step: "04", title: "Optimization", desc: "Continuous testing and performance improvement", accent: "teal" },
-              ].map((item, idx) => {
-                const accentVar = item.accent === "teal" ? "var(--accent-teal)" : item.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="text-center bg-white rounded-lg p-8 border-t-4 hover:shadow-lg transition-all" style={{ borderTopColor: accentVar }}>
-                    <div className="text-4xl font-black text-slate-900 mb-4">{item.step}</div>
-                    <h3 className="font-bold text-xl text-slate-900 mb-3">{item.title}</h3>
-                    <p className="text-slate-700 text-sm leading-relaxed font-medium">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Platforms */}
-        <section className="py-32 md:py-40 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Platforms</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Platforms We <span style={{ color: "var(--accent-amber)" }}>Cover</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {[
-                {
-                  title: "Search & Performance",
-                  items: [
-                    { name: "Google Ads", desc: "Search, Display, Shopping, YouTube" },
-                    { name: "Bing Ads", desc: "Complementary search coverage" },
-                    { name: "Amazon Ads", desc: "Product advertising" }
-                  ],
-                  accent: "teal"
-                },
-                {
-                  title: "Social Media",
-                  items: [
-                    { name: "Meta", desc: "Facebook & Instagram ads" },
-                    { name: "LinkedIn", desc: "B2B advertising & content" },
-                    { name: "TikTok", desc: "Short-form video marketing" }
-                  ],
-                  accent: "amber"
-                }
-              ].map((platform, idx) => {
-                const accentVar = platform.accent === "teal" ? "var(--accent-teal)" : "var(--accent-amber)";
-                return (
-                  <div key={idx} className="bg-slate-50 rounded-xl p-10 border-l-4 shadow-sm hover:shadow-lg transition-all" style={{ borderLeftColor: accentVar }}>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-8">{platform.title}</h3>
-                    <ul className="space-y-6">
-                      {platform.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-4">
-                          <span className="font-bold text-lg" style={{ color: accentVar }}>✓</span>
-                          <div>
-                            <p className="font-bold text-slate-900 text-lg">{item.name}</p>
-                            <p className="text-slate-700 font-semibold">{item.desc}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Metrics & Analytics */}
-        <section className="py-32 md:py-40 bg-slate-50">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-20">
-              <p className="text-slate-600 font-semibold text-sm mb-4 tracking-wide uppercase">Metrics</p>
-              <h2 className="text-5xl md:text-6xl font-black text-slate-900">
-                Metrics & <span style={{ color: "var(--accent-indigo)" }}>Analytics</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                { metric: "CAC", full: "Customer Acquisition Cost", desc: "Cost to acquire each new customer", accent: "teal" },
-                { metric: "ROAS", full: "Return on Ad Spend", desc: "Revenue generated per dollar spent", accent: "amber" },
-                { metric: "CTR", full: "Click-Through Rate", desc: "Percentage of impressions that result in clicks", accent: "indigo" },
-                { metric: "CRR", full: "Conversion Rate", desc: "Percentage of visitors who complete desired action", accent: "teal" },
-              ].map((item, idx) => {
-                const accentVar = item.accent === "teal" ? "var(--accent-teal)" : item.accent === "amber" ? "var(--accent-amber)" : "var(--accent-indigo)";
-                return (
-                  <div key={idx} className="bg-white rounded-lg p-8 border-t-4 hover:shadow-lg transition-all" style={{ borderTopColor: accentVar }}>
-                    <div className="text-4xl font-black text-slate-900 mb-3" style={{ color: accentVar }}>{item.metric}</div>
-                    <p className="font-bold text-slate-900 mb-2 text-lg">{item.full}</p>
-                    <p className="text-slate-700 text-sm leading-relaxed font-medium">{item.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-32 md:py-40 bg-slate-900 text-white">
+        <section className="section-space bg-transparent text-white">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-5xl md:text-6xl font-black mb-8">
-              Ready to Accelerate Your <span style={{ color: "var(--accent-indigo)" }}>Growth?</span>
-            </h2>
-            <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-gray-300 font-medium">
-              Let's discuss your growth goals and how Market Buddy can drive measurable results for your business.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block text-slate-900 px-12 py-5 rounded-lg hover:opacity-90 transition-all font-bold text-lg"
-              style={{ backgroundColor: "var(--accent-indigo)" }}
-            >
-              Schedule Consultation
-            </Link>
+            <div className="rounded-[2rem] bg-slate-900 px-6 py-14 md:px-12">
+              <h2 className="mb-8 text-white">
+                Position your brand with marketing that delivers <span style={{ color: "var(--accent-indigo)" }}>real business momentum</span>
+              </h2>
+              <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-slate-300 font-medium">
+                Market Buddy helps businesses turn visibility into growth through clearer strategy,
+                stronger campaigns, and results-focused marketing execution.
+              </p>
+              <Link
+                href="/contact"
+                className="premium-button inline-flex items-center gap-3 px-12 py-5 rounded-full transition-all font-bold text-lg"
+              >
+                Start Growing <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

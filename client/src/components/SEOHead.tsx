@@ -16,16 +16,16 @@ interface SEOHeadProps {
 }
 
 export default function SEOHead({
-  title = "IT Services Company | ERPNext, Django, React, Node, Mobile App Development | MarkitUp Group",
-  description = "MarkitUp Group provides expert IT services including ERPNext development, Django, React, Node.js, PHP, mobile app development, and custom software solutions worldwide, including the UK.",
-  keywords = "IT services UK, software development company UK, ERPNext developer UK, Django developer UK, React developer UK, Node.js developer UK, mobile app development UK, website development UK, PHP developer UK, IT company UK, global IT services",
+  title = "MarkitUp Group Limited | Marketing That Drives Real Business Growth",
+  description = "MarkitUp Group Limited is a UK-based digital marketing and promotion company helping businesses attract customers, increase visibility, and grow through marketing strategy, promotional platforms, and technology solutions.",
+  keywords = "MarkitUp Group Limited, digital marketing UK, business promotion, lead generation, technology solutions, restaurant promotion platform, UK marketing company",
   canonical,
-  ogTitle = "Professional IT Services Company – ERPNext, Django, React, Node | MarkitUp Group",
-  ogDescription = "Expert IT services and software development company serving clients globally and in the UK. Specializing in ERPNext, Django, React, Node.js, and mobile app development.",
+  ogTitle = "MarkitUp Group Limited | Marketing That Drives Real Business Growth",
+  ogDescription = "UK-based digital marketing, promotion, and technology solutions for businesses focused on visibility, customer acquisition, and growth.",
   ogImage = "https://markitupgroup.com/og-image.jpg",
   ogUrl,
-  twitterTitle = "Top IT Services Company | ERPNext, Django, React Experts | MarkitUp Group",
-  twitterDescription = "Hire expert developers for ERPNext, Django, React, Node, and mobile apps. Professional IT services company serving UK and worldwide.",
+  twitterTitle = "MarkitUp Group Limited | Marketing That Drives Real Business Growth",
+  twitterDescription = "Digital marketing, promotion platforms, and technology solutions for modern businesses.",
   structuredData,
   noindex = false,
 }: SEOHeadProps) {

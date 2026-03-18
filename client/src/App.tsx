@@ -12,6 +12,11 @@ import DiscountBuddy from "./pages/DiscountBuddy";
 import ITBuddy from "./pages/ITBuddy";
 import MarketBuddy from "./pages/MarketBuddy";
 import Contact from "./pages/Contact";
+import CaseStudies from "./pages/CaseStudies";
+import Industries from "./pages/Industries";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import CookiePolicy from "./pages/CookiePolicy";
 import ERPNextDevelopment from "./pages/services/ERPNextDevelopment";
 import DjangoDevelopment from "./pages/services/DjangoDevelopment";
 import ReactDevelopment from "./pages/services/ReactDevelopment";
@@ -36,6 +41,8 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/about"} component={About} />
         <Route path={"/services"} component={Services} />
+        <Route path={"/case-studies"} component={CaseStudies} />
+        <Route path={"/industries"} component={Industries} />
         <Route path={"/services/erpnext-development"} component={ERPNextDevelopment} />
         <Route path={"/services/django-development"} component={DjangoDevelopment} />
         <Route path={"/services/react-development"} component={ReactDevelopment} />
@@ -45,6 +52,9 @@ function Router() {
         <Route path={"/it-buddy"} component={ITBuddy} />
         <Route path={"/market-buddy"} component={MarketBuddy} />
         <Route path={"/contact"} component={Contact} />
+        <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+        <Route path={"/terms-and-conditions"} component={TermsConditions} />
+        <Route path={"/cookie-policy"} component={CookiePolicy} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
