@@ -342,8 +342,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="premium-card rounded-[2rem] p-8 md:p-10">
-                <div className="grid grid-cols-[1fr_0.9fr] gap-5">
+              <div className="premium-card rounded-[2rem] p-6 md:p-10">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-[1fr_0.9fr]">
                   <div className="rounded-[1.5rem] bg-white border border-[var(--surface-border)] p-5 shadow-[0_12px_28px_rgba(55,65,92,0.06)]">
                     <div className="flex items-center justify-between mb-5">
                       <div>

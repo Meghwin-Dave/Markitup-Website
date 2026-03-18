@@ -124,8 +124,8 @@ export default function DiscountBuddy() {
                 </div>
               </div>
 
-              <div className="premium-card rounded-[2rem] p-6 md:p-8">
-                <div className="grid grid-cols-[0.95fr_1.05fr] gap-5 items-stretch">
+              <div className="premium-card rounded-[2rem] p-5 md:p-8">
+                <div className="grid grid-cols-1 gap-5 items-stretch md:grid-cols-[0.95fr_1.05fr]">
                   <div className="rounded-[1.75rem] border border-[var(--surface-border)] bg-white p-5 shadow-[0_12px_28px_rgba(55,65,92,0.06)]">
                     <div className="flex items-center justify-between mb-5">
                       <div>
