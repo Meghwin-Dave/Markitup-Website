@@ -20,25 +20,8 @@ export default function PrivacyPolicy() {
       <main className="flex-1 py-24 md:py-32">
         <div className="container mx-auto px-6">
           <div className="premium-card max-w-4xl mx-auto rounded-[2rem] p-8 md:p-12">
-            <p className="text-sm md:text-base font-semibold text-slate-500 mb-2">Discount Buddy Logo</p>
-            <nav className="flex flex-wrap gap-3 text-sm md:text-base font-semibold text-slate-700 mb-8">
-              <a href="/" className="hover:text-slate-900 transition-colors">Home</a>
-              <span className="text-slate-400">|</span>
-              <a href="/privacy-policy" className="text-slate-900">Privacy Policy</a>
-              <span className="text-slate-400">|</span>
-              <a href="/terms-and-conditions" className="hover:text-slate-900 transition-colors">Terms of Service</a>
-              <span className="text-slate-400">|</span>
-              <a href="/contact" className="hover:text-slate-900 transition-colors">Contact Support</a>
-              <span className="text-slate-400">|</span>
-              <span className="text-slate-500">Coming Soon</span>
-            </nav>
-            <a href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 mb-10">
-              <ArrowLeft size={16} />
-              <span>arrow_back</span>
-              <span>Back to Home</span>
-            </a>
             <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Privacy Policy - Discount Buddy</h1>
-            <p className="text-slate-600 font-medium mb-8">Effective Date: 23/04/2026</p>
+            <p className="text-slate-600 font-medium mb-8">Effective Date: 01/01/2026</p>
             <div className="space-y-6 text-slate-700 leading-relaxed">
               <section>
                 <h2 className="text-2xl font-bold text-slate-900 mb-3">1. Introduction</h2>
