@@ -236,7 +236,7 @@ function StatsSection() {
   return (
     <section className="reveal-on-scroll bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
       <div className="grid overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-[0_14px_38px_rgba(15,23,42,0.08)] lg:grid-cols-[1.6fr_1fr]">
-        <div className="grid divide-y divide-[#E5E7EB] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
+        <div className="grid gap-y-4 py-4 sm:grid-cols-2 sm:gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-[#E5E7EB] lg:py-0">
           {stats.map(({ value, label, detail, icon: Icon, color }) => (
             <div key={label} className="group flex items-center justify-center gap-3 px-4 py-5 transition-all duration-300 hover:-translate-y-0.5">
               <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-slate-50 shadow-[0_10px_24px_rgba(15,23,42,0.06)] transition-all duration-300 group-hover:scale-105" style={{ color }}>
@@ -405,12 +405,12 @@ export default function Home() {
                   UK Based. Growth Focused.
                 </span>
               </div>
-              <h1 className="mt-4 max-w-[620px] text-[38px] font-extrabold leading-[1.08] text-[#0F172A] sm:text-[48px] xl:text-[58px]">
-                <span className="block whitespace-nowrap">Building Brands.</span>
-                <span className="block whitespace-nowrap">
+              <h1 className="mt-4 max-w-[620px] text-[32px] font-extrabold leading-[1.08] text-[#0F172A] sm:text-[48px] xl:text-[58px]">
+                <span className="block sm:whitespace-nowrap">Building Brands.</span>
+                <span className="block sm:whitespace-nowrap">
                   Driving <span className="bg-gradient-to-r from-[#4A16D1] via-[#D4147F] to-[#F06416] bg-clip-text text-transparent drop-shadow-[0_6px_16px_rgba(212,20,127,0.14)]">Growth.</span>
                 </span>
-                <span className="block whitespace-nowrap">Empowering Businesses.</span>
+                <span className="block sm:whitespace-nowrap">Empowering Businesses.</span>
               </h1>
               <p className="mt-5 max-w-[520px] text-[16px] leading-8 text-[#0F172A]">
                 MarkitUp Group is a UK-based marketing, technology and digital growth company delivering real results through specialised solutions.
