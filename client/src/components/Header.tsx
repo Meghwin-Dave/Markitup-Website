@@ -1,161 +1,213 @@
-import { Link } from "wouter";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Link, useLocation } from "wouter";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Solutions", href: "/services", hasDropdown: true },
+  { label: "Our Work", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+const solutions = [
+  { name: "MarketBuddy", href: "/market-buddy", desc: "Digital Marketing & Growth" },
+  { name: "ITBuddy", href: "/it-buddy", desc: "Tech & Development" },
+  { name: "DiscountBuddy", href: "/discount-buddy", desc: "Restaurant Discount Platform" },
+];
+
+function Logo() {
+  return (
+    <Link href="/" className="group flex items-center overflow-visible" aria-label="MarkitUp Group home">
+      <img
+        src="/images/markitup_logo.png"
+        alt="MarkitUp Group"
+        className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]"
+      />
+    </Link>
+  );
+}
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "About Us", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ];
+  const isActive = (href: string) => {
+    if (href === "/") return location === "/";
+    return location.startsWith(href);
+  };
 
-  const serviceLinks = [
-    {
-      label: "Market Buddy",
-      href: "/market-buddy",
-      description: "Marketing services for business growth",
-    },
-    {
-      label: "Discount Buddy",
-      href: "/discount-buddy",
-      description: "Platform for restaurant offers and discounts",
-    },
-    {
-      label: "IT Buddy",
-      href: "/it-buddy",
-      description: "Software and technology solutions",
-    },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="glass-header sticky top-0 z-50">
-      <div className="container mx-auto h-[76px] px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex flex-col leading-none">
-            <div
-              className="text-[1.65rem] font-extrabold tracking-tight"
-              style={{
-                color: "#1E1E2F",
-                backgroundImage: "linear-gradient(90deg, #1E1E2F 0%, #1E1E2F 64%, #ff7aa8 82%, #ffa24c 100%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              MarkitUp
-            </div>
-          </div>
-        </Link>
+    <header
+      className={`sticky top-0 z-50 transition-all duration-500 ${scrolled
+          ? "border-b border-slate-200/50 bg-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl"
+          : "border-b border-transparent bg-white/40 backdrop-blur-md"
+        }`}
+    >
+      <div className="flex h-[78px] w-full items-center justify-between overflow-visible px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+        <Logo />
 
-        <nav className="hidden xl:flex items-center gap-8">
-          <Link
-            href="/"
-            className="text-slate-700 hover:text-slate-900 transition-colors font-medium text-[15px] relative group"
-          >
-            Home
-            <span
-              className="absolute -bottom-2 left-0 w-0 h-0.5 transition-all group-hover:w-full"
-              style={{ backgroundColor: "var(--accent-indigo)" }}
-            ></span>
-          </Link>
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary navigation">
+          {navLinks.map((link) => {
+            const active = isActive(link.href);
 
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-900 transition-colors font-medium text-[15px]"
-              onClick={() => setServicesOpen((open) => !open)}
-            >
-              Services <ChevronDown size={16} className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {servicesOpen && (
-              <div className="absolute left-1/2 top-full z-20 w-[360px] -translate-x-1/2 pt-3">
-                <div className="rounded-[1.5rem] border border-[var(--surface-border)] bg-white/96 p-3 shadow-[0_18px_45px_rgba(55,65,92,0.12)] backdrop-blur-xl">
-                {serviceLinks.map((service) => (
+            if (link.hasDropdown) {
+              return (
+                <div key={link.label} className="group relative inline-flex h-[78px] items-center">
                   <Link
-                    key={service.href}
-                    href={service.href}
-                    className="block rounded-[1.1rem] px-4 py-3 transition-colors hover:bg-[#fcf8ff]"
+                    href={link.href}
+                    className={`relative inline-flex items-center gap-1.5 text-[14px] font-semibold tracking-tight transition-colors duration-300 ${
+                      active ? "text-[#6C3BFF]" : "text-slate-600 group-hover:text-[#0F172A]"
+                    }`}
                   >
-                    <div className="text-[15px] font-semibold text-slate-900">{service.label}</div>
-                    <div className="mt-1 text-sm leading-relaxed text-slate-500">{service.description}</div>
+                    {link.label}
+                    <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
                   </Link>
-                ))}
-                </div>
-              </div>
-            )}
-          </div>
 
-          {navLinks.filter((link) => link.label !== "Home" && link.label !== "Services").map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-slate-700 hover:text-slate-900 transition-colors font-medium text-[15px] relative group"
-            >
-              {link.label}
-              <span
-                className="absolute -bottom-2 left-0 w-0 h-0.5 transition-all group-hover:w-full"
-                style={{ backgroundColor: "var(--accent-teal)" }}
-              ></span>
-            </Link>
-          ))}
+                  <span
+                    className={`absolute bottom-[14px] left-0 h-[3px] rounded-full bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] shadow-[0_5px_12px_rgba(108,59,255,0.22)] transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+
+                  <div className="absolute left-1/2 top-[78px] invisible w-[320px] -translate-x-1/2 translate-y-2 pt-2 opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-white/60 bg-white/95 p-2 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                      {solutions.map((solution) => (
+                        <Link
+                          key={solution.name}
+                          href={solution.href}
+                          className={`group/item flex flex-col rounded-xl px-4 py-3 transition-colors hover:bg-slate-50 ${
+                            isActive(solution.href) ? "bg-slate-50" : ""
+                          }`}
+                        >
+                          <span className={`text-[14px] font-bold transition-colors group-hover/item:text-[#6C3BFF] ${
+                            isActive(solution.href) ? "text-[#6C3BFF]" : "text-[#0F172A]"
+                          }`}>
+                            {solution.name}
+                          </span>
+                          <span className="mt-0.5 text-[12px] text-slate-500">
+                            {solution.desc}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`group relative inline-flex h-[78px] items-center gap-1.5 text-[14px] font-semibold transition-colors duration-300 ${
+                  active ? "text-[#6C3BFF]" : "text-[#0F172A] hover:text-[#6C3BFF]"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute bottom-[14px] left-0 h-[3px] rounded-full bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] shadow-[0_5px_12px_rgba(108,59,255,0.22)] transition-all duration-300 ${
+                    active ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="xl:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        <Link
+          href="/services"
+          className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
         >
-          {isOpen ? <X size={24} className="text-slate-900" /> : <Menu size={24} className="text-slate-900" />}
+          Explore Solutions
+          <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
+            <ArrowRight size={14} />
+          </span>
+        </Link>
+
+        <button
+          type="button"
+          className="inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm lg:hidden"
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          onClick={() => setIsOpen((value) => !value)}
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {isOpen && (
-        <nav className="xl:hidden border-t border-slate-200/70 bg-white/90 backdrop-blur-xl">
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            <Link
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="text-slate-700 hover:text-slate-900 transition-colors font-medium"
-            >
-              Home
-            </Link>
-            <div className="rounded-[1.25rem] border border-[var(--surface-border)] bg-white p-3">
-              <div className="px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Services
-              </div>
-              {serviceLinks.map((service) => (
+      {isOpen ? (
+        <div className="absolute left-4 right-4 top-[82px] rounded-3xl border border-white/80 bg-white/95 p-4 shadow-2xl shadow-slate-900/10 backdrop-blur-xl lg:hidden">
+          <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+
+              if (link.hasDropdown) {
+                return (
+                  <div key={link.label} className="flex flex-col">
+                    <button
+                      onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                      className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-colors ${
+                        active ? "bg-slate-50 text-[#6C3BFF]" : "text-[#0F172A] hover:bg-slate-50"
+                      }`}
+                    >
+                      {link.label}
+                      <ChevronDown size={16} className={`transition-transform duration-300 ${isSolutionsOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    
+                    {isSolutionsOpen && (
+                      <div className="mb-2 mt-1 flex flex-col gap-1 pl-4 pr-2">
+                        {solutions.map((solution) => (
+                          <Link
+                            key={solution.name}
+                            href={solution.href}
+                            className={`rounded-xl px-4 py-2.5 text-[13px] font-semibold transition-colors ${
+                              isActive(solution.href) ? "bg-[#6C3BFF]/5 text-[#6C3BFF]" : "text-slate-600 hover:bg-slate-50"
+                            }`}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {solution.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
                 <Link
-                  key={service.href}
-                  href={service.href}
+                  key={link.label}
+                  href={link.href}
+                  className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-colors ${
+                    active ? "bg-slate-50 text-[#6C3BFF]" : "text-[#0F172A] hover:bg-slate-50"
+                  }`}
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-[1rem] px-3 py-3 hover:bg-[#fcf8ff] transition-colors"
                 >
-                  <div className="text-sm font-semibold text-slate-900">{service.label}</div>
-                  <div className="mt-1 text-sm text-slate-500 leading-relaxed">{service.description}</div>
+                  {link.label}
                 </Link>
-              ))}
-            </div>
-            {navLinks.filter((link) => link.label !== "Home" && link.label !== "Services").map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-slate-700 hover:text-slate-900 transition-colors font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      )}
+              );
+            })}
+            <Link
+              href="/services"
+              className="gradient-button mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Explore Solutions <ArrowRight size={16} />
+            </Link>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
