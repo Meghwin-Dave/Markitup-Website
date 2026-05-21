@@ -7,7 +7,6 @@ const navLinks = [
   { label: "About Us", href: "/about" },
   { label: "Our Solutions", href: "/services", hasDropdown: true },
   { label: "Our Work", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -17,19 +16,39 @@ const solutions = [
   { name: "DiscountBuddy", href: "/discount-buddy", desc: "Restaurant Discount Platform" },
 ];
 
-function Logo() {
+function Logo({ overrideSrc, overrideAlt, overrideHref = "/" }: { overrideSrc?: string, overrideAlt?: string, overrideHref?: string }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If the link points to the current path, smooth scroll to top
+    if (window.location.pathname === overrideHref) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <Link href="/" className="group flex items-center overflow-visible" aria-label="MarkitUp Group home">
+    <Link href={overrideHref} onClick={handleClick} className="group flex items-center overflow-visible" aria-label={overrideAlt || "MarkitUp Group home"}>
       <img
-        src="/images/markitup_logo.png"
-        alt="MarkitUp Group"
-        className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]"
+        src={overrideSrc || "/images/markitup_logo.png"}
+        alt={overrideAlt || "MarkitUp Group"}
+        className={`h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]`}
       />
     </Link>
   );
 }
 
-export default function Header() {
+export default function Header({ 
+  logoOverride, 
+  logoAlt,
+  logoHref = "/",
+  ctaText = "Explore Solutions",
+  ctaHref = "/services",
+}: { 
+  logoOverride?: string, 
+  logoAlt?: string,
+  logoHref?: string,
+  ctaText?: string,
+  ctaHref?: string,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -67,10 +86,12 @@ export default function Header() {
           : "border-b border-transparent bg-white/40 backdrop-blur-md"
         }`}
     >
-      <div className="flex h-[78px] w-full items-center justify-between overflow-visible px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-        <Logo />
+      <div className="relative flex h-[78px] w-full items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+        <div className="flex items-center justify-start z-10">
+          <Logo overrideSrc={logoOverride} overrideAlt={logoAlt} overrideHref={logoHref} />
+        </div>
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary navigation">
+        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-9 lg:flex z-10" aria-label="Primary navigation">
           {navLinks.map((link) => {
             const active = isActive(link.href);
 
@@ -139,26 +160,32 @@ export default function Header() {
           })}
         </nav>
 
-        <Link
-          href="/services"
-          onClick={(e) => handleSmoothScroll(e, "our-solutions")}
-          className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
-        >
-          Explore Solutions
-          <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
-            <ArrowRight size={14} />
-          </span>
-        </Link>
+        <div className="flex justify-end items-center gap-4 z-10">
+          <Link
+            href={ctaHref}
+            onClick={(e) => {
+              if (ctaHref === "/services") {
+                handleSmoothScroll(e, "our-solutions");
+              }
+            }}
+            className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
+          >
+            {ctaText}
+            <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
+              <ArrowRight size={14} />
+            </span>
+          </Link>
 
-        <button
-          type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((value) => !value)}
-        >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <button
+            type="button"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm lg:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((value) => !value)}
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {isOpen ? (
@@ -214,14 +241,16 @@ export default function Header() {
               );
             })}
             <Link
-              href="/services"
+              href={ctaHref}
               className="gradient-button mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
               onClick={(e) => {
-                handleSmoothScroll(e, "our-solutions");
+                if (ctaHref === "/services") {
+                  handleSmoothScroll(e, "our-solutions");
+                }
                 if (location !== "/") setIsOpen(false);
               }}
             >
-              Explore Solutions <ArrowRight size={16} />
+              {ctaText} <ArrowRight size={16} />
             </Link>
           </nav>
         </div>

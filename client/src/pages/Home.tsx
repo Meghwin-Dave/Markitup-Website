@@ -297,7 +297,7 @@ function Footer() {
         <div>
           <h3 className="mb-4 text-sm font-bold text-white">Quick Links</h3>
           <ul className="space-y-2.5 text-sm text-white/70">
-            {["Home", "About Us", "Our Solutions", "Our Work", "Blog", "Contact Us"].map((item) => (
+            {["Home", "About Us", "Our Solutions", "Our Work", "Contact Us"].map((item) => (
               <li key={item}>
                 <Link href={item === "Home" ? "/" : "/services"} className="transition-all duration-300 hover:pl-1 hover:text-white">
                   {item}

@@ -126,8 +126,8 @@ const Navbar = () => {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
-        <div className="flex items-center justify-between">
+      <div className="flex h-[78px] w-full items-center justify-between overflow-visible px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+        <div className="flex items-center justify-between w-full">
           <a 
             href="#" 
             onClick={(e) => {
