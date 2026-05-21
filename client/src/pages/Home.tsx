@@ -234,7 +234,7 @@ function PhoneMockup() {
 
 function StatsSection() {
   return (
-    <section className="reveal-on-scroll bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+    <section className="reveal-on-scroll bg-white px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
       <div className="grid overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-[0_14px_38px_rgba(15,23,42,0.08)] lg:grid-cols-[1.6fr_1fr]">
         <div className="grid gap-y-4 py-4 sm:grid-cols-2 sm:gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-[#E5E7EB] lg:py-0">
           {stats.map(({ value, label, detail, icon: Icon, color }) => (
@@ -397,7 +397,7 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="relative overflow-visible bg-white pb-16 pt-4 lg:pb-20">
+        <section className="relative overflow-visible bg-white pb-10 pt-4 lg:pb-12">
           <div className="grid min-h-[560px] w-full items-center lg:grid-cols-[30%_70%]">
             <div className="relative z-10 px-5 py-12 sm:px-8 lg:px-12 lg:py-16 xl:pl-[72px]">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-[linear-gradient(90deg,rgba(108,59,255,0.11),rgba(255,46,120,0.10),rgba(255,122,0,0.10))] px-4 py-2 text-xs font-extrabold text-[#6C3BFF] shadow-[0_12px_30px_rgba(108,59,255,0.12)] backdrop-blur ring-1 ring-[#F0E7FF]">
@@ -451,7 +451,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="solutions" className="reveal-on-scroll bg-[#FAFBFF] py-20 lg:py-24">
+        <section id="our-solutions" className="reveal-on-scroll bg-[#FAFBFF] py-20 lg:py-24">
           <div className="w-full px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <SectionTitle eyebrow="Our Solutions" title="Three Buddies. One Goal — Your Growth." />
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -529,9 +529,11 @@ export default function Home() {
                   </div>
                   <div className="flex flex-row flex-wrap items-center gap-2 xl:gap-3">
                     <a
-                      href="/discount-buddy"
+                      href="https://play.google.com/store/apps/details?id=com.discountbuddy.app&pcampaignid=web_share"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Get it on Google Play"
-                      className="inline-flex h-8 w-[112px] items-center overflow-hidden rounded-md bg-black transition-opacity duration-300 hover:opacity-85 xl:h-9 xl:w-[124px]"
+                      className="inline-flex h-8 w-[112px] items-center overflow-hidden rounded-md bg-black transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:shadow-lg xl:h-9 xl:w-[124px]"
                     >
                       <img
                         src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
@@ -542,9 +544,11 @@ export default function Home() {
                       />
                     </a>
                     <a
-                      href="/discount-buddy"
+                      href="https://apps.apple.com/gb/app/discount-buddy-deals/id6760362068"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label="Download on the App Store"
-                      className="inline-flex h-8 w-[112px] items-center overflow-hidden rounded-md bg-black transition-opacity duration-300 hover:opacity-85 xl:h-9 xl:w-[124px]"
+                      className="inline-flex h-8 w-[112px] items-center overflow-hidden rounded-md bg-black transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:shadow-lg xl:h-9 xl:w-[124px]"
                     >
                       <img
                         src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
@@ -635,7 +639,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="reveal-on-scroll bg-white pb-24 pt-20 lg:pb-28 lg:pt-24">
+        <section className="reveal-on-scroll bg-white py-20 lg:py-24">
           <div className="relative flex w-full flex-col items-center justify-between gap-7 overflow-hidden bg-gradient-to-r from-[#6C3BFF] via-[#B8188D] to-[#FF7A00] px-5 py-16 text-white shadow-[0_28px_75px_rgba(108,59,255,0.34)] sm:px-10 md:flex-row lg:px-[72px] xl:px-[92px]">
             <div className="absolute -left-12 top-1/2 size-52 -translate-y-1/2 rounded-full bg-white/14 blur-3xl" />
             <div className="absolute -right-10 top-0 size-48 rounded-full bg-white/12 blur-3xl" />
