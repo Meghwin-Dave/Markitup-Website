@@ -16,7 +16,7 @@ const solutions = [
   { name: "DiscountBuddy", href: "/discount-buddy", desc: "Restaurant Discount Platform" },
 ];
 
-function Logo({ overrideSrc, overrideAlt, overrideHref = "/" }: { overrideSrc?: string, overrideAlt?: string, overrideHref?: string }) {
+function Logo({ overrideSrc, overrideAlt, overrideHref = "/", logoClassName }: { overrideSrc?: string, overrideAlt?: string, overrideHref?: string, logoClassName?: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // If the link points to the current path, smooth scroll to top
     if (window.location.pathname === overrideHref) {
@@ -30,7 +30,7 @@ function Logo({ overrideSrc, overrideAlt, overrideHref = "/" }: { overrideSrc?: 
       <img
         src={overrideSrc || "/images/markitup_logo.png"}
         alt={overrideAlt || "MarkitUp Group"}
-        className={`h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]`}
+        className={`h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px] ${logoClassName || ""}`}
       />
     </Link>
   );
@@ -42,12 +42,14 @@ export default function Header({
   logoHref = "/",
   ctaText = "Explore Solutions",
   ctaHref = "/services",
+  logoClassName
 }: { 
   logoOverride?: string, 
   logoAlt?: string,
   logoHref?: string,
   ctaText?: string,
   ctaHref?: string,
+  logoClassName?: string
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
@@ -88,7 +90,7 @@ export default function Header({
     >
       <div className="relative flex h-[78px] w-full items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-[72px]">
         <div className="flex items-center justify-start z-10">
-          <Logo overrideSrc={logoOverride} overrideAlt={logoAlt} overrideHref={logoHref} />
+          <Logo overrideSrc={logoOverride} overrideAlt={logoAlt} overrideHref={logoHref} logoClassName={logoClassName} />
         </div>
 
         <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-9 lg:flex z-10" aria-label="Primary navigation">

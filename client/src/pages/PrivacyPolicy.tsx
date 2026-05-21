@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-slate-900">Data Protection</h2>
               <p>We take reasonable steps to protect information shared with us and only use it for legitimate business and communication purposes.</p>
               <h2 className="text-2xl font-bold text-slate-900">Contact</h2>
-              <p>For privacy-related questions, contact MarkitUp Group Limited at contact@markitupgroup.com.</p>
+              <p>For privacy-related questions, contact MarkitUp Group Limited at info@markitupgroup.com.</p>
             </div>
           </div>
         </div>

@@ -21,7 +21,8 @@ import {
   TrendingUp,
   Bell,
   Play,
-  Apple
+  Apple,
+  ArrowRight
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -126,28 +127,26 @@ const Navbar = () => {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="flex h-[78px] w-full items-center justify-between overflow-visible px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-        <div className="flex items-center justify-between w-full">
+      <div className="relative flex h-[78px] w-full items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+        <div className="flex items-center justify-start z-10">
           <a 
             href="#" 
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="group flex items-center overflow-visible"
+            aria-label="DiscountBuddy home"
           >
             <img 
               src="/images/discount_buddy_logo.png" 
               alt="DiscountBuddy Logo" 
-              className="h-[clamp(32px,4vw,42px)] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]" 
             />
-            <span className="text-[clamp(1.125rem,2vw,1.25rem)] font-extrabold text-slate-900 tracking-tight">
-              DiscountBuddy
-            </span>
           </a>
+        </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex z-10">
             <ul className="flex items-center gap-6">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -160,27 +159,33 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex items-center gap-3 pl-4 border-l border-slate-200">
-              <DownloadAppDropdown className="inline-flex items-center justify-center px-6 py-2.5 text-[0.9rem] font-bold text-slate-700 bg-white border border-slate-200 hover:border-[#8A3FFC] hover:text-[#8A3FFC] rounded-full transition-colors shadow-sm w-full">
-                <Download size={16} className="mr-2" />
-                Download App
-              </DownloadAppDropdown>
-              <Link
-                href="/"
-                className="inline-flex items-center justify-center px-6 py-2.5 text-[0.9rem] font-bold text-white bg-gradient-to-r from-[#8A3FFC] to-[#ec4899] hover:-translate-y-0.5 rounded-full shadow-lg shadow-purple-500/25 transition-all duration-300"
-              >
-                Powered by MarkitUp
-              </Link>
-            </div>
-          </nav>
+        </nav>
+
+        <div className="flex justify-end items-center gap-4 z-10">
+          <div className="hidden lg:flex items-center gap-3">
+            <DownloadAppDropdown className="inline-flex items-center justify-center px-5 py-2.5 text-[14px] font-bold text-slate-700 bg-white border border-slate-200 hover:border-[#8A3FFC] hover:text-[#8A3FFC] rounded-full transition-colors shadow-sm w-full">
+              <Download size={14} className="mr-2" />
+              Download App
+            </DownloadAppDropdown>
+            
+            <Link
+              href="/"
+              className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
+            >
+              MarkitUp Group
+              <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
+                <ArrowRight size={14} />
+              </span>
+            </Link>
+          </div>
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden text-slate-800 p-2 rounded-lg hover:bg-slate-100 transition-colors"
+            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -210,10 +215,10 @@ const Navbar = () => {
               </DownloadAppDropdown>
               <Link
                 href="/"
-                className="w-full inline-flex items-center justify-center px-6 py-4 text-base font-bold text-white bg-gradient-to-r from-[#8A3FFC] to-[#ec4899] hover:opacity-90 transition-opacity rounded-xl shadow-md"
+                className="gradient-button w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] rounded-xl"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Powered by MarkitUp
+                MarkitUp Group <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -552,33 +557,44 @@ const Testimonials = () => {
 
 const CTABanner = () => {
   return (
-    <section className="py-[clamp(3rem,6vw,5rem)] bg-white px-5 lg:px-8 xl:px-12">
+    <section className="py-[clamp(4rem,8vw,6rem)] bg-white px-5 lg:px-8 xl:px-12 relative">
       <div className="container mx-auto max-w-[1440px]">
-        <div className="relative rounded-[clamp(1.5rem,4vw,2.5rem)] overflow-hidden bg-gradient-to-r from-[#8A3FFC] via-[#b630e6] to-[#ec4899] p-[clamp(2rem,5vw,4rem)] flex flex-col items-center text-center shadow-2xl shadow-purple-500/20">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <div className="relative rounded-[3rem] bg-slate-900 p-[clamp(3rem,6vw,5rem)] flex flex-col items-center text-center shadow-[0_30px_60px_rgba(15,23,42,0.15)] group z-10">
           
-          <h2 className="relative z-10 text-[clamp(2rem,4vw,3rem)] font-extrabold text-white mb-3">Let's grow together</h2>
-          <p className="relative z-10 text-white/90 text-[clamp(1rem,1.5vw,1.125rem)] font-medium mb-[clamp(2rem,4vw,3rem)]">
-            More deals. More bookings. More success.
+          {/* Subtle animated background gradient */}
+          <div className="absolute inset-0 rounded-[3rem] overflow-hidden pointer-events-none z-0">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#8A3FFC]/40 to-pink-500/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-500/30 to-blue-500/30 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3"></div>
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+          </div>
+          
+          <div className="relative z-10 mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-bold text-white shadow-sm backdrop-blur-md">
+            <TrendingUp size={16} className="text-[#ec4899]" />
+            Join the Ecosystem
+          </div>
+          
+          <h2 className="relative z-10 text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-white mb-6 leading-tight tracking-tight max-w-3xl">
+            Let's grow <span className="bg-gradient-to-r from-[#8A3FFC] via-[#b630e6] to-[#ec4899] bg-clip-text text-transparent">together.</span>
+          </h2>
+          <p className="relative z-10 text-slate-300 text-[clamp(1.125rem,1.5vw,1.375rem)] font-medium mb-[clamp(2.5rem,5vw,4rem)] max-w-2xl leading-relaxed">
+            More deals. More bookings. More success. Join thousands of users and restaurants on the platform.
           </p>
           
-          <div className="relative z-10 flex flex-col sm:flex-row flex-wrap gap-[clamp(0.75rem,2vw,1rem)] w-full sm:w-auto justify-center">
-            <DownloadAppDropdown className="flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2rem)] py-[clamp(1rem,2vw,1.25rem)] bg-white text-[#8A3FFC] rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-colors w-full sm:w-auto flex-1 sm:flex-none">
+          <div className="relative z-30 flex flex-col sm:flex-row flex-wrap gap-4 w-full justify-center items-center">
+            <DownloadAppDropdown className="group/btn relative flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(1rem,2vw,1.25rem)] bg-gradient-to-r from-[#8A3FFC] to-[#ec4899] text-white rounded-2xl font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all hover:-translate-y-1 w-full sm:w-auto min-w-[200px]">
               <Smartphone size={20} className="flex-shrink-0" />
               <div className="text-left leading-tight">
                 <span className="block text-sm">Download App</span>
-                <span className="block text-[10px] font-medium text-slate-400">Get the app and start saving</span>
+                <span className="block text-[10px] font-medium text-white/80">Get the app & save</span>
               </div>
             </DownloadAppDropdown>
-            <a href="#partner" className="flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2rem)] py-[clamp(1rem,2vw,1.25rem)] bg-white text-[#ec4899] rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-colors w-full sm:w-auto flex-1 sm:flex-none">
-              <Store size={20} className="flex-shrink-0" />
+            
+            <a href="#partner" className="flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(1rem,2vw,1.25rem)] bg-white text-slate-900 rounded-2xl font-bold shadow-lg hover:bg-slate-50 transition-all hover:-translate-y-1 w-full sm:w-auto min-w-[200px]">
+              <Store size={20} className="flex-shrink-0 text-[#8A3FFC]" />
               <div className="text-left leading-tight">
                 <span className="block text-sm">Become a Partner</span>
-                <span className="block text-[10px] font-medium text-slate-400">List your restaurant and grow</span>
+                <span className="block text-[10px] font-medium text-slate-500">List your restaurant</span>
               </div>
-            </a>
-            <a href="/contact" className="flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2rem)] py-[clamp(1rem,2vw,1.25rem)] bg-white/20 backdrop-blur text-white border border-white/30 rounded-xl font-bold hover:bg-white/30 transition-colors w-full sm:w-auto flex-1 sm:flex-none">
-              <span className="text-sm">Talk to Our Team</span>
             </a>
           </div>
         </div>
