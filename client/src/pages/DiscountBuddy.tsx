@@ -24,6 +24,7 @@ import {
   Apple,
   ArrowRight
 } from "lucide-react";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
@@ -102,131 +103,7 @@ const DownloadAppDropdown = ({ className, children }: { className?: string, chil
   );
 };
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "For Users", href: "#users" },
-    { name: "For Restaurants", href: "#restaurants" },
-    { name: "Features", href: "#features" },
-    { name: "About", href: "#about" },
-  ];
-
-  return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="relative flex h-[78px] w-full items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-        <div className="flex items-center justify-start z-10">
-          <a 
-            href="#" 
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="group flex items-center overflow-visible"
-            aria-label="DiscountBuddy home"
-          >
-            <img 
-              src="/images/discount_buddy_logo.png" 
-              alt="DiscountBuddy Logo" 
-              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px]" 
-            />
-          </a>
-        </div>
-
-        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 lg:flex z-10">
-            <ul className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-[clamp(0.875rem,1vw,0.95rem)] font-bold text-slate-600 hover:text-[#8A3FFC] transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-        </nav>
-
-        <div className="flex justify-end items-center gap-4 z-10">
-          <div className="hidden lg:flex items-center gap-3">
-            <DownloadAppDropdown className="inline-flex items-center justify-center px-5 py-2.5 text-[14px] font-bold text-slate-700 bg-white border border-slate-200 hover:border-[#8A3FFC] hover:text-[#8A3FFC] rounded-full transition-colors shadow-sm w-full">
-              <Download size={14} className="mr-2" />
-              Download App
-            </DownloadAppDropdown>
-            
-            <Link
-              href="/"
-              className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
-            >
-              MarkitUp Group
-              <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
-                <ArrowRight size={14} />
-              </span>
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button
-            className="lg:hidden inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          className="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 lg:hidden overflow-hidden"
-        >
-          <div className="px-5 py-6 flex flex-col gap-5">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-bold text-slate-700 hover:text-[#8A3FFC] py-2 border-b border-slate-50"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="flex flex-col gap-3 mt-2">
-              <DownloadAppDropdown className="w-full inline-flex items-center justify-center px-6 py-4 text-base font-bold text-slate-700 bg-slate-50 border border-slate-200 rounded-xl">
-                <Download size={18} className="mr-2" />
-                Download App
-              </DownloadAppDropdown>
-              <Link
-                href="/"
-                className="gradient-button w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] rounded-xl"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                MarkitUp Group <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-      )}
-    </header>
-  );
-};
 
 const PhoneMockup = () => {
   return (
@@ -690,7 +567,7 @@ const DiscountBuddyFooter = () => {
 
 export default function DiscountBuddy() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden selection:bg-purple-200 selection:text-purple-900">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-purple-200 selection:text-purple-900">
       <SEOHead
         title="Discount Buddy | Deals & Bookings"
         description="Premium platform for discovering restaurant deals and booking tables instantly."
@@ -707,7 +584,13 @@ export default function DiscountBuddy() {
         }
       `}</style>
 
-      <Navbar />
+      <Header 
+        logoOverride="/images/discount_buddy_logo.png" 
+        logoAlt="Discount Buddy" 
+        logoHref="/discount-buddy"
+        ctaText="MarkitUp Group"
+        ctaHref="/"
+      />
       <main>
         <HeroSection />
         <CombinedBenefits />

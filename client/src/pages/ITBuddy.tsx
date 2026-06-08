@@ -383,7 +383,7 @@ export default function ITBuddy() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-blue-200 selection:text-blue-900 overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-200 selection:text-blue-900">
       <SEOHead
         title="IT Buddy | Smart Software & Digital Infrastructure"
         description="IT Buddy delivers powerful IT solutions. We build fast, secure and scalable websites, web applications and digital systems that work for you."

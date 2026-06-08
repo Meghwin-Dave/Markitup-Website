@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -38,10 +39,21 @@ const staggerContainer = {
   }
 };
 
-function GradientButton({ children, href, className = "" }: { children: ReactNode; href: string; className?: string }) {
+function GradientButton({
+  children,
+  href,
+  className = "",
+  onClick,
+}: {
+  children: ReactNode;
+  href: string;
+  className?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={`gradient-button inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-[clamp(0.875rem,1.5vw,1rem)] font-bold text-white shadow-[0_18px_42px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(108,59,255,0.35)] ${className}`}
     >
       {children}
@@ -66,8 +78,21 @@ function SectionTitle({ eyebrow, title, description, align = "center" }: { eyebr
 }
 
 export default function About() {
+  useEffect(() => {
+    if (window.location.hash === "#who-we-are" || window.location.hash === "#our-story") {
+      setTimeout(() => {
+        const section = document.getElementById("who-we-are");
+        if (section) {
+          const offset = 78; // Navbar height
+          const top = section.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 150);
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
         title="About MarkitUp Group | UK Business Growth Company"
         description="MarkitUp Group is a UK-based marketing, technology and digital growth company. We help businesses grow smarter through modern solutions."
@@ -105,11 +130,31 @@ export default function About() {
               </motion.p>
               
               <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
-                <GradientButton href="/about#who-we-are">
+                <GradientButton
+                  href="/about#who-we-are"
+                  onClick={(e) => {
+                    const section = document.getElementById("who-we-are");
+                    if (section) {
+                      e.preventDefault();
+                      const offset = 78; // Navbar height
+                      const top = section.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top, behavior: "smooth" });
+                    }
+                  }}
+                >
                   Who We Are <ArrowRight size={18} />
                 </GradientButton>
                 <Link
-                  href="/about#our-story"
+                  href="/about#who-we-are"
+                  onClick={(e) => {
+                    const section = document.getElementById("who-we-are");
+                    if (section) {
+                      e.preventDefault();
+                      const offset = 78; // Navbar height
+                      const top = section.getBoundingClientRect().top + window.scrollY - offset;
+                      window.scrollTo({ top, behavior: "smooth" });
+                    }
+                  }}
                   className="group inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-[clamp(0.875rem,1.5vw,1rem)] font-bold text-slate-700 transition-all hover:bg-slate-50"
                 >
                   <span className="flex size-10 items-center justify-center rounded-full border border-slate-200 text-[#6C3BFF] transition-colors group-hover:border-[#6C3BFF] group-hover:bg-[#6C3BFF]/5">

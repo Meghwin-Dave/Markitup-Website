@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
         title="Contact Us | MarkitUp Group"
         description="Get in touch with MarkitUp Group. We're here to help you scale your business with premium digital marketing, technology, and growth solutions."

@@ -77,7 +77,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
         title="Our Work & Case Studies | MarkitUp Group"
         description="Explore MarkitUp Group case studies showing how our marketing strategy, promotional platforms, and technology solutions drive real business growth."

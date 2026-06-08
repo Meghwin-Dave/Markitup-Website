@@ -30,7 +30,11 @@ function Logo({ overrideSrc, overrideAlt, overrideHref = "/", logoClassName }: {
       <img
         src={overrideSrc || "/images/markitup_logo.png"}
         alt={overrideAlt || "MarkitUp Group"}
-        className={`h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] md:h-[150px] ${logoClassName || ""}`}
+        className={`w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] ${
+          overrideSrc 
+            ? "h-12 md:h-24 md:translate-y-[10px]" 
+            : "h-12 md:h-[150px]"
+        } ${logoClassName || ""}`}
       />
     </Link>
   );

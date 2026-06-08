@@ -62,7 +62,7 @@ function SectionTitle({ eyebrow, title, description, align = "center" }: { eyebr
 
 export default function MarketBuddy() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
         title="MarketBuddy | Social Media Marketing Agency"
         description="MarketBuddy creates scroll-stopping content, builds powerful brands, and turns followers into loyal customers."
