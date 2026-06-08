@@ -521,10 +521,10 @@ export default function Home() {
                 <div className="relative z-10 mt-auto flex flex-col gap-4">
                   <div className="flex flex-wrap items-center gap-3">
                     <Link
-                      href="/contact"
+                      href="/discount-buddy"
                       className="inline-flex w-fit items-center gap-3 rounded-lg border border-[#FF7A00]/45 bg-white px-5 py-3 text-sm font-bold text-[#FF7A00] transition-all duration-300 hover:bg-orange-50 group-hover:gap-4"
                     >
-                      Become a Partner <ArrowRight size={16} />
+                      Explore Discount Buddy <ArrowRight size={16} />
                     </Link>
                   </div>
                   <div className="flex flex-row flex-wrap items-center gap-2 xl:gap-3">
