@@ -41,7 +41,7 @@ export default function Header({
   logoAlt,
   logoHref = "/",
   ctaText = "Explore Solutions",
-  ctaHref = "/services",
+  ctaHref = "/#our-solutions",
   logoClassName
 }: { 
   logoOverride?: string, 
@@ -166,7 +166,7 @@ export default function Header({
           <Link
             href={ctaHref}
             onClick={(e) => {
-              if (ctaHref === "/services") {
+              if (ctaHref === "/services" || ctaHref === "/#our-solutions") {
                 handleSmoothScroll(e, "our-solutions");
               }
             }}
@@ -246,7 +246,7 @@ export default function Header({
               href={ctaHref}
               className="gradient-button mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
               onClick={(e) => {
-                if (ctaHref === "/services") {
+                if (ctaHref === "/services" || ctaHref === "/#our-solutions") {
                   handleSmoothScroll(e, "our-solutions");
                 }
                 if (location !== "/") setIsOpen(false);

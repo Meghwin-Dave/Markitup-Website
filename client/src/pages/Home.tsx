@@ -136,14 +136,17 @@ function GradientButton({
   children,
   href,
   className = "",
+  onClick,
 }: {
   children: ReactNode;
   href: string;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={`gradient-button inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-sm font-bold text-white shadow-[0_18px_42px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${className}`}
     >
       {children}
@@ -374,6 +377,19 @@ export default function Home() {
     );
 
     sections.forEach((section) => observer.observe(section));
+
+    // Smooth scroll to solutions if hash is present on mount
+    if (window.location.hash === "#our-solutions") {
+      setTimeout(() => {
+        const section = document.getElementById("our-solutions");
+        if (section) {
+          const offset = 78; // Navbar height
+          const top = section.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 150);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -415,7 +431,19 @@ export default function Home() {
               <p className="mt-5 max-w-[520px] text-[16px] leading-8 text-[#0F172A]">
                 MarkitUp Group is a UK-based marketing, technology and digital growth company delivering real results through specialised solutions.
               </p>
-              <GradientButton href="/services" className="mt-6 px-6 py-3.5">
+              <GradientButton
+                href="/#our-solutions"
+                className="mt-6 px-6 py-3.5"
+                onClick={(e) => {
+                  const section = document.getElementById("our-solutions");
+                  if (section) {
+                    e.preventDefault();
+                    const offset = 78; // Navbar height
+                    const top = section.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: "smooth" });
+                  }
+                }}
+              >
                 Explore Solutions
               </GradientButton>
             </div>
