@@ -32,7 +32,7 @@ function Logo({ overrideSrc, overrideAlt, overrideHref = "/", logoClassName }: {
         className={`w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] ${
           overrideSrc 
             ? "h-14 md:h-20" 
-            : "h-14 sm:h-16 md:h-[130px] lg:h-[140px]"
+            : "h-14 sm:h-16 md:h-[8.125rem] lg:h-[8.75rem]"
         } ${logoClassName || ""}`}
       />
     </Link>

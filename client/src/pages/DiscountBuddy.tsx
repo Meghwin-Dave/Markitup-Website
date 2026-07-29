@@ -118,7 +118,7 @@ const DownloadAppDropdown = ({ className, children }: { className?: string, chil
 
 const PhoneMockup = () => {
   return (
-    <div className="relative mx-auto w-[clamp(260px,40vw,320px)] aspect-[1/2.16] bg-black rounded-[clamp(2rem,4vw,3rem)] border-[clamp(6px,1vw,10px)] border-slate-900 shadow-2xl overflow-hidden shadow-purple-500/40 flex-shrink-0">
+    <div className="relative mx-auto w-[clamp(16.25rem,32vw,18rem)] aspect-[1/2.16] bg-black rounded-[clamp(2rem,4vw,3rem)] border-8 border-slate-900 shadow-2xl overflow-hidden shadow-purple-500/40 flex-shrink-0">
       {/* Dynamic Island / Notch */}
       <div className="absolute top-0 inset-x-0 h-[clamp(20px,3vw,28px)] flex justify-center z-20 pointer-events-none">
         <div className="w-[30%] h-full bg-slate-900 rounded-b-[clamp(10px,1.5vw,16px)]"></div>
@@ -142,7 +142,7 @@ const PhoneMockup = () => {
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-[clamp(2rem,4vw,4rem)] pb-[clamp(3rem,5vw,4rem)] overflow-hidden bg-gradient-to-b from-[#FAFBFF] to-white">
+    <section className="relative pt-[clamp(0.5rem,1.5vw,1.5rem)] pb-[clamp(3rem,5vw,4rem)] overflow-hidden bg-gradient-to-b from-[#FAFBFF] to-white">
       {/* Decorative Orbs */}
       <div className="absolute top-1/4 left-0 w-[clamp(300px,50vw,500px)] h-[clamp(300px,50vw,500px)] bg-purple-400/10 rounded-full blur-[clamp(50px,8vw,100px)] pointer-events-none"></div>
       <div className="absolute top-1/3 right-0 w-[clamp(400px,60vw,600px)] h-[clamp(400px,60vw,600px)] bg-pink-400/10 rounded-full blur-[clamp(60px,10vw,120px)] pointer-events-none"></div>
@@ -264,7 +264,7 @@ const CombinedBenefits = () => {
           
           {/* For Users Side */}
           <div className="flex-1 p-[clamp(2rem,4vw,4rem)] lg:border-r border-slate-100 bg-gradient-to-br from-white via-purple-50/20 to-purple-100/40 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-300/10 rounded-full blur-[60px] pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[300px] h-[18.75rem] bg-purple-300/10 rounded-full blur-[60px] pointer-events-none"></div>
             <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8A3FFC] to-purple-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Users</h2>
             <div className="flex flex-col gap-5 relative z-10">
               {userCards.map((card, i) => (
@@ -290,7 +290,7 @@ const CombinedBenefits = () => {
 
           {/* For Restaurants Side */}
           <div className="flex-1 p-[clamp(2rem,4vw,4rem)] border-t lg:border-t-0 border-slate-100 bg-gradient-to-bl from-white via-pink-50/20 to-pink-100/40 relative overflow-hidden">
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-300/10 rounded-full blur-[60px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[300px] h-[18.75rem] bg-pink-300/10 rounded-full blur-[60px] pointer-events-none"></div>
             <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-pink-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Restaurants</h2>
             <div className="flex flex-col gap-5 relative z-10">
               {restaurantCards.map((card, i) => (
@@ -467,7 +467,7 @@ const GamificationSection = () => {
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-[#8A3FFC]/20 to-[#ec4899]/20 rounded-full blur-[60px] -z-10"></div>
-            <div className="bg-white p-[clamp(2rem,4vw,3rem)] rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+            <div className="bg-white p-[clamp(2rem,4vw,3rem)] rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center justify-center min-h-[25rem] relative overflow-hidden">
               <div className="w-32 h-32 bg-gradient-to-br from-amber-200 to-amber-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white z-10 mb-6 animate-[bounce_3s_infinite]">
                 <Trophy size={60} className="text-white drop-shadow-md" />
               </div>
@@ -488,7 +488,7 @@ const MysteryGuestSection = () => {
   return (
     <section className="py-[clamp(3rem,5vw,4rem)] bg-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.15),transparent_60%)] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[37.5rem] bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.15),transparent_60%)] pointer-events-none"></div>
       
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px] relative z-10">
         <div className="text-center mb-[clamp(3rem,4vw,4rem)] max-w-3xl mx-auto">
@@ -624,7 +624,7 @@ const CTABanner = () => {
           {/* Subtle animated background gradient */}
           <div className="absolute inset-0 rounded-[3rem] overflow-hidden pointer-events-none z-0">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#8A3FFC]/40 to-pink-500/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-500/30 to-blue-500/30 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-[400px] h-[25rem] bg-gradient-to-tr from-purple-500/30 to-blue-500/30 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3"></div>
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
           </div>
           

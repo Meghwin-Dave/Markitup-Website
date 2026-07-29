@@ -110,7 +110,7 @@ export default function CaseStudies() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,59,255,0.08),transparent_40%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,122,0,0.05),transparent_40%)] pointer-events-none" />
           
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] relative z-10 text-center">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem] relative z-10 text-center">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto">
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#E7D8FF] bg-white px-4 py-2 text-sm font-bold text-[#6C3BFF] shadow-sm mb-6">
                 <BarChart size={16} /> Real Results. Real Growth.
@@ -130,7 +130,7 @@ export default function CaseStudies() {
 
         {/* CASE STUDIES LISTING */}
         <section className="py-12 lg:py-16 bg-[#FAFAFA]">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] space-y-12 lg:space-y-16">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem] space-y-12 lg:space-y-16">
             
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
@@ -221,7 +221,7 @@ export default function CaseStudies() {
 
         {/* METRICS & SOCIAL PROOF */}
         <section className="py-12 bg-white border-y border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 text-center divide-x divide-slate-100">
               {[
                 { number: "250+", label: "Projects Completed" },
@@ -244,7 +244,7 @@ export default function CaseStudies() {
 
         {/* CTA SECTION */}
         <section className="py-12 lg:py-16 bg-[#FAFAFA]">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
              <div className="relative flex w-full flex-col items-center justify-between gap-8 overflow-hidden rounded-[2.5rem] brand-gradient-bg p-8 lg:p-12 text-white shadow-[0_30px_60px_rgba(108,59,255,0.25)] lg:flex-row">
               
               {/* Abstract shapes */}

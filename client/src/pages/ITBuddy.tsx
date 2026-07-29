@@ -232,7 +232,7 @@ function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(108,59,255,0.06),transparent_55%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,122,0,0.05),transparent_55%)] pointer-events-none" />
       
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
         <div className="grid min-h-[clamp(400px,50vh,600px)] w-full items-center lg:grid-cols-[50%_50%] gap-8 lg:gap-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -275,7 +275,7 @@ function HeroSection() {
           <div className="relative hidden lg:flex justify-center lg:justify-end w-full mt-8 lg:mt-0">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-bl from-[#6C3BFF]/20 to-[#FF7A00]/20 blur-[100px] rounded-full z-0 pointer-events-none hidden lg:block"></div>
             
-            <div className="relative w-full max-w-[850px] aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[600px] flex items-center justify-center group">
+            <div className="relative w-full max-w-[850px] aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto lg:h-[37.5rem] flex items-center justify-center group">
               <motion.img 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -15, 0] }}

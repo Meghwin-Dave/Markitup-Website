@@ -184,7 +184,7 @@ export default function MarketBuddy() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(108,59,255,0.06),transparent_55%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,122,0,0.05),transparent_55%)] pointer-events-none" />
 
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid min-h-[clamp(400px,50vh,600px)] w-full items-center lg:grid-cols-[55%_45%] gap-8 lg:gap-6">
               
               <motion.div 
@@ -257,7 +257,7 @@ export default function MarketBuddy() {
 
         {/* SERVICES SECTION */}
         <section className="py-16 md:py-24 bg-white relative z-10 border-y border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="WHAT WE DO" 
               title="End-to-end Solutions for Your Brand Growth" 
@@ -327,7 +327,7 @@ export default function MarketBuddy() {
 
         {/* CONTENT THAT CONVERTS - REDESIGNED */}
         <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-10 items-center">
               
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
@@ -362,7 +362,7 @@ export default function MarketBuddy() {
                 initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full"
               >
-                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[300px] sm:h-[400px]">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[18.75rem] sm:h-[25rem]">
                   <img src="/images/ugc_creation.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="UGC Content Creation" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
@@ -374,7 +374,7 @@ export default function MarketBuddy() {
                   </div>
                 </div>
                 
-                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[300px] sm:h-[400px]">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[18.75rem] sm:h-[25rem]">
                   <img src="/images/influencer_strategy.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Influencer Strategy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
@@ -393,7 +393,7 @@ export default function MarketBuddy() {
 
         {/* TESTIMONIALS */}
         <section className="py-12 md:py-16 bg-white relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="LOVE FROM OUR CLIENTS" 
               title={<>What <span className="text-[#6C3BFF]">Brands</span> Say About <span className="text-[#FF7A00]">Us</span></>}
@@ -434,7 +434,7 @@ export default function MarketBuddy() {
 
         {/* CONTACT / LEAD FORM */}
         <section className="py-12 md:py-16 bg-[#FAFAFA]">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-[40%_60%] gap-8 bg-white rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-[0_20px_60px_rgba(15,23,42,0.04)] border border-slate-100">
               
               <div>

@@ -107,13 +107,13 @@ export default function About() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative overflow-visible bg-white pt-8 pb-12 lg:pt-12 lg:pb-16">
+        <section className="relative overflow-visible bg-white">
           <div className="grid min-h-[clamp(350px,50vh,550px)] w-full items-center lg:grid-cols-[45%_55%]">
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="relative z-10 px-5 py-12 sm:px-8 lg:px-12 xl:pl-[72px]"
+              className="relative z-10 px-5 pt-12 pb-24 sm:px-8 lg:px-12 lg:pt-12 lg:pb-28 xl:pl-[4.5rem]"
             >
               <motion.div variants={fadeUp}>
                 <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[1.05] text-[#0F172A] tracking-tight">
@@ -171,7 +171,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative h-full w-full min-h-[350px] lg:min-h-full"
+              className="relative h-full w-full min-h-[21.875rem] lg:min-h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent z-10 hidden lg:block" />
               <div className="absolute inset-t-0 bg-gradient-to-b from-white via-transparent to-transparent z-10 h-24 w-full block lg:hidden" />
@@ -186,7 +186,7 @@ export default function About() {
 
         {/* WHO WE ARE SECTION */}
         <section id="who-we-are" className="py-12 md:py-16 lg:py-20 relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center bg-white rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(15,23,42,0.04)] border border-slate-100">
               
               <motion.div 
@@ -247,7 +247,7 @@ export default function About() {
 
         {/* WHAT WE DO SECTION */}
         <section className="py-12 md:py-16 bg-white relative z-10 border-y border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="WHAT WE DO" 
               title="A Complete Growth Ecosystem" 
@@ -341,7 +341,7 @@ export default function About() {
 
         {/* OUR APPROACH SECTION */}
         <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle eyebrow="OUR APPROACH" title="A Proven Process for Growth" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16 relative">
@@ -369,7 +369,7 @@ export default function About() {
 
         {/* WHY CHOOSE US SECTION */}
         <section className="py-12 md:py-16 bg-white relative border-y border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle eyebrow="WHY CHOOSE US" title="The MarkitUp Advantage" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-10">
@@ -399,7 +399,7 @@ export default function About() {
 
         {/* VISION & MISSION SECTION */}
         <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
               
               {/* Vision Card */}
@@ -443,7 +443,7 @@ export default function About() {
 
         {/* FINAL CTA SECTION */}
         <section className="py-12 lg:py-16 bg-white pb-20 lg:pb-24">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
               className="relative flex w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl brand-gradient-bg px-6 py-10 text-white shadow-xl shadow-brand-purple/20 sm:px-10 md:flex-row lg:mx-auto lg:max-w-5xl lg:px-12"

@@ -121,7 +121,7 @@ export default function Contact() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(108,59,255,0.08),transparent_50%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,122,0,0.05),transparent_50%)] pointer-events-none" />
           
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] relative z-10 text-center">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem] relative z-10 text-center">
             <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-3xl mx-auto">
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#E7D8FF] bg-white px-4 py-2 text-sm font-bold text-[#6C3BFF] shadow-sm mb-6">
                 <MessageSquare size={16} /> We'd love to hear from you
@@ -141,7 +141,7 @@ export default function Contact() {
 
         {/* MAIN CONTACT SECTION */}
         <section className="py-12 lg:py-16 bg-[#FAFAFA]">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-12 items-start">
               
               {/* LEFT: CONTACT INFO */}
@@ -199,7 +199,7 @@ export default function Contact() {
                 {submitted ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center text-center py-16 h-full min-h-[400px]"
+                    className="flex flex-col items-center justify-center text-center py-16 h-full min-h-[25rem]"
                   >
                     <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mb-6">
                       <CheckCircle2 size={40} />

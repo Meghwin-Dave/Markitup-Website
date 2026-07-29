@@ -297,7 +297,7 @@ export default function Home() {
           <div className="relative grid w-full flex-grow lg:grid-cols-[45%_55%] xl:grid-cols-[40%_60%] h-full">
             <motion.div 
               initial="hidden" animate="visible" variants={staggerContainer}
-              className="relative z-10 px-5 pt-12 pb-10 sm:px-8 lg:px-12 lg:pt-16 xl:pl-[72px]"
+              className="relative z-10 px-5 pt-12 pb-16 sm:px-8 lg:px-12 lg:pt-16 lg:pb-24 xl:pl-[4.5rem]"
             >
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-bold shadow-sm mb-5">
                 <span className="brand-gradient-text">
@@ -335,7 +335,7 @@ export default function Home() {
 
             <motion.div 
               initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}
-              className="group absolute inset-0 z-0 overflow-hidden lg:relative lg:h-full lg:min-h-[500px]"
+              className="group absolute inset-0 z-0 overflow-hidden lg:relative lg:h-full lg:min-h-[31.25rem]"
             >
               <img
                 src={heroImage}
@@ -350,7 +350,7 @@ export default function Home() {
           </div>
           
           {/* STATS SECTION INJECTED INTO BOTTOM OF HERO VIEW */}
-          <div className="relative z-20 mx-5 sm:mx-8 lg:mx-12 lg:-mt-12 xl:mx-[72px]">
+          <div className="relative z-20 mx-5 sm:mx-8 lg:mx-12 lg:-mt-12 xl:mx-[4.5rem]">
             <motion.div 
               initial="hidden" animate="visible" variants={fadeUp}
               className="grid overflow-hidden rounded-[2rem] border border-[#E5E7EB] bg-white shadow-[0_20px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1.6fr_1fr]"
@@ -388,7 +388,7 @@ export default function Home() {
 
         {/* SOLUTIONS SECTION - Fits perfectly into 1 view height */}
         <section id="our-solutions" className="bg-[#FAFAFA] flex flex-col justify-center lg:min-h-[100vh] py-16 lg:py-0 border-t border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="Our Ecosystem" 
               title={
@@ -443,7 +443,7 @@ export default function Home() {
         <section className="bg-white flex flex-col justify-center lg:min-h-[90vh] py-16 lg:py-0 border-t border-slate-100 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(ellipse_at_top_right,rgba(108,59,255,0.04),transparent_70%)] pointer-events-none" />
           
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] relative z-10">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem] relative z-10">
             <div className="grid gap-12 lg:grid-cols-[40%_1fr] lg:gap-20 items-center">
               
               {/* Left Side: Sticky/Static Content */}
@@ -487,7 +487,7 @@ export default function Home() {
 
         {/* FEATURED WORK - Fits in 1 view */}
         <section className="bg-[#FAFAFA] flex flex-col justify-center lg:min-h-[100vh] py-16 lg:py-0 border-t border-slate-100 relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <SectionTitle title="Featured Case Studies" eyebrow="Our Work" className="!mb-0 text-left !mx-0" />
               <Link href="/case-studies" className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-[14px] font-bold text-slate-900 transition-all duration-300 hover:border-[#6C3BFF] hover:text-[#6C3BFF] hover:shadow-md md:mb-2">
@@ -519,7 +519,7 @@ export default function Home() {
 
         {/* ABOUT US - Compacted for 1 view */}
         <section className="bg-white flex flex-col justify-center lg:min-h-[90vh] py-16 lg:py-0">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid w-full items-center gap-10 lg:grid-cols-[45%_55%]">
               <motion.div 
                 initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
@@ -557,7 +557,7 @@ export default function Home() {
 
         {/* TESTIMONIALS & CTA - Combine into one view */}
         <section className="bg-[#FAFAFA] flex flex-col justify-center lg:min-h-[100vh] py-16 lg:py-0 border-y border-slate-100 relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle title="What Our Clients Say" eyebrow="TESTIMONIALS" className="mb-10" />
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid gap-5 md:grid-cols-3 mb-16">

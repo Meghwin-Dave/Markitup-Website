@@ -14,7 +14,7 @@ export default function SEOContentBlock({ title, children }: SEOContentBlockProp
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,122,0,0.05),transparent_40%)] pointer-events-none" />
       <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
       
-      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] relative z-10">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem] relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -137,13 +137,13 @@ export default function Services() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative overflow-visible bg-white pt-8 pb-12 lg:pt-12 lg:pb-16 border-b border-slate-100">
+        <section className="relative overflow-visible bg-white border-b border-slate-100">
           <div className="grid min-h-[clamp(350px,50vh,550px)] w-full items-center lg:grid-cols-[50%_50%]">
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="relative z-10 px-5 py-12 sm:px-8 lg:px-12 xl:pl-[72px]"
+              className="relative z-10 px-5 pt-12 pb-24 sm:px-8 lg:px-12 lg:pt-12 lg:pb-28 xl:pl-[4.5rem]"
             >
               <motion.div variants={fadeUp}>
                 <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-brand-purple)]">Our Services</p>
@@ -183,7 +183,7 @@ export default function Services() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative h-full w-full min-h-[350px] lg:min-h-full p-6 lg:p-12"
+              className="relative h-full w-full min-h-[21.875rem] lg:min-h-full p-6 lg:p-12"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden lg:block" />
               <div className="absolute inset-t-0 bg-gradient-to-b from-white via-transparent to-transparent z-10 h-24 w-full block lg:hidden" />
@@ -201,7 +201,7 @@ export default function Services() {
 
         {/* SERVICES GRID */}
         <section id="core-services" className="py-16 md:py-24 bg-[#FAFAFA] relative">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="CORE SERVICES" 
               title="Everything You Need to Grow" 
@@ -246,7 +246,7 @@ export default function Services() {
 
         {/* BUSINESS UNITS SECTION */}
         <section className="py-16 md:py-24 bg-white border-t border-slate-100">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="BUSINESS UNITS" 
               title={
@@ -317,7 +317,7 @@ export default function Services() {
 
         {/* FINAL CTA SECTION */}
         <section className="py-12 lg:py-16 bg-white pb-20 lg:pb-24">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
               className="relative flex w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl brand-gradient-bg px-6 py-10 text-white shadow-xl shadow-brand-purple/20 sm:px-10 md:flex-row lg:mx-auto lg:max-w-5xl lg:px-12"
