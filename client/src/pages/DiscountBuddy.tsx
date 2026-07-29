@@ -266,21 +266,23 @@ const CombinedBenefits = () => {
           <div className="flex-1 p-[clamp(2rem,4vw,4rem)] lg:border-r border-slate-100 bg-gradient-to-br from-white via-purple-50/20 to-purple-100/40 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-300/10 rounded-full blur-[60px] pointer-events-none"></div>
             <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8A3FFC] to-purple-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Users</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            <div className="flex flex-col gap-5 relative z-10">
               {userCards.map((card, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                  className="flex flex-row items-center text-left p-5 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:translate-x-1 hover:shadow-lg transition-all duration-300 gap-5"
                 >
-                  <div className={`w-[clamp(3.5rem,6vw,4.5rem)] h-[clamp(3.5rem,6vw,4.5rem)] rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-5 shadow-sm transform -rotate-3`}>
-                    <card.icon size={28} className="transform rotate-3" />
+                  <div className={`w-14 h-14 shrink-0 rounded-2xl ${card.bg} ${card.color} flex items-center justify-center shadow-sm transform -rotate-3`}>
+                    <card.icon size={26} className="transform rotate-3" />
                   </div>
-                  <h3 className="text-[clamp(1.05rem,1.25vw+0.5rem,1.15rem)] font-bold text-slate-900 mb-3">{card.title}</h3>
-                  <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-600 leading-relaxed">{card.desc}</p>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">{card.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{card.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -290,21 +292,23 @@ const CombinedBenefits = () => {
           <div className="flex-1 p-[clamp(2rem,4vw,4rem)] border-t lg:border-t-0 border-slate-100 bg-gradient-to-bl from-white via-pink-50/20 to-pink-100/40 relative overflow-hidden">
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-300/10 rounded-full blur-[60px] pointer-events-none"></div>
             <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-pink-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Restaurants</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            <div className="flex flex-col gap-5 relative z-10">
               {restaurantCards.map((card, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: (i * 0.1) + 0.2 }}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+                  className="flex flex-row items-center text-left p-5 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:-translate-x-1 hover:shadow-lg transition-all duration-300 gap-5"
                 >
-                  <div className={`w-[clamp(3.5rem,6vw,4.5rem)] h-[clamp(3.5rem,6vw,4.5rem)] rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-5 shadow-sm transform rotate-3`}>
-                    <card.icon size={28} className="transform -rotate-3" />
+                  <div className={`w-14 h-14 shrink-0 rounded-2xl ${card.bg} ${card.color} flex items-center justify-center shadow-sm transform rotate-3`}>
+                    <card.icon size={26} className="transform -rotate-3" />
                   </div>
-                  <h3 className="text-[clamp(1.05rem,1.25vw+0.5rem,1.15rem)] font-bold text-slate-900 mb-3">{card.title}</h3>
-                  <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-600 leading-relaxed">{card.desc}</p>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">{card.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{card.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
