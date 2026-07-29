@@ -29,7 +29,7 @@ export default function TermsConditions() {
               <h2 className="text-2xl font-bold text-slate-900">Liability</h2>
               <p>While we aim to keep information accurate and current, MarkitUp Group Limited does not guarantee the completeness of all website content at all times.</p>
               <h2 className="text-2xl font-bold text-slate-900">Contact</h2>
-              <p>Questions about these terms can be sent to contact@markitupgroup.com.</p>
+              <p>Questions about these terms can be sent to info@markitupgroup.com.</p>
             </div>
           </div>
         </div>
