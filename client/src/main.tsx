@@ -13,4 +13,10 @@ if (analyticsEndpoint && analyticsWebsiteId) {
   document.head.appendChild(script);
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+import { HelmetProvider } from "react-helmet-async";
+
+createRoot(document.getElementById("root")!).render(
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
+);

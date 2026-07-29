@@ -8,8 +8,10 @@ import {
   TrendingUp, Play, Heart, Send, Search, Star, ShieldCheck,
   CheckCircle2, Instagram, Facebook, Youtube, Linkedin, Twitter, Target
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { ReactNode } from "react";
+import emailjs from '@emailjs/browser';
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -105,6 +107,59 @@ function PlatformsSection() {
 }
 
 export default function MarketBuddy() {
+  const [formData, setFormData] = useState({
+    name: "",
+    business: "",
+    phone: "",
+    email: "",
+    service: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Split name into first and last name for the email template
+    const nameParts = formData.name.trim().split(" ");
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+
+    try {
+      await emailjs.send(
+        "service_fsutstp",
+        "template_mqvpl6o",
+        {
+          firstName: firstName,
+          lastName: lastName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.business,
+          service: formData.service,
+          message: formData.message,
+        },
+        "Tnohct8f2AxCPSURl"
+      );
+      
+      setSubmitted(true);
+      setIsSubmitting(false);
+      setFormData({ name: "", business: "", phone: "", email: "", service: "", message: "" });
+      
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setIsSubmitting(false);
+      alert("Something went wrong, please try again later.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
@@ -411,46 +466,56 @@ export default function MarketBuddy() {
                 </div>
               </div>
 
-              <div className="bg-[#FAFAFA] rounded-[2rem] p-6 sm:p-10 border border-slate-100 shadow-inner">
-                <form className="space-y-4">
+              <div className="bg-[#FAFAFA] rounded-[2rem] p-6 sm:p-10 border border-slate-100 shadow-inner relative">
+                {submitted ? (
+                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm rounded-[2rem]">
+                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+                      <CheckCircle2 size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">Message Sent!</h3>
+                    <p className="text-slate-500 text-center max-w-[250px]">We've received your inquiry and will be in touch shortly.</p>
+                  </div>
+                ) : null}
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
+                      <input required type="text" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Business</label>
-                      <input type="text" placeholder="Company Name" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
+                      <input required type="text" name="business" value={formData.business} onChange={handleChange} placeholder="Company Name" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Phone</label>
-                      <input type="tel" placeholder="+44 123 456 7890" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
+                      <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+44 123 456 7890" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Email</label>
-                      <input type="email" placeholder="john@example.com" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
+                      <input required type="email" name="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700" />
                     </div>
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Service Interested In</label>
-                    <select className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700 appearance-none">
-                      <option value="" disabled selected>Select a service</option>
-                      <option>UGC Content Creation</option>
-                      <option>Reels & Photoshoots</option>
-                      <option>Influencer Marketing</option>
-                      <option>Social Media Management</option>
-                      <option>SEO & Ads</option>
+                    <select required name="service" value={formData.service} onChange={handleChange} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700 appearance-none">
+                      <option value="" disabled>Select a service</option>
+                      <option value="UGC Content Creation">UGC Content Creation</option>
+                      <option value="Reels & Photoshoots">Reels & Photoshoots</option>
+                      <option value="Influencer Marketing">Influencer Marketing</option>
+                      <option value="Social Media Management">Social Media Management</option>
+                      <option value="SEO & Ads">SEO & Ads</option>
                     </select>
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Message</label>
-                    <textarea placeholder="Tell us about your goals..." rows={4} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700 resize-none"></textarea>
+                    <textarea required name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your goals..." rows={4} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:border-[#6C3BFF] focus:ring-2 focus:ring-[#6C3BFF]/20 transition-all font-medium text-slate-700 resize-none"></textarea>
                   </div>
                   
-                  <button type="button" className="w-full gradient-button text-white font-bold py-4 rounded-xl transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 mt-4">
-                    <Send size={18} /> Send Message
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4">
+                    {isSubmitting ? "Sending..." : "Submit Inquiry"} <ArrowRight size={18} />
                   </button>
                   <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1.5 font-medium">
                     <ShieldCheck size={14} /> Your information is 100% secure and confidential.
