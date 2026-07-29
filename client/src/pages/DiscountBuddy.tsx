@@ -22,7 +22,17 @@ import {
   Bell,
   Play,
   Apple,
-  ArrowRight
+  ArrowRight,
+  Trophy, 
+  Medal, 
+  Award, 
+  Camera, 
+  ClipboardCheck, 
+  Database, 
+  Lock, 
+  Code,
+  Eye,
+  Layers
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -234,15 +244,15 @@ const HeroSection = () => {
 
 const CombinedBenefits = () => {
   const userCards = [
-    { icon: Tag, title: "Discover deals", desc: "Find the best discounts at top restaurants near you.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
-    { icon: CalendarCheck, title: "Book tables", desc: "Quick and easy table booking in just a few taps.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
-    { icon: MapPin, title: "Explore nearby restaurants", desc: "Explore top-rated restaurants close to you.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
+    { icon: Tag, title: "Discover & Save", desc: "Find the best discounts at top restaurants and track your savings.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
+    { icon: CalendarCheck, title: "Seamless Bookings", desc: "Quick and easy table booking with instant confirmations.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
+    { icon: Gift, title: "Gamified Rewards", desc: "Earn points, unlock badges, and participate in our Mystery Guest program.", color: "text-[#8A3FFC]", bg: "bg-purple-100/50" },
   ];
 
   const restaurantCards = [
-    { icon: Users, title: "Increase footfall", desc: "Attract more diners with exclusive deals.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
-    { icon: CalendarCheck, title: "Get bookings", desc: "Receive more bookings and reduce no-shows.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
-    { icon: LineChart, title: "Track analytics", desc: "Understand performance and grow your business.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
+    { icon: Users, title: "Reach More Customers", desc: "Attract more diners during slow hours with targeted, exclusive deals.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
+    { icon: Smartphone, title: "Instant QR Validation", desc: "Validate customer vouchers instantly right at the table.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
+    { icon: Star, title: "Actionable Feedback", desc: "Gain invaluable insights through verified reviews and Mystery Guests.", color: "text-[#ec4899]", bg: "bg-pink-100/50" },
   ];
 
   return (
@@ -250,12 +260,13 @@ const CombinedBenefits = () => {
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
         
         {/* Large Rounded Container combining both sides */}
-        <div className="bg-white rounded-[clamp(1.5rem,4vw,2.5rem)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row">
+        <div className="bg-white rounded-[clamp(1.5rem,4vw,2.5rem)] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden flex flex-col lg:flex-row relative">
           
           {/* For Users Side */}
-          <div className="flex-1 p-[clamp(1.5rem,4vw,3rem)] lg:border-r border-slate-100 bg-gradient-to-br from-white to-purple-50/30">
-            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#8A3FFC] text-center mb-[clamp(1.5rem,3vw,2rem)]">For Users</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex-1 p-[clamp(2rem,4vw,4rem)] lg:border-r border-slate-100 bg-gradient-to-br from-white via-purple-50/20 to-purple-100/40 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-300/10 rounded-full blur-[60px] pointer-events-none"></div>
+            <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8A3FFC] to-purple-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Users</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
               {userCards.map((card, i) => (
                 <motion.div
                   key={i}
@@ -263,12 +274,12 @@ const CombinedBenefits = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex flex-col items-center text-center p-2"
+                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-[clamp(3rem,6vw,4rem)] h-[clamp(3rem,6vw,4rem)] rounded-full ${card.bg} ${card.color} flex items-center justify-center mb-4 shadow-sm`}>
-                    <card.icon size={24} />
+                  <div className={`w-[clamp(3.5rem,6vw,4.5rem)] h-[clamp(3.5rem,6vw,4.5rem)] rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-5 shadow-sm transform -rotate-3`}>
+                    <card.icon size={28} className="transform rotate-3" />
                   </div>
-                  <h3 className="text-[clamp(1rem,1.25vw+0.5rem,1.125rem)] font-bold text-slate-900 mb-2">{card.title}</h3>
+                  <h3 className="text-[clamp(1.05rem,1.25vw+0.5rem,1.15rem)] font-bold text-slate-900 mb-3">{card.title}</h3>
                   <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-600 leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
@@ -276,9 +287,10 @@ const CombinedBenefits = () => {
           </div>
 
           {/* For Restaurants Side */}
-          <div className="flex-1 p-[clamp(1.5rem,4vw,3rem)] border-t lg:border-t-0 border-slate-100 bg-gradient-to-br from-white to-pink-50/30">
-            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#ec4899] text-center mb-[clamp(1.5rem,3vw,2rem)]">For Restaurants</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex-1 p-[clamp(2rem,4vw,4rem)] border-t lg:border-t-0 border-slate-100 bg-gradient-to-bl from-white via-pink-50/20 to-pink-100/40 relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-pink-300/10 rounded-full blur-[60px] pointer-events-none"></div>
+            <h2 className="text-[clamp(1.75rem,2.5vw,2.25rem)] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-pink-500 text-center mb-[clamp(2rem,4vw,3rem)]">For Restaurants</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
               {restaurantCards.map((card, i) => (
                 <motion.div
                   key={i}
@@ -286,12 +298,12 @@ const CombinedBenefits = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: (i * 0.1) + 0.2 }}
-                  className="flex flex-col items-center text-center p-2"
+                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-[clamp(3rem,6vw,4rem)] h-[clamp(3rem,6vw,4rem)] rounded-full ${card.bg} ${card.color} flex items-center justify-center mb-4 shadow-sm`}>
-                    <card.icon size={24} />
+                  <div className={`w-[clamp(3.5rem,6vw,4.5rem)] h-[clamp(3.5rem,6vw,4.5rem)] rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-5 shadow-sm transform rotate-3`}>
+                    <card.icon size={28} className="transform -rotate-3" />
                   </div>
-                  <h3 className="text-[clamp(1rem,1.25vw+0.5rem,1.125rem)] font-bold text-slate-900 mb-2">{card.title}</h3>
+                  <h3 className="text-[clamp(1.05rem,1.25vw+0.5rem,1.15rem)] font-bold text-slate-900 mb-3">{card.title}</h3>
                   <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-600 leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
@@ -308,6 +320,10 @@ const FeaturesGrid = () => {
   const features = [
     { title: "Live Deals", desc: "Exclusive offers updated in real-time.", icon: Tag },
     { title: "Table Booking", desc: "Seamless booking experience.", icon: CalendarCheck },
+    { title: "Gamified Rewards", desc: "Earn badges and level up as you dine.", icon: Gift },
+    { title: "Track Savings", desc: "Monitor exactly how much you save.", icon: BadgePercent },
+    { title: "Mystery Guest", desc: "Review restaurants anonymously for perks.", icon: Search },
+    { title: "QR Validation", desc: "Instant deal redemption at the table.", icon: Smartphone },
     { title: "Reviews", desc: "Genuine reviews from real diners.", icon: Star },
     { title: "Analytics", desc: "Powerful insights to grow your business.", icon: LineChart },
   ];
@@ -317,19 +333,19 @@ const FeaturesGrid = () => {
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(1rem,2vw,1.5rem)]">
           {features.map((feat, i) => (
-            <motion.div
+              <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex flex-col items-center text-center p-[clamp(1.5rem,3vw,2rem)] rounded-[clamp(1rem,2vw,1.5rem)] border border-slate-100 bg-white hover:border-[#8A3FFC]/30 hover:shadow-xl hover:shadow-[#8A3FFC]/5 transition-all duration-300 h-full"
+              className="flex flex-col items-center text-center p-[clamp(1.5rem,3vw,2rem)] rounded-3xl border border-slate-100 bg-white shadow-sm hover:border-[#8A3FFC]/30 hover:shadow-2xl hover:shadow-[#8A3FFC]/10 hover:-translate-y-1 transition-all duration-300 h-full group"
             >
-              <div className="w-[clamp(3rem,5vw,4rem)] h-[clamp(3rem,5vw,4rem)] rounded-full bg-slate-50 text-[#8A3FFC] flex items-center justify-center mb-5">
-                <feat.icon size={24} />
+              <div className="w-[clamp(3.5rem,5vw,4.5rem)] h-[clamp(3.5rem,5vw,4.5rem)] rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 text-[#8A3FFC] group-hover:text-white group-hover:from-[#8A3FFC] group-hover:to-purple-500 flex items-center justify-center mb-6 shadow-sm border border-purple-100/50 transition-colors duration-300 transform group-hover:rotate-6">
+                <feat.icon size={28} />
               </div>
-              <h3 className="text-[clamp(1rem,1.5vw+0.25rem,1.125rem)] font-bold text-slate-900 mb-2">{feat.title}</h3>
-              <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-500">{feat.desc}</p>
+              <h3 className="text-[clamp(1.1rem,1.5vw+0.25rem,1.2rem)] font-bold text-slate-900 mb-3">{feat.title}</h3>
+              <p className="text-[clamp(0.875rem,1vw+0.25rem,0.95rem)] text-slate-600 leading-relaxed">{feat.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -399,6 +415,152 @@ const Testimonials = () => {
   );
 };
 
+const GamificationSection = () => {
+  const perks = [
+    { title: "Level Progression", desc: "Rise through the ranks from Bronze to 'Local Foodie' based on your activity.", icon: TrendingUp },
+    { title: "Collectible Badges", desc: "Earn achievements like 'First Booking' or 'Deal Hunter' as you dine.", icon: Award },
+    { title: "Weekly Stats", desc: "Track your redemptions and see exactly how much you're saving week over week.", icon: LineChart }
+  ];
+
+  return (
+    <section className="py-[clamp(3rem,5vw,4rem)] bg-gradient-to-br from-[#8A3FFC]/5 to-transparent relative border-t border-slate-100">
+      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
+        <div className="grid lg:grid-cols-2 gap-[clamp(2rem,4vw,4rem)] items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#8A3FFC]">Gamified Experience</p>
+            <h2 className="text-[clamp(2rem,3vw,2.5rem)] font-extrabold text-slate-900 mb-6 leading-tight">
+              Dine, Earn & <br className="hidden sm:block" />
+              <span className="brand-gradient-text">Level Up.</span>
+            </h2>
+            <p className="text-slate-600 font-medium leading-relaxed mb-8 text-[clamp(1rem,1.2vw,1.125rem)]">
+              We make dining out not just affordable, but fun. Engage with restaurants, leave authentic reviews, and claim deals to earn points and climb the ranks.
+            </p>
+            <div className="grid gap-6">
+              {perks.map((perk, i) => (
+                <div key={i} className="flex gap-4 items-start">
+                  <div className="w-12 h-12 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-[#8A3FFC] flex-shrink-0">
+                    <perk.icon size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-slate-900 mb-1">{perk.title}</h4>
+                    <p className="text-slate-500 text-sm">{perk.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#8A3FFC]/20 to-[#ec4899]/20 rounded-full blur-[60px] -z-10"></div>
+            <div className="bg-white p-[clamp(2rem,4vw,3rem)] rounded-[2.5rem] shadow-xl border border-slate-100 flex flex-col items-center justify-center min-h-[400px] relative overflow-hidden">
+              <div className="w-32 h-32 bg-gradient-to-br from-amber-200 to-amber-500 rounded-full flex items-center justify-center shadow-lg border-4 border-white z-10 mb-6 animate-[bounce_3s_infinite]">
+                <Trophy size={60} className="text-white drop-shadow-md" />
+              </div>
+              <h3 className="text-2xl font-black text-slate-800 z-10">Local Foodie</h3>
+              <p className="text-slate-500 font-medium mt-2 z-10">Level 42 Achieved</p>
+              
+              <div className="absolute top-10 left-10 w-16 h-16 bg-white rounded-full shadow-md flex items-center justify-center text-pink-500 transform -rotate-12"><Medal size={28} /></div>
+              <div className="absolute bottom-16 right-12 w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-blue-500 transform rotate-12"><Award size={24} /></div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const MysteryGuestSection = () => {
+  return (
+    <section className="py-[clamp(3rem,5vw,4rem)] bg-slate-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.15),transparent_60%)] pointer-events-none"></div>
+      
+      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px] relative z-10">
+        <div className="text-center mb-[clamp(3rem,4vw,4rem)] max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-pink-400 font-bold text-xs uppercase tracking-widest mb-6">
+            <Eye size={16} /> Exclusive Program
+          </div>
+          <h2 className="text-[clamp(2rem,3vw,2.5rem)] font-extrabold mb-6 text-white">The Mystery Guest Program</h2>
+          <p className="text-slate-300 text-lg leading-relaxed">
+            A unique module allowing selected users to evaluate restaurants anonymously. Enjoy complimentary experiences while providing businesses with actionable, high-quality feedback.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-6">
+          {[
+            { icon: CalendarCheck, title: "Assigned Visits", desc: "Get scheduled to visit specific restaurants anonymously as an undercover evaluator." },
+            { icon: ClipboardCheck, title: "Detailed Evaluation", desc: "Fill out detailed scorecards covering cleanliness, service, and food quality." },
+            { icon: Camera, title: "Evidence Upload", desc: "Attach photographic evidence and detailed comments to support your scorecard." }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="bg-white/10 border border-white/20 rounded-[2rem] p-8 hover:bg-white/20 hover:border-pink-400/50 transition-all duration-300 backdrop-blur-md shadow-xl group"
+            >
+              <div className="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-2xl flex items-center justify-center mb-6 border border-pink-400/20 group-hover:scale-110 transition-transform duration-300">
+                <item.icon size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
+              <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const TechStackSection = () => {
+  const tech = [
+    { name: "Flutter & Dart", icon: Smartphone, color: "text-blue-500" },
+    { name: "Firebase (FCM)", icon: Bell, color: "text-amber-500" },
+    { name: "Secure Storage", icon: Lock, color: "text-slate-700" },
+    { name: "RESTful API", icon: Database, color: "text-emerald-500" },
+    { name: "Geo & Mapping", icon: MapPin, color: "text-red-500" },
+    { name: "QR Scanner", icon: Camera, color: "text-purple-500" },
+  ];
+
+  return (
+    <section className="py-[clamp(3rem,4vw,4rem)] bg-slate-50 border-y border-slate-100">
+      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
+        <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+          <div className="md:w-1/3">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4">Robust Architecture & Technology</h2>
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              DiscountBuddy is engineered for performance, security, and scalability. Utilizing modern cross-platform frameworks and robust cloud infrastructure to deliver a seamless experience for both users and merchants.
+            </p>
+          </div>
+          
+          <div className="md:w-2/3 grid grid-cols-2 sm:grid-cols-3 gap-4 w-full">
+            {tech.map((item, i) => (
+              <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className={`p-2 rounded-lg bg-slate-50 border border-slate-100 ${item.color}`}>
+                  <item.icon size={20} />
+                </div>
+                <span className="font-bold text-slate-800 text-sm">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 
 const HowItWorks = () => {
   const steps = [
@@ -415,9 +577,9 @@ const HowItWorks = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Three simple steps to save</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
-          {/* Connector line for desktop */}
-          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-purple-200 via-pink-200 to-amber-200 z-0"></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative mt-8">
+          {/* Connector line for desktop - adjusted top to align exactly with circle centers */}
+          <div className="hidden md:block absolute top-[3rem] left-[16%] right-[16%] h-1 bg-gradient-to-r from-purple-200 via-pink-200 to-amber-200 z-0 rounded-full opacity-60"></div>
           
           {steps.map((step, i) => (
             <motion.div
@@ -426,17 +588,20 @@ const HowItWorks = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.2 }}
-              className="relative z-10 flex flex-col items-center text-center"
+              className="relative z-10 flex flex-col items-center text-center group"
             >
-              <div className={`w-24 h-24 rounded-full ${step.bg} ${step.color} flex items-center justify-center mb-6 shadow-xl shadow-${step.bg.replace('bg-', '')}/50 border-4 border-white`}>
+              <div className={`relative w-24 h-24 rounded-full ${step.bg} ${step.color} flex items-center justify-center mb-8 shadow-xl shadow-${step.bg.replace('bg-', '')}/50 border-4 border-white group-hover:scale-110 transition-transform duration-300`}>
                 <step.icon size={36} />
-              </div>
-              <div className="bg-white p-6 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 w-full hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
-                <div className="text-slate-200 font-black text-6xl absolute -top-4 -left-2 z-0">{i+1}</div>
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-slate-600 font-medium text-sm leading-relaxed">{step.desc}</p>
+                
+                {/* Number Badge placed beautifully on the circle */}
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center font-black text-sm border-2 border-white shadow-md">
+                  {i+1}
                 </div>
+              </div>
+              
+              <div className="bg-white p-6 md:p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 w-full group-hover:-translate-y-2 group-hover:shadow-xl group-hover:border-purple-100 transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                <p className="text-slate-500 font-medium text-[0.95rem] leading-relaxed">{step.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -538,7 +703,10 @@ export default function DiscountBuddy() {
         <CombinedBenefits />
         <HowItWorks />
         <FeaturesGrid />
+        <GamificationSection />
+        <MysteryGuestSection />
         <Testimonials />
+        <TechStackSection />
         <CTABanner />
         
         {/* SEO CONTENT & FAQ SECTION */}
