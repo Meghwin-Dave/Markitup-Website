@@ -18,7 +18,6 @@ const solutions = [
 
 function Logo({ overrideSrc, overrideAlt, overrideHref = "/", logoClassName }: { overrideSrc?: string, overrideAlt?: string, overrideHref?: string, logoClassName?: string }) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // If the link points to the current path, smooth scroll to top
     if (window.location.pathname === overrideHref) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -30,10 +29,10 @@ function Logo({ overrideSrc, overrideAlt, overrideHref = "/", logoClassName }: {
       <img
         src={overrideSrc || "/images/markitup_logo.png"}
         alt={overrideAlt || "MarkitUp Group"}
-        className={`w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] ${
+        className={`w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] ${
           overrideSrc 
-            ? "h-12 md:h-24 md:translate-y-[10px]" 
-            : "h-12 md:h-[150px]"
+            ? "h-14 md:h-20" 
+            : "h-14 sm:h-16 md:h-[130px] lg:h-[140px]"
         } ${logoClassName || ""}`}
       />
     </Link>
@@ -77,7 +76,7 @@ export default function Header({
       const section = document.getElementById(targetId);
       if (section) {
         e.preventDefault();
-        const offset = 78; // Navbar height
+        const offset = 80;
         const top = section.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: "smooth" });
         setIsOpen(false);
@@ -87,56 +86,50 @@ export default function Header({
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${scrolled
-          ? "border-b border-slate-200/50 bg-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl"
-          : "border-b border-transparent bg-white/40 backdrop-blur-md"
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? "border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-md"
+          : "border-b border-transparent bg-white/60 backdrop-blur-sm"
         }`}
     >
-      <div className="relative flex h-[78px] w-full items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-        <div className="flex items-center justify-start z-10">
+      <div className="container relative flex h-20 items-center justify-between">
+        <div className="flex items-center justify-start z-10 shrink-0">
           <Logo overrideSrc={logoOverride} overrideAlt={logoAlt} overrideHref={logoHref} logoClassName={logoClassName} />
         </div>
 
-        <nav className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-9 lg:flex z-10" aria-label="Primary navigation">
+        <nav className="hidden lg:flex items-center gap-8 z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" aria-label="Primary navigation">
           {navLinks.map((link) => {
             const active = isActive(link.href);
 
             if (link.hasDropdown) {
               return (
-                <div key={link.label} className="group relative inline-flex h-[78px] items-center">
+                <div key={link.label} className="group relative flex h-20 items-center">
                   <Link
                     href={link.href}
                     onClick={(e) => link.href === "/services" ? handleSmoothScroll(e, "our-solutions") : undefined}
-                    className={`relative inline-flex items-center gap-1.5 text-[14px] font-semibold tracking-tight transition-colors duration-300 ${
-                      active ? "text-[#6C3BFF]" : "text-slate-600 group-hover:text-[#0F172A]"
+                    className={`relative inline-flex items-center gap-1 text-sm font-semibold tracking-tight transition-colors duration-200 ${
+                      active ? "text-[var(--color-brand-purple)]" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {link.label}
-                    <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
+                    <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 opacity-60" />
                   </Link>
 
-                  <span
-                    className={`absolute bottom-[14px] left-0 h-[3px] rounded-full bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] shadow-[0_5px_12px_rgba(108,59,255,0.22)] transition-all duration-300 ${
-                      active ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
-
-                  <div className="absolute left-1/2 top-[78px] invisible w-[320px] -translate-x-1/2 translate-y-2 pt-2 opacity-0 transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="overflow-hidden rounded-2xl border border-white/60 bg-white/95 p-2 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+                  <div className="absolute left-1/2 top-full invisible w-64 -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="overflow-hidden rounded-xl border border-slate-100 bg-white p-2 shadow-lg ring-1 ring-black/5">
                       {solutions.map((solution) => (
                         <Link
                           key={solution.name}
                           href={solution.href}
-                          className={`group/item flex flex-col rounded-xl px-4 py-3 transition-colors hover:bg-slate-50 ${
+                          className={`flex flex-col rounded-lg px-4 py-3 transition-colors hover:bg-slate-50 ${
                             isActive(solution.href) ? "bg-slate-50" : ""
                           }`}
                         >
-                          <span className={`text-[14px] font-bold transition-colors group-hover/item:text-[#6C3BFF] ${
-                            isActive(solution.href) ? "text-[#6C3BFF]" : "text-[#0F172A]"
+                          <span className={`text-sm font-bold transition-colors ${
+                            isActive(solution.href) ? "brand-gradient-text" : "text-slate-900"
                           }`}>
                             {solution.name}
                           </span>
-                          <span className="mt-0.5 text-[12px] text-slate-500">
+                          <span className="mt-0.5 text-xs text-slate-500">
                             {solution.desc}
                           </span>
                         </Link>
@@ -151,22 +144,17 @@ export default function Header({
               <Link
                 key={link.label}
                 href={link.href}
-                className={`group relative inline-flex h-[78px] items-center gap-1.5 text-[14px] font-semibold transition-colors duration-300 ${
-                  active ? "text-[#6C3BFF]" : "text-[#0F172A] hover:text-[#6C3BFF]"
+                className={`relative flex h-20 items-center text-sm font-semibold tracking-tight transition-colors duration-200 ${
+                  active ? "text-[var(--color-brand-purple)]" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {link.label}
-                <span
-                  className={`absolute bottom-[14px] left-0 h-[3px] rounded-full bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] shadow-[0_5px_12px_rgba(108,59,255,0.22)] transition-all duration-300 ${
-                    active ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex justify-end items-center gap-4 z-10">
+        <div className="flex justify-end items-center gap-4 z-10 shrink-0">
           <Link
             href={ctaHref}
             onClick={(e) => {
@@ -174,29 +162,27 @@ export default function Header({
                 handleSmoothScroll(e, "our-solutions");
               }
             }}
-            className="gradient-button hidden items-center gap-3 rounded-full px-6 py-2.5 text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(108,59,255,0.36)] lg:inline-flex"
+            className="gradient-button hidden lg:inline-flex rounded-full px-6 py-2.5 text-sm gap-2"
           >
             {ctaText}
-            <span className="flex size-7 items-center justify-center rounded-full bg-white text-[#FF7A00] shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-transform duration-300 group-hover:scale-110">
-              <ArrowRight size={14} />
-            </span>
+            <ArrowRight size={16} />
           </Link>
 
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#0F172A] shadow-sm lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-lg bg-slate-50 text-slate-700 hover:bg-slate-100 lg:hidden"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {isOpen ? (
-        <div className="absolute left-4 right-4 top-[82px] rounded-3xl border border-white/80 bg-white/95 p-4 shadow-2xl shadow-slate-900/10 backdrop-blur-xl lg:hidden">
-          <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+        <div className="absolute left-0 right-0 top-full border-b border-slate-200 bg-white px-4 py-4 shadow-lg lg:hidden">
+          <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
             {navLinks.map((link) => {
               const active = isActive(link.href);
 
@@ -205,12 +191,12 @@ export default function Header({
                   <div key={link.label} className="flex flex-col">
                     <button
                       onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                      className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-colors ${
-                        active ? "bg-slate-50 text-[#6C3BFF]" : "text-[#0F172A] hover:bg-slate-50"
+                      className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                        active ? "bg-slate-50 text-[var(--color-brand-purple)]" : "text-slate-700 hover:bg-slate-50"
                       }`}
                     >
                       {link.label}
-                      <ChevronDown size={16} className={`transition-transform duration-300 ${isSolutionsOpen ? "rotate-180" : ""}`} />
+                      <ChevronDown size={16} className={`transition-transform duration-200 ${isSolutionsOpen ? "rotate-180" : ""}`} />
                     </button>
                     
                     {isSolutionsOpen && (
@@ -219,8 +205,8 @@ export default function Header({
                           <Link
                             key={solution.name}
                             href={solution.href}
-                            className={`rounded-xl px-4 py-2.5 text-[13px] font-semibold transition-colors ${
-                              isActive(solution.href) ? "bg-[#6C3BFF]/5 text-[#6C3BFF]" : "text-slate-600 hover:bg-slate-50"
+                            className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                              isActive(solution.href) ? "bg-slate-50 text-[var(--color-brand-purple)]" : "text-slate-600 hover:bg-slate-50"
                             }`}
                             onClick={() => setIsOpen(false)}
                           >
@@ -237,8 +223,8 @@ export default function Header({
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition-colors ${
-                    active ? "bg-slate-50 text-[#6C3BFF]" : "text-[#0F172A] hover:bg-slate-50"
+                  className={`flex items-center justify-between rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+                    active ? "bg-slate-50 text-[var(--color-brand-purple)]" : "text-slate-700 hover:bg-slate-50"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -248,7 +234,7 @@ export default function Header({
             })}
             <Link
               href={ctaHref}
-              className="gradient-button mt-3 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+              className="gradient-button mt-4 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white w-full"
               onClick={(e) => {
                 if (ctaHref === "/services" || ctaHref === "/#our-solutions") {
                   handleSmoothScroll(e, "our-solutions");
@@ -264,3 +250,4 @@ export default function Header({
     </header>
   );
 }
+

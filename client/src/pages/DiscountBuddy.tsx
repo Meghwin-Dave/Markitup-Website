@@ -27,6 +27,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SEOContentBlock from "@/components/SEOContentBlock";
 
 // --- Components ---
 
@@ -131,7 +132,7 @@ const PhoneMockup = () => {
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-[clamp(7rem,12vw,10rem)] pb-[clamp(4rem,8vw,6rem)] overflow-hidden bg-gradient-to-b from-[#FAFBFF] to-white">
+    <section className="relative pt-[clamp(2rem,4vw,4rem)] pb-[clamp(3rem,5vw,4rem)] overflow-hidden bg-gradient-to-b from-[#FAFBFF] to-white">
       {/* Decorative Orbs */}
       <div className="absolute top-1/4 left-0 w-[clamp(300px,50vw,500px)] h-[clamp(300px,50vw,500px)] bg-purple-400/10 rounded-full blur-[clamp(50px,8vw,100px)] pointer-events-none"></div>
       <div className="absolute top-1/3 right-0 w-[clamp(400px,60vw,600px)] h-[clamp(400px,60vw,600px)] bg-pink-400/10 rounded-full blur-[clamp(60px,10vw,120px)] pointer-events-none"></div>
@@ -144,28 +145,22 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center lg:items-start lg:text-left"
           >
-            <h1 className="text-[clamp(2.5rem,5vw+1rem,4.5rem)] leading-[1.05] font-extrabold text-slate-900 tracking-tight mb-6 w-full">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 w-full leading-tight">
               More Deals.<br />
               More Bookings.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8A3FFC] to-[#ec4899]">
+              <span className="brand-gradient-text">
                 More Growth.
               </span>
             </h1>
-            <p className="text-[clamp(1rem,1.5vw+0.5rem,1.25rem)] text-slate-600 mb-8 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
               DiscountBuddy brings together food lovers and great restaurants. Users save more. Restaurants get more bookings, more loyal customers, and real growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto">
-              <DownloadAppDropdown className="inline-flex items-center justify-center gap-2 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(0.875rem,2vw,1.125rem)] text-[clamp(0.9rem,1vw+0.5rem,1rem)] font-bold text-white bg-[#8A3FFC] hover:bg-[#722CE3] rounded-full shadow-lg shadow-purple-500/25 transition-all hover:-translate-y-1 w-full sm:w-auto">
+              <DownloadAppDropdown className="gradient-button inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold text-white rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-1 w-full sm:w-auto">
                 <Smartphone size={20} />
                 Download App
               </DownloadAppDropdown>
-              <a
-                href="#partner"
-                className="inline-flex items-center justify-center gap-2 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(0.875rem,2vw,1.125rem)] text-[clamp(0.9rem,1vw+0.5rem,1rem)] font-bold text-[#8A3FFC] bg-purple-50 border border-purple-100 hover:border-purple-300 hover:bg-purple-100 rounded-full shadow-sm transition-all hover:-translate-y-1 w-full sm:w-auto"
-              >
-                <Store size={20} />
-                Become a Partner
-              </a>
+
             </div>
             
             <div className="flex items-center gap-4 bg-white/50 backdrop-blur-sm px-5 py-2.5 rounded-full border border-slate-100">
@@ -251,7 +246,7 @@ const CombinedBenefits = () => {
   ];
 
   return (
-    <section id="benefits" className="py-[clamp(3rem,6vw,6rem)] bg-white relative">
+    <section id="benefits" className="py-[clamp(3rem,5vw,4rem)] bg-white relative">
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
         
         {/* Large Rounded Container combining both sides */}
@@ -259,7 +254,7 @@ const CombinedBenefits = () => {
           
           {/* For Users Side */}
           <div className="flex-1 p-[clamp(1.5rem,4vw,3rem)] lg:border-r border-slate-100 bg-gradient-to-br from-white to-purple-50/30">
-            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#8A3FFC] text-center mb-[clamp(2rem,4vw,3rem)]">For Users</h2>
+            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#8A3FFC] text-center mb-[clamp(1.5rem,3vw,2rem)]">For Users</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {userCards.map((card, i) => (
                 <motion.div
@@ -282,7 +277,7 @@ const CombinedBenefits = () => {
 
           {/* For Restaurants Side */}
           <div className="flex-1 p-[clamp(1.5rem,4vw,3rem)] border-t lg:border-t-0 border-slate-100 bg-gradient-to-br from-white to-pink-50/30">
-            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#ec4899] text-center mb-[clamp(2rem,4vw,3rem)]">For Restaurants</h2>
+            <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-[#ec4899] text-center mb-[clamp(1.5rem,3vw,2rem)]">For Restaurants</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {restaurantCards.map((card, i) => (
                 <motion.div
@@ -318,7 +313,7 @@ const FeaturesGrid = () => {
   ];
 
   return (
-    <section id="features" className="py-[clamp(2rem,5vw,4rem)] bg-white relative">
+    <section id="features" className="py-[clamp(2rem,4vw,3rem)] bg-white relative">
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(1rem,2vw,1.5rem)]">
           {features.map((feat, i) => (
@@ -343,34 +338,6 @@ const FeaturesGrid = () => {
   );
 };
 
-const Statistics = () => {
-  const stats = [
-    { value: "500K+", label: "Downloads", icon: Download, bg: "bg-[#8A3FFC]", color: "text-[#8A3FFC]" },
-    { value: "2,500+", label: "Restaurants", icon: Store, bg: "bg-[#ec4899]", color: "text-[#ec4899]" },
-    { value: "4.6", label: "Rating", desc: "on App Store & Google Play", icon: Star, bg: "bg-[#f59e0b]", color: "text-[#f59e0b]" },
-  ];
-
-  return (
-    <section className="py-[clamp(2rem,5vw,4rem)] bg-white">
-      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[clamp(1rem,2vw,2rem)]">
-          {stats.map((stat, i) => (
-            <div key={i} className="flex items-center gap-5 p-[clamp(1.5rem,3vw,2rem)] bg-white rounded-[clamp(1rem,2vw,1.5rem)] shadow-sm border border-slate-100">
-              <div className={`w-[clamp(3.5rem,6vw,4.5rem)] h-[clamp(3.5rem,6vw,4.5rem)] rounded-full ${stat.bg} text-white flex items-center justify-center flex-shrink-0 shadow-md`}>
-                <stat.icon size={28} />
-              </div>
-              <div>
-                <h4 className="text-[clamp(1.5rem,3vw,2rem)] font-extrabold text-slate-900 leading-tight">{stat.value}</h4>
-                <p className="text-[clamp(0.875rem,1.25vw,1rem)] font-bold text-slate-700">{stat.label}</p>
-                {stat.desc && <p className="text-[clamp(0.7rem,1vw,0.75rem)] text-slate-400 font-medium">{stat.desc}</p>}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Testimonials = () => {
   const reviews = [
@@ -398,9 +365,9 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-[clamp(3rem,6vw,6rem)] bg-white">
+    <section className="py-[clamp(3rem,5vw,4rem)] bg-white">
       <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
-        <div className="text-center mb-[clamp(2rem,4vw,3rem)]">
+        <div className="text-center mb-[clamp(1.5rem,3vw,2rem)]">
           <h2 className="text-[clamp(1.5rem,2.5vw,2rem)] font-extrabold text-slate-900 inline-block relative">
             Loved by Restaurants
             <span className="absolute -bottom-2 left-1/4 w-1/2 h-1 bg-slate-200 rounded-full"></span>
@@ -432,11 +399,58 @@ const Testimonials = () => {
   );
 };
 
+
+const HowItWorks = () => {
+  const steps = [
+    { title: "Download & Browse", desc: "Get the app and explore exclusive restaurant deals near you.", icon: Search, color: "text-[#8A3FFC]", bg: "bg-purple-100" },
+    { title: "Claim Your Deal", desc: "Select a deal and reserve your table in just a few taps.", icon: CalendarCheck, color: "text-[#ec4899]", bg: "bg-pink-100" },
+    { title: "Enjoy & Save", desc: "Dine at the restaurant and enjoy your instant savings.", icon: Tag, color: "text-[#f59e0b]", bg: "bg-amber-100" }
+  ];
+
+  return (
+    <section className="py-[clamp(4rem,6vw,5rem)] bg-[#FAFBFF] relative border-y border-slate-100">
+      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
+        <div className="text-center mb-[clamp(3rem,5vw,4rem)]">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[#8A3FFC]">How It Works</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Three simple steps to save</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
+          {/* Connector line for desktop */}
+          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-purple-200 via-pink-200 to-amber-200 z-0"></div>
+          
+          {steps.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              className="relative z-10 flex flex-col items-center text-center"
+            >
+              <div className={`w-24 h-24 rounded-full ${step.bg} ${step.color} flex items-center justify-center mb-6 shadow-xl shadow-${step.bg.replace('bg-', '')}/50 border-4 border-white`}>
+                <step.icon size={36} />
+              </div>
+              <div className="bg-white p-6 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 w-full hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+                <div className="text-slate-200 font-black text-6xl absolute -top-4 -left-2 z-0">{i+1}</div>
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
+                  <p className="text-slate-600 font-medium text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CTABanner = () => {
   return (
-    <section className="py-[clamp(4rem,8vw,6rem)] bg-white px-5 lg:px-8 xl:px-12 relative">
+    <section className="py-[clamp(3rem,5vw,4rem)] bg-white px-5 lg:px-8 xl:px-12 relative">
       <div className="container mx-auto max-w-[1440px]">
-        <div className="relative rounded-[3rem] bg-slate-900 p-[clamp(3rem,6vw,5rem)] flex flex-col items-center text-center shadow-[0_30px_60px_rgba(15,23,42,0.15)] group z-10">
+        <div className="relative rounded-[3rem] bg-slate-900 p-[clamp(2rem,4vw,3rem)] flex flex-col items-center text-center shadow-[0_30px_60px_rgba(15,23,42,0.15)] group z-10">
           
           {/* Subtle animated background gradient */}
           <div className="absolute inset-0 rounded-[3rem] overflow-hidden pointer-events-none z-0">
@@ -450,15 +464,15 @@ const CTABanner = () => {
             Join the Ecosystem
           </div>
           
-          <h2 className="relative z-10 text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-white mb-6 leading-tight tracking-tight max-w-3xl">
-            Let's grow <span className="bg-gradient-to-r from-[#8A3FFC] via-[#b630e6] to-[#ec4899] bg-clip-text text-transparent">together.</span>
+          <h2 className="relative z-10 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight max-w-3xl">
+            Let's grow <span className="brand-gradient-text">together.</span>
           </h2>
-          <p className="relative z-10 text-slate-300 text-[clamp(1.125rem,1.5vw,1.375rem)] font-medium mb-[clamp(2.5rem,5vw,4rem)] max-w-2xl leading-relaxed">
+          <p className="relative z-10 text-slate-300 text-[clamp(1.125rem,1.5vw,1.375rem)] font-medium mb-[clamp(2rem,4vw,3rem)] max-w-2xl leading-relaxed">
             More deals. More bookings. More success. Join thousands of users and restaurants on the platform.
           </p>
           
           <div className="relative z-30 flex flex-col sm:flex-row flex-wrap gap-4 w-full justify-center items-center">
-            <DownloadAppDropdown className="group/btn relative flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(1rem,2vw,1.25rem)] bg-gradient-to-r from-[#8A3FFC] to-[#ec4899] text-white rounded-2xl font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all hover:-translate-y-1 w-full sm:w-auto min-w-[200px]">
+            <DownloadAppDropdown className="group/btn relative flex items-center justify-center gap-3 px-8 py-4 gradient-button text-white rounded-2xl font-bold transition-transform duration-300 hover:-translate-y-1 w-full sm:w-auto min-w-[200px]">
               <Smartphone size={20} className="flex-shrink-0" />
               <div className="text-left leading-tight">
                 <span className="block text-sm">Download App</span>
@@ -466,13 +480,7 @@ const CTABanner = () => {
               </div>
             </DownloadAppDropdown>
             
-            <a href="#partner" className="flex items-center justify-center gap-3 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(1rem,2vw,1.25rem)] bg-white text-slate-900 rounded-2xl font-bold shadow-lg hover:bg-slate-50 transition-all hover:-translate-y-1 w-full sm:w-auto min-w-[200px]">
-              <Store size={20} className="flex-shrink-0 text-[#8A3FFC]" />
-              <div className="text-left leading-tight">
-                <span className="block text-sm">Become a Partner</span>
-                <span className="block text-[10px] font-medium text-slate-500">List your restaurant</span>
-              </div>
-            </a>
+
           </div>
         </div>
       </div>
@@ -480,97 +488,31 @@ const CTABanner = () => {
   );
 };
 
-const DiscountBuddyFooter = () => {
-  return (
-    <footer className="bg-slate-50 pt-[clamp(3rem,6vw,5rem)] pb-[clamp(1.5rem,3vw,2rem)] border-t border-slate-200">
-      <div className="container mx-auto px-5 lg:px-8 xl:px-12 max-w-[1440px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[clamp(2rem,4vw,3rem)] mb-[clamp(3rem,6vw,4rem)]">
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4 group inline-flex">
-              <img 
-                src="/images/discount_buddy_logo.png" 
-                alt="DiscountBuddy Logo" 
-                className="h-[clamp(28px,3vw,36px)] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-              />
-              <span className="text-[clamp(1rem,1.5vw,1.125rem)] font-extrabold text-slate-900 tracking-tight">
-                DiscountBuddy
-              </span>
-            </Link>
-            <p className="text-[clamp(0.875rem,1vw,0.95rem)] text-slate-500 mb-6 max-w-sm">
-              The premium platform for discovering restaurant deals and booking tables instantly. 
-              We bring together food lovers and great restaurants.
-            </p>
-            <div className="flex items-center gap-3">
-              {['Facebook', 'Twitter', 'Instagram'].map((social, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#8A3FFC] hover:border-[#8A3FFC] transition-colors shadow-sm">
-                  <span className="sr-only">{social}</span>
-                  <div className="w-4 h-4 bg-current rounded-sm"></div>
-                </a>
-              ))}
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-slate-900 mb-4">For Users</h4>
-            <ul className="space-y-3">
-              <li><a href="#users" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Discover Deals</a></li>
-              <li><a href="#users" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Book Tables</a></li>
-              <li><a href="#download" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Download App</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-slate-900 mb-4">For Restaurants</h4>
-            <ul className="space-y-3">
-              <li><a href="#restaurants" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Partner With Us</a></li>
-              <li><a href="#features" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Features & Analytics</a></li>
-              <li><a href="#restaurants" className="text-slate-500 hover:text-[#8A3FFC] text-sm font-medium transition-colors">Success Stories</a></li>
-            </ul>
-          </div>
 
-          <div>
-            <h4 className="font-bold text-slate-900 mb-4">Get the App</h4>
-            <div className="flex flex-col gap-3">
-              <a 
-                href="https://apps.apple.com/gb/app/discount-buddy-deals/id6760362068" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-center gap-2 bg-slate-900 text-white px-4 py-2.5 rounded-lg hover:-translate-y-0.5 hover:scale-105 hover:bg-slate-800 transition-all shadow-sm"
-              >
-                <span className="font-semibold text-sm">App Store</span>
-              </a>
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.discountbuddy.app&pcampaignid=web_share" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-center gap-2 bg-slate-900 text-white px-4 py-2.5 rounded-lg hover:-translate-y-0.5 hover:scale-105 hover:bg-slate-800 transition-all shadow-sm"
-              >
-                <span className="font-semibold text-sm">Google Play</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-xs sm:text-sm font-medium">
-            © {new Date().getFullYear()} DiscountBuddy (Part of MarkitUp Group). All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="/privacy-policy" className="text-slate-400 hover:text-slate-600 text-xs sm:text-sm font-medium transition-colors">Privacy Policy</a>
-            <a href="/terms-and-conditions" className="text-slate-400 hover:text-slate-600 text-xs sm:text-sm font-medium transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
 
 export default function DiscountBuddy() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Discount Buddy - Restaurant Deals & Booking Platform",
+    "description": "Discover top restaurant deals or manage your restaurant with ease. Seamless booking system, loyalty management, and restaurant promotion.",
+    "provider": {
+      "@type": "Organization",
+      "name": "MarkitUp Group Limited",
+      "url": "https://markitupgroup.com"
+    },
+    "serviceType": "Hospitality Software & Marketing",
+    "areaServed": "GB"
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-purple-200 selection:text-purple-900">
       <SEOHead
-        title="Discount Buddy | Deals & Bookings"
-        description="Premium platform for discovering restaurant deals and booking tables instantly."
+        title="Discount Buddy by MarkitUp Group | Restaurant Deals & Promotion"
+        description="Discover top restaurant deals or manage your restaurant with ease. We offer a seamless booking system, loyalty management, restaurant promotion, and deals addition."
+        keywords="restaurant ease of managements, booking system, loyalty management, restaurant promotion, deals addition"
+        canonical="https://markitupgroup.com/discount-buddy"
+        structuredData={structuredData}
       />
       
       {/* Global styles for hide-scrollbar (used in Testimonials) */}
@@ -594,12 +536,32 @@ export default function DiscountBuddy() {
       <main>
         <HeroSection />
         <CombinedBenefits />
+        <HowItWorks />
         <FeaturesGrid />
-        <Statistics />
         <Testimonials />
         <CTABanner />
+        
+        {/* SEO CONTENT & FAQ SECTION */}
+        <SEOContentBlock title="The Ultimate Platform for Diners and Restaurants">
+          <p>
+            Discount Buddy is not just about finding great food; it's a complete ecosystem. For diners, we provide unmatched discounts. For owners, we ensure <strong>restaurant ease of managements</strong> with a powerful integrated <strong>booking system</strong> that handles reservations seamlessly.
+          </p>
+          <p>
+            Our platform goes beyond simple listings. We offer robust tools for <strong>loyalty management</strong> to keep your best customers coming back. Through targeted <strong>restaurant promotion</strong> and effortless <strong>deals addition</strong>, we give you the flexibility to attract new patrons exactly when you need them. Looking to amplify your restaurant's brand on social media? Check out <Link href="/market-buddy">Market Buddy</Link> for influencer and content marketing.
+          </p>
+
+          <h3>Frequently Asked Questions for Restaurants</h3>
+          <div>
+            <h4>How does the deals addition feature work?</h4>
+            <p>Our merchant portal allows you to easily publish time-sensitive offers directly to the app. This <strong>deals addition</strong> capability helps you manage quiet hours and boost footfall instantly.</p>
+          </div>
+          <div>
+            <h4>Does the platform handle table bookings?</h4>
+            <p>Yes. DiscountBuddy features a built-in <strong>booking system</strong>. When users claim a deal, they reserve a table concurrently, ensuring seamless <strong>restaurant ease of managements</strong>.</p>
+          </div>
+        </SEOContentBlock>
       </main>
-      <DiscountBuddyFooter />
+      <Footer />
     </div>
   );
 }

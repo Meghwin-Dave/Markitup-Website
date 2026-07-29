@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SEOContentBlock from "@/components/SEOContentBlock";
 import { 
   ArrowRight, CheckCircle, Search, Lightbulb, Rocket, 
   BarChart3, ShieldCheck, Users, Target, Heart, PoundSterling, 
@@ -15,15 +16,16 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "About MarkitUp Group",
-  "description": "MarkitUp Group is a UK-based marketing, technology, and digital growth company.",
+  "description": "MarkitUp Group is a UK-based marketing, technology, and digital growth company specializing in SEO, app development, and influencer strategies.",
   "publisher": {
     "@type": "Organization",
-    "name": "MarkitUp Group",
+    "name": "MarkitUp Group Limited",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://markitupgroup.com/images/markitup_logo.png"
+      "url": "https://markitupgroup.com/images/markitbuddy_logo.png"
     }
-  }
+  },
+  "mainEntityOfPage": "https://markitupgroup.com/about"
 };
 
 const fadeUp = {
@@ -54,7 +56,7 @@ function GradientButton({
     <Link
       href={href}
       onClick={onClick}
-      className={`gradient-button inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 text-[clamp(0.875rem,1.5vw,1rem)] font-bold text-white shadow-[0_18px_42px_rgba(108,59,255,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(108,59,255,0.35)] ${className}`}
+      className={`gradient-button inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-sm font-bold text-white transition-transform duration-300 hover:-translate-y-1 ${className}`}
     >
       {children}
     </Link>
@@ -64,12 +66,12 @@ function GradientButton({
 function SectionTitle({ eyebrow, title, description, align = "center" }: { eyebrow: string; title: ReactNode; description?: string; align?: "left" | "center" }) {
   return (
     <div className={`mb-12 md:mb-16 ${align === "center" ? "text-center mx-auto" : "text-left"}`}>
-      <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.15em] text-[#6C3BFF]">{eyebrow}</p>
-      <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold leading-[1.15] text-[#0F172A] mb-4">
+      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-brand-purple)]">{eyebrow}</p>
+      <h2 className="text-3xl font-bold leading-tight text-slate-900 md:text-4xl mb-4">
         {title}
       </h2>
       {description && (
-        <p className={`text-[clamp(1rem,1.5vw,1.125rem)] text-slate-600 leading-relaxed ${align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"}`}>
+        <p className={`text-base text-slate-600 leading-relaxed ${align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"}`}>
           {description}
         </p>
       )}
@@ -94,9 +96,9 @@ export default function About() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
-        title="About MarkitUp Group | UK Business Growth Company"
-        description="MarkitUp Group is a UK-based marketing, technology and digital growth company. We help businesses grow smarter through modern solutions."
-        keywords="About MarkitUp Group, UK business growth, SaaS marketing, technology company"
+        title="About MarkitUp Group | Top Tech & Marketing Agency UK"
+        description="Learn about MarkitUp Group, a leading UK digital agency. We combine innovative digital marketing, cutting-edge IT solutions, and strategic growth partnerships."
+        keywords="About MarkitUp Group, Top tech agency UK, innovative digital team, SaaS marketing, London marketing agency, digital transformation company"
         canonical="https://markitupgroup.com/about"
         structuredData={structuredData}
       />
@@ -105,8 +107,8 @@ export default function About() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative overflow-visible bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
-          <div className="grid min-h-[clamp(450px,60vh,700px)] w-full items-center lg:grid-cols-[45%_55%]">
+        <section className="relative overflow-visible bg-white pt-8 pb-12 lg:pt-12 lg:pb-16">
+          <div className="grid min-h-[clamp(350px,50vh,550px)] w-full items-center lg:grid-cols-[45%_55%]">
             <motion.div 
               initial="hidden"
               animate="visible"
@@ -116,7 +118,7 @@ export default function About() {
               <motion.div variants={fadeUp}>
                 <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[1.05] text-[#0F172A] tracking-tight">
                   <span className="block mb-2">About</span>
-                  <span className="bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] bg-clip-text text-transparent">MarkitUp Group</span>
+                  <span className="brand-gradient-text">MarkitUp Group</span>
                 </h1>
               </motion.div>
               
@@ -174,16 +176,16 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent z-10 hidden lg:block" />
               <div className="absolute inset-t-0 bg-gradient-to-b from-white via-transparent to-transparent z-10 h-24 w-full block lg:hidden" />
               <img
-                src="/images/hero-london-panorama.jpg"
+                src="/images/modern-london-office.png"
                 alt="London Skyline"
-                className="absolute inset-0 h-full w-full object-cover object-left lg:object-center"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </motion.div>
           </div>
         </section>
 
         {/* WHO WE ARE SECTION */}
-        <section id="who-we-are" className="py-16 md:py-24 lg:py-32 relative">
+        <section id="who-we-are" className="py-12 md:py-16 lg:py-20 relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center bg-white rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(15,23,42,0.04)] border border-slate-100">
               
@@ -197,7 +199,7 @@ export default function About() {
                 <div className="absolute -left-10 -top-10 w-40 h-40 bg-[#6C3BFF] rounded-full blur-[80px] opacity-40 z-0"></div>
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-[#FF7A00] rounded-full blur-[80px] opacity-40 z-0"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop" 
+                  src="/images/creative-team.png" 
                   alt="Business Team Meeting" 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 rounded-[1.8rem] border-[6px] border-white/40"
                 />
@@ -213,7 +215,7 @@ export default function About() {
                   eyebrow="WHO WE ARE" 
                   title={
                     <>
-                      We're a UK-based team passionate about <span className="text-[#6C3BFF]">helping businesses grow.</span>
+                      We're a UK-based team passionate about <span className="text-[var(--color-brand-purple)]">helping businesses grow.</span>
                     </>
                   } 
                   align="left" 
@@ -244,7 +246,7 @@ export default function About() {
         </section>
 
         {/* WHAT WE DO SECTION */}
-        <section className="py-16 md:py-24 bg-white relative z-10 border-y border-slate-100">
+        <section className="py-12 md:py-16 bg-white relative z-10 border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <SectionTitle 
               eyebrow="WHAT WE DO" 
@@ -252,7 +254,7 @@ export default function About() {
               description="Three core business units working together to provide end-to-end digital growth."
             />
 
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-16">
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-6 mt-12">
               {/* MarketBuddy Card */}
               <motion.div 
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
@@ -338,31 +340,27 @@ export default function About() {
         </section>
 
         {/* OUR APPROACH SECTION */}
-        <section className="py-16 md:py-24 bg-[#FAFAFA] relative">
+        <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <SectionTitle eyebrow="OUR APPROACH" title="A Proven Process for Growth" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 mt-16 relative">
-              <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-slate-200 to-transparent z-0"></div>
-              
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16 relative">
               {[
-                { icon: Search, title: "Understand", desc: "We learn your goals, audience and business challenges.", color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10", shadow: "shadow-[0_0_20px_rgba(108,59,255,0.2)]" },
-                { icon: Lightbulb, title: "Strategise", desc: "We create a customised plan that fits your business.", color: "text-[#C71888]", bg: "bg-[#C71888]/10", shadow: "shadow-[0_0_20px_rgba(199,24,136,0.2)]" },
-                { icon: Rocket, title: "Implement", desc: "We execute with precision using the right tools.", color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10", shadow: "shadow-[0_0_20px_rgba(255,122,0,0.2)]" },
-                { icon: BarChart3, title: "Optimise", desc: "We measure, refine and scale for continuous growth.", color: "text-[#D4147F]", bg: "bg-[#D4147F]/10", shadow: "shadow-[0_0_20px_rgba(212,20,127,0.2)]" }
+                { icon: Search, title: "Understand", desc: "We learn your goals, audience and business challenges.", color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10", shadow: "shadow-[0_20px_50px_rgba(108,59,255,0.1)]" },
+                { icon: Lightbulb, title: "Strategise", desc: "We create a customised plan that fits your business.", color: "text-[#C71888]", bg: "bg-[#C71888]/10", shadow: "shadow-[0_20px_50px_rgba(199,24,136,0.1)]" },
+                { icon: Rocket, title: "Implement", desc: "We execute with precision using the right tools.", color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10", shadow: "shadow-[0_20px_50px_rgba(255,122,0,0.1)]" },
+                { icon: BarChart3, title: "Optimise", desc: "We measure, refine and scale for continuous growth.", color: "text-[#D4147F]", bg: "bg-[#D4147F]/10", shadow: "shadow-[0_20px_50px_rgba(212,20,127,0.1)]" }
               ].map((step, i) => (
                 <motion.div 
                   key={i} 
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                  className="relative z-10 flex flex-col items-center text-center group"
+                  className={`relative z-10 flex flex-col items-center text-center group bg-white rounded-[2rem] p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-2 hover:${step.shadow}`}
                 >
-                  <div className={`w-24 h-24 rounded-full flex items-center justify-center bg-white border-4 border-white ${step.shadow} mb-6 transition-transform group-hover:scale-110`}>
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center ${step.bg} ${step.color}`}>
-                      <step.icon size={28} />
-                    </div>
+                  <div className={`w-20 h-20 rounded-2xl flex items-center justify-center ${step.bg} ${step.color} mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                    <step.icon size={36} strokeWidth={1.5} />
                   </div>
                   <h4 className="text-xl font-extrabold text-slate-900 mb-3">{step.title}</h4>
-                  <p className="text-sm text-slate-600 leading-relaxed max-w-[240px]">{step.desc}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">{step.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -370,27 +368,29 @@ export default function About() {
         </section>
 
         {/* WHY CHOOSE US SECTION */}
-        <section className="py-16 md:py-24 bg-white relative border-y border-slate-100">
+        <section className="py-12 md:py-16 bg-white relative border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <SectionTitle eyebrow="WHY CHOOSE US" title="The MarkitUp Advantage" />
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-10">
               {[
-                { icon: ShieldCheck, title: "UK Based & Trusted" },
-                { icon: Users, title: "Experienced Professionals" },
-                { icon: Target, title: "Results Focused" },
-                { icon: Heart, title: "Customer First Always" },
-                { icon: PoundSterling, title: "Value Driven Solutions" }
+                { icon: ShieldCheck, title: "UK Based & Trusted", desc: "Locally grounded expertise you can count on.", color: "text-[#6C3BFF]" },
+                { icon: Users, title: "Experienced Pros", desc: "Top talent driving your business success.", color: "text-[#C71888]" },
+                { icon: Target, title: "Results Focused", desc: "We measure our success by your growth.", color: "text-[#FF7A00]" },
+                { icon: Heart, title: "Customer First", desc: "Your goals are our primary mission.", color: "text-[#ec4899]" },
+                { icon: PoundSterling, title: "Value Driven", desc: "Maximum ROI for your marketing investment.", color: "text-[#10b981]" },
+                { icon: Eye, title: "Transparent Reporting", desc: "Clear analytics with no hidden fees or jargon.", color: "text-[#3b82f6]" }
               ].map((feature, i) => (
                 <motion.div 
                   key={i} 
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl hover:bg-[#FAFAFA] transition-colors border border-transparent hover:border-slate-100"
+                  className="flex flex-col items-start p-8 rounded-[2rem] bg-[#FAFAFA] hover:bg-white transition-all duration-300 border border-transparent hover:border-slate-200 hover:shadow-xl hover:-translate-y-1 group"
                 >
-                  <div className="w-14 h-14 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 mb-4">
-                    <feature.icon size={24} />
+                  <div className="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon size={26} className={feature.color} />
                   </div>
-                  <h4 className="font-bold text-slate-900 text-[clamp(0.875rem,1vw,1rem)]">{feature.title}</h4>
+                  <h4 className="font-extrabold text-slate-900 text-xl mb-3">{feature.title}</h4>
+                  <p className="text-[15px] text-slate-500 font-medium leading-relaxed">{feature.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -398,7 +398,7 @@ export default function About() {
         </section>
 
         {/* VISION & MISSION SECTION */}
-        <section className="py-16 md:py-24 bg-[#FAFAFA] relative">
+        <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
               
@@ -442,20 +442,21 @@ export default function About() {
         </section>
 
         {/* FINAL CTA SECTION */}
-        <section className="py-12 md:py-20 bg-white">
+        <section className="py-12 lg:py-16 bg-white pb-20 lg:pb-24">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-              className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] px-8 py-14 sm:px-16 sm:py-20 shadow-[0_24px_50px_rgba(108,59,255,0.25)]"
+              className="relative flex w-full flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl brand-gradient-bg px-6 py-10 text-white shadow-xl shadow-brand-purple/20 sm:px-10 md:flex-row lg:mx-auto lg:max-w-5xl lg:px-12"
             >
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+              <div className="absolute -left-12 top-1/2 size-52 -translate-y-1/2 rounded-full bg-white/20 blur-3xl" />
+              <div className="absolute -right-10 top-0 size-48 rounded-full bg-white/20 blur-3xl" />
               
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10 w-full">
                 <div className="max-w-xl text-center md:text-left">
-                  <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold text-white leading-tight mb-4 tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-4 tracking-tight">
                     Let's Build Your<br/>Growth System
                   </h2>
-                  <p className="text-white/90 text-[clamp(1rem,1.5vw,1.125rem)] mb-8 font-medium">
+                  <p className="text-white/90 text-base md:text-lg mb-8">
                     Ready to grow your business with MarkitUp Group?<br className="hidden md:block" />
                     Let's talk about how we can help you achieve more.
                   </p>
@@ -464,11 +465,11 @@ export default function About() {
                 <div className="flex flex-col items-center md:items-end gap-4 shrink-0">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-[clamp(1rem,1.2vw,1.125rem)] font-bold text-[#6C3BFF] shadow-[0_12px_24px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(0,0,0,0.25)] hover:bg-slate-50"
+                    className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-bold text-[var(--color-brand-purple)] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-slate-50"
                   >
-                    Talk to Our Team <ArrowRight size={20} />
+                    Talk to Our Team <ArrowRight size={18} />
                   </Link>
-                  <p className="text-sm text-white/80 flex items-center gap-2 font-medium">
+                  <p className="text-sm text-white/90 flex items-center gap-2 font-medium">
                     <Check size={16} /> No obligation. Just a friendly chat.
                   </p>
                 </div>
@@ -477,6 +478,18 @@ export default function About() {
           </div>
         </section>
 
+        {/* SEO CONTENT SECTION */}
+        <SEOContentBlock title="A Leading Digital Marketing & Tech Agency in the UK">
+          <p>
+            Since our inception, MarkitUp Group has been focused on one primary goal: becoming the <strong>top tech agency in the UK</strong> for comprehensive digital growth. Our history is built on a foundation of an <strong>innovative digital team</strong> that bridges the gap between creative marketing strategies and robust enterprise software development.
+          </p>
+          <p>
+            If you want to <strong>grow your business</strong>, our Market Buddy platform provides everything from <strong>marketing related items</strong> to top-tier <strong>social media influencer</strong> campaigns, viral <strong>instagram reels</strong>, and <strong>youtube vlogs</strong>. For the tech side, IT Buddy delivers <strong>IT related services in UK Europe</strong>, building custom <strong>erp</strong> software, robust <strong>mobile app</strong> development, high-converting <strong>website</strong> designs, technical <strong>seo</strong>, and secure <strong>ecommerce</strong> platforms—or <strong>any other service related to it</strong>.
+          </p>
+          <p>
+            Additionally, our Discount Buddy platform caters to the hospitality sector, ensuring <strong>restaurant ease of managements</strong> through a seamless <strong>booking system</strong>, effective <strong>loyalty management</strong>, powerful <strong>restaurant promotion</strong> tools, and flexible <strong>deals addition</strong> to keep customers coming back.
+          </p>
+        </SEOContentBlock>
       </main>
       
       <Footer />

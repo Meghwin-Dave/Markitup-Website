@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   MapPin, 
@@ -14,6 +15,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SEOContentBlock from "@/components/SEOContentBlock";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -49,19 +51,56 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    try {
+      await emailjs.send(
+        "service_fsutstp",
+        "template_mqvpl6o",
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+        },
+        "Tnohct8f2AxCPSURl"
+      );
+      
       setSubmitted(true);
       setIsSubmitting(false);
       setFormData({ firstName: "", lastName: "", email: "", phone: "", company: "", service: "", message: "" });
       
       setTimeout(() => setSubmitted(false), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setIsSubmitting(false);
+      alert("Something went wrong, please try again later.");
+    }
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MarkitUp Group Limited",
+    "image": "https://markitupgroup.com/images/markitup_logo_new.png",
+    "url": "https://markitupgroup.com/contact",
+    "telephone": "+44 (0) 20 1234 5678",
+    "email": "info@markitupgroup.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "London",
+      "addressCountry": "UK"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44 (0) 20 1234 5678",
+      "contactType": "customer service"
+    }
   };
 
   return (
@@ -71,13 +110,14 @@ export default function Contact() {
         description="Get in touch with MarkitUp Group. We're here to help you scale your business with premium digital marketing, technology, and growth solutions."
         keywords="Contact MarkitUp Group, digital agency contact, hire developers, marketing agency"
         canonical="https://markitupgroup.com/contact"
+        structuredData={structuredData}
       />
       
       <Header />
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
+        <section className="relative pt-12 pb-12 lg:pt-16 lg:pb-16 overflow-hidden bg-white">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(108,59,255,0.08),transparent_50%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,122,0,0.05),transparent_50%)] pointer-events-none" />
           
@@ -89,7 +129,7 @@ export default function Contact() {
               
               <motion.h1 variants={fadeUp} className="text-[clamp(2.75rem,5vw,4.5rem)] font-extrabold leading-[1.05] text-[#0F172A] tracking-tight mb-6">
                 Let's Build Something <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] bg-clip-text text-transparent">Amazing Together</span>
+                <span className="brand-gradient-text">Amazing Together</span>
               </motion.h1>
               
               <motion.p variants={fadeUp} className="text-[clamp(1.125rem,1.5vw,1.25rem)] text-slate-600 leading-relaxed font-medium">
@@ -100,9 +140,9 @@ export default function Contact() {
         </section>
 
         {/* MAIN CONTACT SECTION */}
-        <section className="py-12 lg:py-20 bg-[#FAFAFA]">
+        <section className="py-12 lg:py-16 bg-[#FAFAFA]">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-            <div className="grid lg:grid-cols-[40%_60%] gap-12 lg:gap-20 items-start">
+            <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-12 items-start">
               
               {/* LEFT: CONTACT INFO */}
               <motion.div 
@@ -151,7 +191,7 @@ export default function Contact() {
               {/* RIGHT: CONTACT FORM */}
               <motion.div 
                 initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-                className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_rgba(15,23,42,0.06)] border border-slate-100 relative overflow-hidden"
+                className="bg-white rounded-[2.5rem] p-6 md:p-10 shadow-[0_20px_60px_rgba(15,23,42,0.06)] border border-slate-100 relative overflow-hidden"
               >
                 {/* Decorative element */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#6C3BFF]/5 to-transparent rounded-bl-full pointer-events-none" />
@@ -176,8 +216,8 @@ export default function Contact() {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                    <div className="grid sm:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 ml-1">First Name</label>
                         <input 
@@ -196,7 +236,7 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
                         <input 
@@ -241,7 +281,7 @@ export default function Contact() {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-[#6C3BFF] to-[#FF7A00] hover:from-[#5A2DE3] hover:to-[#E66E00] text-white font-bold text-[1.125rem] py-4 rounded-2xl shadow-[0_12px_24px_rgba(108,59,255,0.25)] transition-all hover:-translate-y-1 flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:pointer-events-none"
+                      className="w-full gradient-button text-white font-bold text-lg py-4 rounded-2xl transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:pointer-events-none"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">Sending...</span>
@@ -260,6 +300,19 @@ export default function Contact() {
             </div>
           </div>
         </section>
+
+        {/* SEO CONTENT SECTION */}
+        <SEOContentBlock title="Partner with MarkitUp Group to Grow Your Business">
+          <p>
+            Are you ready to take the next step and <strong>grow your business</strong>? Whether you are looking for an expert <strong>social media influencer</strong> agency, comprehensive <strong>seo</strong> services, or dynamic <strong>instagram reels</strong> and <strong>youtube vlogs</strong>, our Market Buddy team is here to assist. Contact us today for all your <strong>marketing related items</strong>.
+          </p>
+          <p>
+            If your business requires robust <strong>IT related services in UK Europe</strong>, our IT Buddy experts can build the perfect custom <strong>erp</strong>, responsive <strong>website</strong>, or scalable <strong>mobile app</strong>. We also provide secure, high-performance <strong>ecommerce</strong> platforms and <strong>any other service related to it</strong>. 
+          </p>
+          <p>
+            For the hospitality sector, our Discount Buddy platform offers a complete <strong>restaurant ease of managements</strong> suite. Connect with us to integrate our intuitive <strong>booking system</strong>, launch targeted <strong>restaurant promotion</strong> campaigns, manage <strong>deals addition</strong>, and optimize your <strong>loyalty management</strong> programs.
+          </p>
+        </SEOContentBlock>
       </main>
 
       <Footer />

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight, TrendingUp, Users, Wrench, BarChart, CheckCircle2, Star, Rocket } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SEOContentBlock from "@/components/SEOContentBlock";
 
 // --- Premium Data ---
 const caseStudies = [
@@ -16,7 +18,7 @@ const caseStudies = [
     metric: "3.5x",
     metricLabel: "More Table Bookings",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop",
+    image: "/images/restaurant_success.png",
     gradient: "from-[#FF7A00] to-[#FF2E78]",
     textColor: "text-[#FF7A00]",
     bgLight: "bg-[#FF7A00]/10",
@@ -30,7 +32,7 @@ const caseStudies = [
     metric: "+215%",
     metricLabel: "Increase in Leads",
     icon: TrendingUp,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    image: "/images/business_growth.png",
     gradient: "from-[#6C3BFF] to-[#A07CFF]",
     textColor: "text-[#6C3BFF]",
     bgLight: "bg-[#6C3BFF]/10",
@@ -44,7 +46,7 @@ const caseStudies = [
     metric: "99.9%",
     metricLabel: "System Uptime",
     icon: Wrench,
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
+    image: "/images/tech_dashboard.png",
     gradient: "from-[#00C271] to-[#00E082]",
     textColor: "text-[#00C271]",
     bgLight: "bg-[#00C271]/10",
@@ -65,6 +67,20 @@ const staggerContainer = {
 };
 
 export default function CaseStudies() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setTimeout(() => {
+        const section = document.getElementById(hash);
+        if (section) {
+          const offset = 100; // Account for header
+          const top = section.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 150);
+    }
+  }, []);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -90,7 +106,7 @@ export default function CaseStudies() {
 
       <main>
         {/* HERO SECTION */}
-        <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white border-b border-slate-100">
+        <section className="relative pt-12 pb-12 lg:pt-16 lg:pb-16 overflow-hidden bg-white border-b border-slate-100">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,59,255,0.08),transparent_40%)] pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,122,0,0.05),transparent_40%)] pointer-events-none" />
           
@@ -102,7 +118,7 @@ export default function CaseStudies() {
               
               <motion.h1 variants={fadeUp} className="text-[clamp(2.75rem,5.5vw,4.75rem)] font-extrabold leading-[1.05] text-[#0F172A] tracking-tight mb-6">
                 Business Growth Driven By <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-[#6C3BFF] via-[#C71888] to-[#FF7A00] bg-clip-text text-transparent">Proven Strategy</span>
+                <span className="brand-gradient-text">Proven Strategy</span>
               </motion.h1>
               
               <motion.p variants={fadeUp} className="text-[clamp(1.125rem,1.5vw,1.375rem)] text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
@@ -113,21 +129,23 @@ export default function CaseStudies() {
         </section>
 
         {/* CASE STUDIES LISTING */}
-        <section className="py-16 lg:py-28 bg-[#FAFAFA]">
-          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] space-y-16 lg:space-y-32">
+        <section className="py-12 lg:py-16 bg-[#FAFAFA]">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px] space-y-12 lg:space-y-16">
             
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               const isEven = index % 2 !== 0;
+              const slugId = study.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
               return (
                 <motion.div 
                   key={index}
+                  id={slugId}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8 }}
-                  className={`grid lg:grid-cols-2 gap-10 lg:gap-20 items-center ${isEven ? 'lg:flex-row-reverse' : ''}`}
+                  className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${isEven ? 'lg:flex-row-reverse' : ''}`}
                 >
                   {/* IMAGE SIDE */}
                   <div className={`relative ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
@@ -151,7 +169,7 @@ export default function CaseStudies() {
                   </div>
 
                   {/* CONTENT SIDE */}
-                  <div className={`space-y-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className={`space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                     <div>
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 font-bold text-sm mb-4">
                         <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${study.gradient}`}></div>
@@ -202,7 +220,7 @@ export default function CaseStudies() {
         </section>
 
         {/* METRICS & SOCIAL PROOF */}
-        <section className="py-20 bg-white border-y border-slate-100">
+        <section className="py-12 bg-white border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 text-center divide-x divide-slate-100">
               {[
@@ -212,7 +230,7 @@ export default function CaseStudies() {
                 { number: "5★", label: "Average Rating" },
               ].map((stat, idx) => (
                 <div key={idx} className="flex flex-col items-center justify-center">
-                  <div className="text-3xl sm:text-5xl font-black bg-gradient-to-r from-[#6C3BFF] to-[#C71888] bg-clip-text text-transparent mb-2">
+                  <div className="text-3xl sm:text-5xl font-black brand-gradient-text mb-2">
                     {stat.number}
                   </div>
                   <div className="text-sm sm:text-base font-bold text-slate-500 uppercase tracking-wider">
@@ -225,9 +243,9 @@ export default function CaseStudies() {
         </section>
 
         {/* CTA SECTION */}
-        <section className="py-20 lg:py-32 bg-[#FAFAFA]">
+        <section className="py-12 lg:py-16 bg-[#FAFAFA]">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[72px]">
-             <div className="relative flex w-full flex-col items-center justify-between gap-10 overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-[#6C3BFF] via-[#B8188D] to-[#FF7A00] p-10 lg:p-16 text-white shadow-[0_30px_60px_rgba(108,59,255,0.25)] lg:flex-row">
+             <div className="relative flex w-full flex-col items-center justify-between gap-8 overflow-hidden rounded-[2.5rem] brand-gradient-bg p-8 lg:p-12 text-white shadow-[0_30px_60px_rgba(108,59,255,0.25)] lg:flex-row">
               
               {/* Abstract shapes */}
               <div className="absolute -left-12 top-1/2 size-64 -translate-y-1/2 rounded-full bg-white/10 blur-3xl pointer-events-none" />
@@ -266,6 +284,18 @@ export default function CaseStudies() {
           </div>
         </section>
 
+        {/* SEO CONTENT SECTION */}
+        <SEOContentBlock title="Proven Success in Digital Growth">
+          <p>
+            At MarkitUp Group, our case studies showcase real-world examples of how we help clients <strong>grow your business</strong>. Through Market Buddy, we deploy powerful <strong>social media influencer</strong> campaigns, viral <strong>instagram reels</strong>, <strong>youtube vlogs</strong>, and diverse <strong>marketing related items</strong>. 
+          </p>
+          <p>
+            We also highlight our technical capabilities, demonstrating excellence in delivering <strong>IT related services in UK Europe</strong> via IT Buddy. From scalable <strong>erp</strong> integrations and cutting-edge <strong>mobile app</strong> development, to highly converting <strong>website</strong> projects, comprehensive <strong>seo</strong> strategies, advanced <strong>ecommerce</strong> platforms, and <strong>any other service related to it</strong>.
+          </p>
+          <p>
+            For the hospitality industry, Discount Buddy offers transformative targeted <strong>restaurant promotion</strong> strategies. Our results show improved <strong>restaurant ease of managements</strong> with a seamless <strong>booking system</strong>, engaging <strong>loyalty management</strong>, and dynamic <strong>deals addition</strong> features.
+          </p>
+        </SEOContentBlock>
       </main>
 
       <Footer />

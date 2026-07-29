@@ -9,28 +9,28 @@ const industries = [
     title: "Restaurants and Hospitality",
     description:
       "Promotion campaigns, customer traffic support, and visibility strategies for restaurants and hospitality businesses.",
-    accent: "var(--accent-teal)",
+    accent: "var(--color-brand-purple)",
     icon: UtensilsCrossed,
   },
   {
     title: "Local Businesses",
     description:
       "Marketing and promotion support for businesses that need stronger local reach, enquiries, and customer acquisition.",
-    accent: "var(--accent-indigo)",
+    accent: "var(--color-brand-pink)",
     icon: Store,
   },
   {
     title: "Growing Brands",
     description:
       "Brand positioning, campaign structure, and digital growth support for ambitious brands scaling their presence.",
-    accent: "var(--accent-amber)",
+    accent: "var(--color-brand-orange)",
     icon: ShoppingBag,
   },
   {
     title: "Service-Led Companies",
     description:
       "Digital visibility, lead generation, and technology solutions for companies that depend on steady enquiries and trust.",
-    accent: "var(--accent-teal)",
+    accent: "var(--color-brand-purple)",
     icon: Building2,
   },
 ];
@@ -60,14 +60,14 @@ export default function Industries() {
       <Header />
 
       <main className="flex-1">
-        <section className="py-24 md:py-32 bg-transparent">
+        <section className="py-12 md:py-16 bg-transparent">
           <div className="container mx-auto px-6">
-            <div className="section-panel max-w-5xl mx-auto rounded-[2rem] px-6 py-12 md:px-12 text-center">
-              <p className="eyebrow mb-6">Industries</p>
-              <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8">
-                Marketing and Growth Support for <span style={{ color: "var(--highlight-indigo)" }}>Modern Businesses</span>
+            <div className="section-panel max-w-4xl mx-auto rounded-[2rem] px-6 py-10 md:px-10 text-center">
+              <p className="eyebrow mb-4">Industries</p>
+              <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+                Marketing and Growth Support for <span className="brand-gradient-text">Modern Businesses</span>
               </h1>
-              <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-medium">
                 MarkitUp Group works with businesses that want stronger visibility, better
                 customer acquisition, and more consistent growth across digital channels.
               </p>
@@ -75,22 +75,22 @@ export default function Industries() {
           </div>
         </section>
 
-        <section className="soft-section py-24 md:py-28">
+        <section className="soft-section py-12 md:py-16">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {industries.map((industry) => {
                 const Icon = industry.icon;
                 return (
                   <article
                     key={industry.title}
-                    className="premium-card rounded-2xl p-8 border-t-4"
+                    className="premium-card rounded-2xl p-6 border-t-4"
                     style={{ borderTopColor: industry.accent }}
                   >
-                    <div className="bg-white w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                      <Icon size={28} style={{ color: industry.accent }} />
+                    <div className="bg-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                      <Icon size={24} style={{ color: industry.accent }} />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4">{industry.title}</h2>
-                    <p className="text-lg text-slate-700 leading-relaxed font-medium">
+                    <h2 className="text-xl font-bold text-slate-900 mb-3">{industry.title}</h2>
+                    <p className="text-[15px] text-slate-700 leading-relaxed font-medium">
                       {industry.description}
                     </p>
                   </article>
@@ -100,21 +100,21 @@ export default function Industries() {
           </div>
         </section>
 
-        <section className="py-24 md:py-28 bg-transparent">
+        <section className="py-12 md:py-16 bg-transparent">
           <div className="container mx-auto px-6 text-center">
-            <div className="rounded-[2rem] bg-slate-900 px-6 py-14 md:px-12 text-white">
-              <h2 className="text-4xl md:text-6xl font-black mb-8">
-                Need a strategy built around your <span style={{ color: "var(--accent-teal)" }}>industry goals</span>?
+            <div className="rounded-[2rem] bg-slate-900 px-6 py-12 md:px-10 text-white">
+              <h2 className="text-3xl md:text-4xl font-black mb-6">
+                Need a strategy built around your <span className="brand-gradient-text">industry goals</span>?
               </h2>
-              <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-slate-300 font-medium">
+              <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-slate-300 font-medium">
                 Explore our services or contact MarkitUp Group to discuss a growth approach for
                 your market, audience, and business stage.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/services" className="premium-button inline-flex items-center gap-3 px-10 py-4 rounded-full transition-all font-bold text-lg">
-                  Explore Services <ArrowRight size={20} />
+                <Link href="/services" className="gradient-button px-8 py-4 rounded-full font-bold text-sm text-white">
+                  Explore Services <ArrowRight size={20} className="ml-2" />
                 </Link>
-                <Link href="/contact" className="premium-button-soft inline-flex items-center gap-3 px-10 py-4 rounded-full transition-all font-bold text-lg text-slate-800">
+                <Link href="/contact" className="outline-button px-8 py-4 rounded-full font-bold text-sm bg-white text-slate-900">
                   Contact Us
                 </Link>
               </div>
