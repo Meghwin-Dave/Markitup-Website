@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-[var(--color-brand-purple)] flex-shrink-0 mt-0.5" />
-                <span className="text-slate-400 text-sm font-medium leading-relaxed">24h, Riverside court,<br/>Beaufort Park Way,<br/>Chepstow, NP16 5UW</span>
+                <span className="text-slate-400 text-sm font-medium leading-relaxed">24h, Riverside court,<br/>Beaufort Park Way,<br/>Chepstow, NP16 5UH</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-[var(--color-brand-purple)] flex-shrink-0" />
