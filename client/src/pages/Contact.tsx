@@ -16,10 +16,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import SEOContentBlock from "@/components/SEOContentBlock";
+import { clientLogos } from "@/data/clients";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 const staggerContainer = {
@@ -89,16 +90,19 @@ export default function Contact() {
     "name": "MarkitUp Group Limited",
     "image": "https://markitupgroup.com/images/markitup_logo_new.png",
     "url": "https://markitupgroup.com/contact",
-    "telephone": "+44 (0) 20 1234 5678",
+    "telephone": "+44 7767 901263",
     "email": "info@markitupgroup.com",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "London",
-      "addressCountry": "UK"
+      "streetAddress": "24h Riverside Court, Beaufort Park Way",
+      "addressLocality": "Chepstow",
+      "addressRegion": "Wales",
+      "postalCode": "NP16 5UH",
+      "addressCountry": "GB"
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+44 (0) 20 1234 5678",
+      "telephone": "+44 7767 901263",
       "contactType": "customer service"
     }
   };
@@ -160,9 +164,9 @@ export default function Contact() {
 
                 <div className="space-y-6 pt-6">
                   {[
-                    { icon: Mail, title: "Chat with us", desc: "Our friendly team is here to help.", info: "info@markitupgroup.com", color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10" },
-                    { icon: MapPin, title: "Visit us", desc: "Come say hello at our office HQ.", info: "London, United Kingdom", color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10" },
-                    { icon: Phone, title: "Call us", desc: "Mon-Fri from 9am to 6pm.", info: "+44 (0) 20 1234 5678", color: "text-[#C71888]", bg: "bg-[#C71888]/10" },
+                    { icon: Mail, title: "Chat with us", desc: "Our friendly team is here to help.", info: "info@markitupgroup.com", href: "mailto:info@markitupgroup.com", color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10" },
+                    { icon: MapPin, title: "Registered Office", desc: "MARKITUP GROUP LTD (Co. No. 16979278)", info: "24h Riverside Court, Beaufort Park Way, Chepstow, Wales, NP16 5UH", color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10" },
+                    { icon: Phone, title: "Call us", desc: "Direct telephone & inquiries.", info: "+44 7767 901263", href: "tel:+447767901263", color: "text-[#C71888]", bg: "bg-[#C71888]/10" },
                   ].map((item, i) => (
                     <motion.div key={i} variants={fadeUp} className="flex gap-5 group cursor-default">
                       <div className={`w-14 h-14 rounded-2xl ${item.bg} flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110`}>
@@ -171,7 +175,13 @@ export default function Contact() {
                       <div>
                         <h3 className="text-lg font-bold text-slate-900 mb-1">{item.title}</h3>
                         <p className="text-slate-500 font-medium mb-1">{item.desc}</p>
-                        <p className={`font-bold ${item.color}`}>{item.info}</p>
+                        {item.href ? (
+                          <a href={item.href} className={`font-bold ${item.color} hover:underline`}>
+                            {item.info}
+                          </a>
+                        ) : (
+                          <p className={`font-bold ${item.color}`}>{item.info}</p>
+                        )}
                       </div>
                     </motion.div>
                   ))}
@@ -179,10 +189,29 @@ export default function Contact() {
 
                 {/* Additional Trust Indicators */}
                 <motion.div variants={fadeUp} className="pt-8 mt-8 border-t border-slate-200">
-                  <h3 className="font-bold text-slate-900 mb-6">Trusted by innovative companies</h3>
-                  <div className="flex flex-wrap gap-8 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    <div className="flex items-center gap-2 font-black text-xl text-slate-800"><Globe size={24}/> TechFlow</div>
-                    <div className="flex items-center gap-2 font-black text-xl text-slate-800"><Building2 size={24}/> Nexus</div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Trusted by Growing Businesses</h3>
+                    <span className="text-xs font-semibold text-[#6C3BFF] bg-[#6C3BFF]/10 px-2.5 py-0.5 rounded-full">13+ Clients</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    {clientLogos.slice(0, 3).map((client) => (
+                      <div
+                        key={client.name}
+                        className="group flex flex-col items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#6C3BFF]/40 hover:shadow-sm text-center"
+                      >
+                        <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center p-1.5 overflow-hidden border border-slate-100 shadow-xs mb-1.5">
+                          <img
+                            src={client.logo}
+                            alt={`${client.name} logo`}
+                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-[11px] font-bold text-slate-800 tracking-tight line-clamp-1 w-full group-hover:text-[#6C3BFF] transition-colors" title={client.name}>
+                          {client.name}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
 

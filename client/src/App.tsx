@@ -22,6 +22,7 @@ import DjangoDevelopment from "./pages/services/DjangoDevelopment";
 import ReactDevelopment from "./pages/services/ReactDevelopment";
 import NodeDevelopment from "./pages/services/NodeDevelopment";
 import MobileAppDevelopment from "./pages/services/MobileAppDevelopment";
+import CookieConsent from "./components/CookieConsent";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -70,6 +71,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieConsent />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

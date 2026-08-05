@@ -7,19 +7,32 @@ import SEOContentBlock from "@/components/SEOContentBlock";
 import { 
   ArrowRight, CheckCircle, Search, Lightbulb, Rocket, 
   BarChart3, ShieldCheck, Users, Target, Heart, PoundSterling, 
-  PlayCircle, Eye, Compass, Check
+  PlayCircle, Eye, Compass, Check, Star, Zap
 } from "lucide-react";
 import { Link } from "wouter";
 import { ReactNode } from "react";
+import { clientLogos } from "@/data/clients";
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   "name": "About MarkitUp Group",
-  "description": "MarkitUp Group is a UK-based marketing, technology, and digital growth company specializing in SEO, app development, and influencer strategies.",
+  "description": "MarkitUp Group is a UK-based digital growth company helping businesses build stronger brands through strategic marketing, technology solutions and customer acquisition.",
   "publisher": {
     "@type": "Organization",
-    "name": "MarkitUp Group Limited",
+    "name": "MARKITUP GROUP LTD",
+    "alternateName": "MarkitUp Group Limited",
+    "url": "https://markitupgroup.com",
+    "email": "info@markitupgroup.com",
+    "telephone": "+44 7767 901263",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "24h Riverside Court, Beaufort Park Way",
+      "addressLocality": "Chepstow",
+      "addressRegion": "Wales",
+      "postalCode": "NP16 5UH",
+      "addressCountry": "GB"
+    },
     "logo": {
       "@type": "ImageObject",
       "url": "https://markitupgroup.com/images/markitbuddy_logo.png"
@@ -30,7 +43,7 @@ const structuredData = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 const staggerContainer = {
@@ -71,7 +84,7 @@ function SectionTitle({ eyebrow, title, description, align = "center" }: { eyebr
         {title}
       </h2>
       {description && (
-        <p className={`text-base text-slate-600 leading-relaxed ${align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"}`}>
+        <p className={`text-base text-slate-600 leading-relaxed ${align === "center" ? "mx-auto max-w-3xl" : "max-w-xl"}`}>
           {description}
         </p>
       )}
@@ -96,9 +109,9 @@ export default function About() {
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
-        title="About MarkitUp Group | Top Tech & Marketing Agency UK"
-        description="Learn about MarkitUp Group, a leading UK digital agency. We combine innovative digital marketing, cutting-edge IT solutions, and strategic growth partnerships."
-        keywords="About MarkitUp Group, Top tech agency UK, innovative digital team, SaaS marketing, London marketing agency, digital transformation company"
+        title="About MarkitUp Group | UK Marketing, Tech & Digital Growth Company"
+        description="MarkitUp Group is a UK-based digital growth company helping businesses build stronger brands through strategic marketing, technology solutions and customer acquisition."
+        keywords="About MarkitUp Group, UK digital growth company, UK tech agency, MarketBuddy, ITBuddy, DiscountBuddy, London marketing, bespoke business software"
         canonical="https://markitupgroup.com/about"
         structuredData={structuredData}
       />
@@ -106,9 +119,9 @@ export default function About() {
       <Header />
 
       <main>
-        {/* HERO SECTION */}
+        {/* 1. HERO SECTION */}
         <section className="relative overflow-visible bg-white">
-          <div className="grid min-h-[clamp(350px,50vh,550px)] w-full items-center lg:grid-cols-[45%_55%]">
+          <div className="grid min-h-[clamp(350px,50vh,550px)] w-full items-center lg:grid-cols-[48%_52%]">
             <motion.div 
               initial="hidden"
               animate="visible"
@@ -123,12 +136,12 @@ export default function About() {
               </motion.div>
               
               <motion.div variants={fadeUp} className="mt-6 flex items-center gap-3">
-                <div className="w-1.5 h-6 bg-[#FF7A00] rounded-full"></div>
-                <p className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-slate-500">A UK-Based Marketing & Digital Growth Company</p>
+                <div className="w-1.5 h-6 bg-[#FF7A00] rounded-full shrink-0"></div>
+                <p className="text-[clamp(1rem,1.5vw,1.25rem)] font-bold text-slate-700">A UK-Based Marketing, Technology & Digital Growth Company</p>
               </motion.div>
 
-              <motion.p variants={fadeUp} className="mt-6 max-w-[500px] text-[clamp(1rem,1.5vw,1.125rem)] leading-relaxed text-slate-600">
-                We help businesses grow smarter through marketing, technology and exclusive deals—built for the modern world.
+              <motion.p variants={fadeUp} className="mt-6 max-w-[540px] text-[clamp(0.95rem,1.4vw,1.05rem)] leading-relaxed text-slate-600">
+                MarkitUp Group is a UK-based digital growth company helping businesses build stronger brands through strategic marketing, technology solutions and customer acquisition. Through our specialist ventures—MarketBuddy, ITBuddy and DiscountBuddy—we provide flexible solutions tailored to each client's goals, from content creation and social media management to websites, business systems and growth strategies.
               </motion.p>
               
               <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-4">
@@ -138,7 +151,7 @@ export default function About() {
                     const section = document.getElementById("who-we-are");
                     if (section) {
                       e.preventDefault();
-                      const offset = 78; // Navbar height
+                      const offset = 78;
                       const top = section.getBoundingClientRect().top + window.scrollY - offset;
                       window.scrollTo({ top, behavior: "smooth" });
                     }
@@ -152,7 +165,7 @@ export default function About() {
                     const section = document.getElementById("who-we-are");
                     if (section) {
                       e.preventDefault();
-                      const offset = 78; // Navbar height
+                      const offset = 78;
                       const top = section.getBoundingClientRect().top + window.scrollY - offset;
                       window.scrollTo({ top, behavior: "smooth" });
                     }
@@ -184,7 +197,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* WHO WE ARE SECTION */}
+        {/* 2. WHO WE ARE SECTION */}
         <section id="who-we-are" className="py-12 md:py-16 lg:py-20 relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center bg-white rounded-[2.5rem] p-6 sm:p-10 lg:p-12 shadow-[0_20px_60px_rgba(15,23,42,0.04)] border border-slate-100">
@@ -222,124 +235,208 @@ export default function About() {
                 />
                 
                 <motion.p variants={fadeUp} className="text-[clamp(1rem,1.2vw,1.125rem)] leading-relaxed text-slate-600 mb-10">
-                  MarkitUp Group brings together marketing expertise, innovative technology and value-driven solutions to help brands attract customers, streamline operations and save more.
+                  MarkitUp Group brings together marketing expertise, innovative technology and value-driven solutions to help brands attract customers, streamline operations and achieve sustainable commercial growth.
                 </motion.p>
 
-                <div className="grid sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {[
-                    { icon: Users, label: "UK Based Team", color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10" },
-                    { icon: BarChart3, label: "100+ Clients Served", color: "text-[#C71888]", bg: "bg-[#C71888]/10" },
-                    { icon: Target, label: "Results Driven", color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10" }
+                    { value: "13+", label: "Clients Served", icon: Users, color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10" },
+                    { value: "150+", label: "Projects Delivered", icon: Rocket, color: "text-[#C71888]", bg: "bg-[#C71888]/10" },
+                    { value: "UK-Based", label: "Dedicated Team", icon: ShieldCheck, color: "text-[#218BFF]", bg: "bg-[#218BFF]/10" },
+                    { value: "Results", label: "Driven Execution", icon: Zap, color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10" }
                   ].map((stat, i) => (
-                    <motion.div key={i} variants={fadeUp} className="flex flex-col items-start gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color}`}>
-                        <stat.icon size={24} />
+                    <motion.div key={i} variants={fadeUp} className="flex flex-col items-start gap-2 rounded-2xl border border-slate-100 bg-slate-50/60 p-4 transition-all duration-300 hover:bg-white hover:shadow-md hover:-translate-y-0.5">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color} mb-0.5`}>
+                        <stat.icon size={20} />
                       </div>
-                      <p className="font-bold text-slate-900 text-[clamp(0.875rem,1vw,1rem)] leading-tight">{stat.label}</p>
+                      <p className="text-xl font-black text-slate-900 leading-none">{stat.value}</p>
+                      <p className="font-bold text-slate-500 text-[11px] uppercase tracking-wide leading-tight">{stat.label}</p>
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
 
             </div>
+
+            {/* Trusted Clients Circular Carousel */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeUp}
+              className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,23,42,0.04)] overflow-hidden"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#6C3BFF]">Trusted By</span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">Proud to Partner with Ambitious UK Businesses</h3>
+                </div>
+                <span className="text-xs font-bold text-[#6C3BFF] bg-[#6C3BFF]/10 px-3.5 py-1.5 rounded-full self-start sm:self-auto">
+                  13+ Active Clients
+                </span>
+              </div>
+              
+              {/* Infinite Carousel */}
+              <div className="relative w-full overflow-hidden mask-gradient">
+                <div className="flex items-center gap-6 sm:gap-8 animate-marquee py-3">
+                  {[...clientLogos, ...clientLogos, ...clientLogos].map((client, idx) => (
+                    <div
+                      key={`${client.name}-${idx}`}
+                      className="group flex flex-col items-center justify-center shrink-0 w-32 sm:w-36 text-center cursor-pointer transition-all duration-300 select-none"
+                    >
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white border-2 border-slate-200/90 shadow-xs flex items-center justify-center p-2.5 overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:border-[#6C3BFF] group-hover:shadow-md">
+                        <img
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          className="w-full h-full object-contain rounded-full transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="mt-2.5 text-xs font-bold text-slate-800 tracking-tight leading-tight w-full px-1 group-hover:text-[#6C3BFF] transition-colors">
+                        {client.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* WHAT WE DO SECTION */}
+        {/* 3. GROWTH ECOSYSTEM SECTION */}
         <section className="py-12 md:py-16 bg-white relative z-10 border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
-              eyebrow="WHAT WE DO" 
+              eyebrow="OUR ECOSYSTEM" 
               title="A Complete Growth Ecosystem" 
-              description="Three core business units working together to provide end-to-end digital growth."
+              description="MarkitUp Group operates through three specialist ventures: MarketBuddy, ITBuddy and DiscountBuddy. Clients may use a single service or combine multiple ventures into one integrated growth strategy depending on their business needs."
             />
 
-            <div className="grid md:grid-cols-3 gap-4 lg:gap-6 mt-12">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-12">
               {/* MarketBuddy Card */}
               <motion.div 
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="group relative bg-white rounded-[2rem] p-8 border border-slate-100 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(108,59,255,0.12)] hover:-translate-y-1 overflow-hidden"
+                className="group relative flex flex-col justify-between bg-white rounded-[2rem] p-8 border border-slate-200/80 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(108,59,255,0.12)] hover:-translate-y-1 overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#6C3BFF]/5 rounded-bl-full transition-all group-hover:scale-150"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-[#6C3BFF]/10 flex items-center justify-center mb-6">
-                    <img src="/images/markitbuddy_logo.png" alt="MarketBuddy" className="w-10 h-10 object-contain" />
+                    <img src="/images/markitbuddy_logo.png" alt="MarketBuddy Logo" className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">MarketBuddy</h3>
-                  <p className="text-slate-600 mb-8 leading-relaxed text-[15px]">Digital marketing & lead generation that drives real growth.</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-[15px]">
+                    Social media marketing, content creation, SEO and community campaigns that build brand visibility and customer engagement.
+                  </p>
                   
-                  <ul className="space-y-3 mb-10">
-                    {["SEO & Ads", "Social Media Marketing", "Lead Generation"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                        <CheckCircle size={16} className="text-[#6C3BFF]" /> {item}
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Social Media & Content Creation",
+                      "Search Engine Optimisation (SEO)",
+                      "Influencer & Creator Collaborations",
+                      "Targeted Paid Advertising & Lead Gen"
+                    ].map(item => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                        <CheckCircle size={16} className="text-[#6C3BFF] shrink-0" /> 
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  <Link href="/market-buddy" className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-[#6C3BFF]/10 text-[#6C3BFF] flex items-center justify-center transition-all group-hover:bg-[#6C3BFF] group-hover:text-white">
-                    <ArrowRight size={20} />
+                <div className="relative z-10 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link href="/market-buddy" className="text-xs font-bold text-[#6C3BFF] hover:underline flex items-center gap-1.5">
+                    Explore MarketBuddy <ArrowRight size={14} />
                   </Link>
+                  <div className="w-10 h-10 rounded-full bg-[#6C3BFF]/10 text-[#6C3BFF] flex items-center justify-center transition-all group-hover:bg-[#6C3BFF] group-hover:text-white">
+                    <ArrowRight size={18} />
+                  </div>
                 </div>
               </motion.div>
 
               {/* ITBuddy Card */}
               <motion.div 
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="group relative bg-white rounded-[2rem] p-8 border border-slate-100 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(255,122,0,0.12)] hover:-translate-y-1 overflow-hidden"
+                className="group relative flex flex-col justify-between bg-white rounded-[2rem] p-8 border border-slate-200/80 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(255,122,0,0.12)] hover:-translate-y-1 overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF7A00]/5 rounded-bl-full transition-all group-hover:scale-150"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-[#FF7A00]/10 flex items-center justify-center mb-6">
-                    <img src="/images/it_buddy_logo.png" alt="ITBuddy" className="w-10 h-10 object-contain" />
+                    <img src="/images/it_buddy_logo.png" alt="ITBuddy Logo" className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">ITBuddy</h3>
-                  <p className="text-slate-600 mb-8 leading-relaxed text-[15px]">Smart IT solutions & automation to scale your business.</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-[15px]">
+                    Bespoke web development, mobile applications, business systems and IT infrastructure engineered for scalability.
+                  </p>
                   
-                  <ul className="space-y-3 mb-10">
-                    {["Web & App Development", "Automation & Integrations", "IT Support & Maintenance"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                        <CheckCircle size={16} className="text-[#FF7A00]" /> {item}
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Custom Web & Mobile Development",
+                      "ERP Systems & Business Automation",
+                      "Database Architecture & API Integration",
+                      "Cloud Infrastructure & Maintenance"
+                    ].map(item => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                        <CheckCircle size={16} className="text-[#FF7A00] shrink-0" /> 
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  <Link href="/it-buddy" className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] flex items-center justify-center transition-all group-hover:bg-[#FF7A00] group-hover:text-white">
-                    <ArrowRight size={20} />
+                <div className="relative z-10 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link href="/it-buddy" className="text-xs font-bold text-[#FF7A00] hover:underline flex items-center gap-1.5">
+                    Explore ITBuddy <ArrowRight size={14} />
                   </Link>
+                  <div className="w-10 h-10 rounded-full bg-[#FF7A00]/10 text-[#FF7A00] flex items-center justify-center transition-all group-hover:bg-[#FF7A00] group-hover:text-white">
+                    <ArrowRight size={18} />
+                  </div>
                 </div>
               </motion.div>
 
               {/* DiscountBuddy Card */}
               <motion.div 
                 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="group relative bg-white rounded-[2rem] p-8 border border-slate-100 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(199,24,136,0.12)] hover:-translate-y-1 overflow-hidden"
+                className="group relative flex flex-col justify-between bg-white rounded-[2rem] p-8 border border-slate-200/80 shadow-[0_12px_40px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(199,24,136,0.12)] hover:-translate-y-1 overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#C71888]/5 rounded-bl-full transition-all group-hover:scale-150"></div>
                 <div className="relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-[#C71888]/10 flex items-center justify-center mb-6">
-                    <img src="/images/discount_buddy_logo.png" alt="DiscountBuddy" className="w-10 h-10 object-contain" />
+                    <img src="/images/discount_buddy_logo.png" alt="DiscountBuddy Logo" className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">DiscountBuddy</h3>
-                  <p className="text-slate-600 mb-8 leading-relaxed text-[15px]">Exclusive deals & savings on the tools and services you use.</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed text-[15px]">
+                    Promotional hospitality platforms and dining loyalty mechanisms designed to increase customer footfall and repeat visits.
+                  </p>
                   
-                  <ul className="space-y-3 mb-10">
-                    {["Discounted Subscriptions", "Business Tools & SaaS Deals", "Save More, Grow More"].map(item => (
-                      <li key={item} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                        <CheckCircle size={16} className="text-[#C71888]" /> {item}
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Exclusive Dining & Lifestyle Offers",
+                      "Restaurant Promotion & Local Footfall",
+                      "Customer Loyalty & Retention Tools",
+                      "Interactive Consumer Discovery Platform"
+                    ].map(item => (
+                      <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
+                        <CheckCircle size={16} className="text-[#C71888] shrink-0" /> 
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  <Link href="/discount-buddy" className="absolute bottom-8 right-8 w-12 h-12 rounded-full bg-[#C71888]/10 text-[#C71888] flex items-center justify-center transition-all group-hover:bg-[#C71888] group-hover:text-white">
-                    <ArrowRight size={20} />
+                <div className="relative z-10 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link href="/discount-buddy" className="text-xs font-bold text-[#C71888] hover:underline flex items-center gap-1.5">
+                    Explore DiscountBuddy <ArrowRight size={14} />
                   </Link>
+                  <div className="w-10 h-10 rounded-full bg-[#C71888]/10 text-[#C71888] flex items-center justify-center transition-all group-hover:bg-[#C71888] group-hover:text-white">
+                    <ArrowRight size={18} />
+                  </div>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* OUR APPROACH SECTION */}
+        {/* 4. OUR APPROACH SECTION */}
         <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle eyebrow="OUR APPROACH" title="A Proven Process for Growth" />
@@ -367,19 +464,19 @@ export default function About() {
           </div>
         </section>
 
-        {/* WHY CHOOSE US SECTION */}
+        {/* 5. WHY CHOOSE US SECTION */}
         <section className="py-12 md:py-16 bg-white relative border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle eyebrow="WHY CHOOSE US" title="The MarkitUp Advantage" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-10">
               {[
-                { icon: ShieldCheck, title: "UK Based & Trusted", desc: "Locally grounded expertise you can count on.", color: "text-[#6C3BFF]" },
-                { icon: Users, title: "Experienced Pros", desc: "Top talent driving your business success.", color: "text-[#C71888]" },
-                { icon: Target, title: "Results Focused", desc: "We measure our success by your growth.", color: "text-[#FF7A00]" },
-                { icon: Heart, title: "Customer First", desc: "Your goals are our primary mission.", color: "text-[#ec4899]" },
-                { icon: PoundSterling, title: "Value Driven", desc: "Maximum ROI for your marketing investment.", color: "text-[#10b981]" },
-                { icon: Eye, title: "Transparent Reporting", desc: "Clear analytics with no hidden fees or jargon.", color: "text-[#3b82f6]" }
+                { icon: ShieldCheck, title: "UK Based & Grounded", desc: "Local UK team providing direct, transparent communication.", color: "text-[#6C3BFF]" },
+                { icon: Users, title: "Specialist Expertise", desc: "Dedicated professionals spanning marketing, tech, and hospitality.", color: "text-[#C71888]" },
+                { icon: Target, title: "Results Focused", desc: "We measure our success by your commercial growth.", color: "text-[#FF7A00]" },
+                { icon: Heart, title: "Client First", desc: "Solutions designed specifically around your objectives.", color: "text-[#ec4899]" },
+                { icon: PoundSterling, title: "Commercial Value", desc: "Transparent structures with maximum return on investment.", color: "text-[#10b981]" },
+                { icon: Eye, title: "Clear Reporting", desc: "Honest analytics with no hidden fees or convoluted jargon.", color: "text-[#3b82f6]" }
               ].map((feature, i) => (
                 <motion.div 
                   key={i} 
@@ -397,7 +494,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* VISION & MISSION SECTION */}
+        {/* 6. VISION & MISSION SECTION */}
         <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
@@ -411,7 +508,7 @@ export default function About() {
                   <p className="text-sm font-extrabold uppercase tracking-widest text-[#6C3BFF] mb-6">OUR VISION</p>
                   <p className="text-[clamp(1.25rem,2vw,1.5rem)] font-bold text-slate-900 leading-tight mb-8">
                     <span className="text-5xl font-serif text-[#6C3BFF] leading-[0] mr-2 opacity-40">"</span>
-                    To empower businesses globally with smart marketing, technology and savings that create lasting growth and success.
+                    To empower businesses with smart marketing, modern technology and value-driven solutions that create lasting growth and success.
                   </p>
                 </div>
                 <div className="relative h-[200px] mt-4 flex justify-end items-end">
@@ -428,7 +525,7 @@ export default function About() {
                 <div className="relative z-10">
                   <p className="text-sm font-extrabold uppercase tracking-widest text-[#FF7A00] mb-6">OUR MISSION</p>
                   <p className="text-[clamp(1.25rem,2vw,1.5rem)] font-bold text-slate-900 leading-tight mb-8">
-                    To deliver simple, effective and affordable solutions that help businesses attract customers, work smarter and save more every day.
+                    To deliver practical, effective and affordable solutions that help businesses attract customers, work smarter and achieve their commercial potential.
                   </p>
                 </div>
                 <div className="relative h-[200px] mt-4 flex justify-end items-end">
@@ -441,7 +538,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* FINAL CTA SECTION */}
+        {/* 7. FINAL CTA SECTION */}
         <section className="py-12 lg:py-16 bg-white pb-20 lg:pb-24">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <motion.div 
@@ -478,16 +575,13 @@ export default function About() {
           </div>
         </section>
 
-        {/* SEO CONTENT SECTION */}
-        <SEOContentBlock title="A Leading Digital Marketing & Tech Agency in the UK">
+        {/* 8. COMPANY OVERVIEW (SEO CONTENT SECTION) */}
+        <SEOContentBlock title="Helping Businesses Grow Through Marketing, Technology & Customer-Focused Solutions">
           <p>
-            Since our inception, MarkitUp Group has been focused on one primary goal: becoming the <strong>top tech agency in the UK</strong> for comprehensive digital growth. Our history is built on a foundation of an <strong>innovative digital team</strong> that bridges the gap between creative marketing strategies and robust enterprise software development.
+            MarkitUp Group combines creative marketing, modern technology and practical business solutions to help organisations grow. Our approach focuses on measurable outcomes, authentic content, strong branding and scalable digital solutions. Whether supporting a local business, restaurant, retailer or event organiser, our team develops strategies that improve visibility, strengthen customer engagement and create sustainable long-term growth.
           </p>
           <p>
-            If you want to <strong>grow your business</strong>, our Market Buddy platform provides everything from <strong>marketing related items</strong> to top-tier <strong>social media influencer</strong> campaigns, viral <strong>instagram reels</strong>, and <strong>youtube vlogs</strong>. For the tech side, IT Buddy delivers <strong>IT related services in UK Europe</strong>, building custom <strong>erp</strong> software, robust <strong>mobile app</strong> development, high-converting <strong>website</strong> designs, technical <strong>seo</strong>, and secure <strong>ecommerce</strong> platforms—or <strong>any other service related to it</strong>.
-          </p>
-          <p>
-            Additionally, our Discount Buddy platform caters to the hospitality sector, ensuring <strong>restaurant ease of managements</strong> through a seamless <strong>booking system</strong>, effective <strong>loyalty management</strong>, powerful <strong>restaurant promotion</strong> tools, and flexible <strong>deals addition</strong> to keep customers coming back.
+            Through our specialist ventures—<strong>MarketBuddy</strong>, <strong>ITBuddy</strong>, and <strong>DiscountBuddy</strong>—we provide flexible solutions tailored to each client's specific objectives. Businesses can access individual specialist services or leverage our integrated ecosystem for unified multi-channel growth.
           </p>
         </SEOContentBlock>
       </main>

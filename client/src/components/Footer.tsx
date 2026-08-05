@@ -75,7 +75,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-[var(--color-brand-purple)] flex-shrink-0 mt-0.5" />
-                <span className="text-slate-400 text-sm font-medium leading-relaxed">24h, Riverside court,<br/>Beaufort Park Way,<br/>Chepstow, NP16 5UH</span>
+                <span className="text-slate-400 text-sm font-medium leading-relaxed">
+                  24h Riverside Court,<br/>
+                  Beaufort Park Way,<br/>
+                  Chepstow, Wales, NP16 5UH
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-[var(--color-brand-purple)] flex-shrink-0" />
@@ -86,7 +90,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-[var(--color-brand-purple)] flex-shrink-0" />
                 <a href="tel:+447767901263" className="text-slate-400 hover:text-white transition-colors text-sm font-medium">
-                  +44 7767901263
+                  +44 7767 901263
                 </a>
               </li>
             </ul>
@@ -95,12 +99,22 @@ export default function Footer() {
 
         <div className="border-t border-slate-800/80 pt-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <p className="text-slate-500 text-sm font-medium">
-            © {currentYear} MarkitUp Group Limited. All rights reserved.
+            © {currentYear} MarkitUp Group Limited (Company No. 16979278). All rights reserved.
           </p>
-          <div className="flex flex-wrap gap-6 text-sm font-medium text-slate-500">
+          <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-500">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
             <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <button
+              onClick={() => {
+                if (typeof window !== "undefined" && typeof window.openCookiePreferences === "function") {
+                  window.openCookiePreferences();
+                }
+              }}
+              className="hover:text-white transition-colors cursor-pointer text-left"
+            >
+              Cookie Preferences
+            </button>
           </div>
         </div>
       </div>

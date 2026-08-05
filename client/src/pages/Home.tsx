@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import SEOContentBlock from "@/components/SEOContentBlock";
+import { clientLogos } from "@/data/clients";
 import {
   ArrowRight,
   BarChart3,
@@ -23,7 +24,7 @@ import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 const staggerContainer = {
@@ -40,48 +41,48 @@ const aboutImage = "/images/creative-team.png";
 const solutionCards = [
   {
     name: "MARKET BUDDY",
-    subtitle: "Social Media Marketing",
-    copy: "We help restaurants, events and local businesses grow with powerful social media marketing, influencer partnerships and content creation.",
+    subtitle: "Social Media & Growth Marketing",
+    copy: "We help restaurants, events, and businesses scale with data-driven social media marketing, SEO, high-impact content, and verified creator partnerships.",
     logo: "/images/markitbuddy_logo.png",
     logoScale: "translate-x-[1px] translate-y-[1px] scale-[1.28]",
     accent: "purple",
     points: [
-      "Social Media Management",
-      "Influencer Collaborations",
-      "Content Creation",
-      "Campaigns & Promotions",
+      "Social Media Management & Strategy",
+      "Search Engine Optimisation (SEO)",
+      "Influencer & Creator Collaborations",
+      "Lead Generation & Paid Ads",
     ],
     cta: "Explore MarketBuddy",
     href: "/market-buddy",
   },
   {
     name: "IT BUDDY",
-    subtitle: "IT Solutions",
-    copy: "From websites to web applications, we provide smart and reliable IT solutions to help your business run and grow smoothly.",
+    subtitle: "IT Solutions & Software",
+    copy: "From bespoke web platforms to custom apps and automation, we engineer robust, reliable technology solutions tailored to your operational needs.",
     logo: "/images/it_buddy_logo.png",
     logoScale: "translate-x-[-2px] translate-y-[1px] scale-[1.68]",
     accent: "blue",
     points: [
-      "Website Development",
-      "Web Applications",
-      "E-commerce Solutions",
-      "Maintenance & Support",
+      "Custom Web & App Development",
+      "ERP & Business Automation",
+      "E-commerce Platforms",
+      "Cloud Infrastructure & Support",
     ],
     cta: "Explore ITBuddy",
     href: "/it-buddy",
   },
   {
     name: "DISCOUNT BUDDY",
-    subtitle: "Restaurant Discount Platform",
-    copy: "We connect hungry customers with the best restaurant deals across the UK and help restaurants increase footfall and grow their business exponentially.",
+    subtitle: "Restaurant Growth & Deals Platform",
+    copy: "We connect food lovers with curated dining offers while providing restaurants with customer loyalty tools, booking flows, and measurable footfall.",
     logo: "/images/discount_buddy_logo.png",
     logoScale: "translate-x-[-1px] translate-y-[1px] scale-[1.38]",
     accent: "pink",
     points: [
-      "Exclusive Restaurant Deals",
-      "More Footfall & Visibility",
-      "Easy Partner Onboarding",
-      "Targeted Customer Reach",
+      "Exclusive Restaurant Deals & Offers",
+      "Footfall & Table Booking Tools",
+      "Customer Loyalty Management",
+      "Targeted Local Promotions",
     ],
     cta: "Explore Discount Buddy",
     href: "/discount-buddy",
@@ -116,13 +117,11 @@ const solutionCardStyles = {
 } as const;
 
 const stats = [
-  { value: "250+", label: "Happy Clients", detail: "Across the UK", icon: UsersRound, color: "#6C3BFF" },
-  { value: "500+", label: "Projects Delivered", detail: "Successfully", icon: TrendingUp, color: "#FF2E78" },
-  { value: "10+", label: "Years Experience", detail: "In the Industry", icon: Sparkles, color: "#FF7A00" },
-  { value: "99%", label: "Client Satisfaction", detail: "Our Priority", icon: ShieldCheck, color: "#218BFF" },
+  { value: "13+", label: "Clients Served", detail: "Across the UK", icon: UsersRound, color: "#6C3BFF" },
+  { value: "150+", label: "Projects Delivered", detail: "Successfully", icon: Rocket, color: "#FF2E78" },
+  { value: "99%", label: "Client Satisfaction", detail: "Our Priority", icon: Star, color: "#FF7A00" },
+  { value: "100%", label: "UK-Based Company", detail: "London, UK", icon: ShieldCheck, color: "#218BFF" },
 ];
-
-const trustedBrands = ["BeeBlend", "Pizza4You", "The Biryani", "Eventix"];
 
 const features = [
   {
@@ -146,9 +145,27 @@ const features = [
 ];
 
 const testimonials = [
-  { brand: "BeeBlend UK", quote: "MarketBuddy helped us grow our reach and engagement significantly. Fantastic team." },
-  { brand: "Pizza 4 You", quote: "Discount Buddy brought new customers within weeks. It's a game changer for our footfall." },
-  { brand: "Bollywood Kingdom", quote: "Great experience with influencer campaigns. Very professional and creative execution." },
+  {
+    brand: "Pizza 4 You",
+    role: "Restaurant & Bistro, Wembley",
+    quote: "MarketBuddy understands our customers, creates authentic videos featuring our team, and consistently brings our restaurant in front of the right local audience. Our new branch received excellent visibility.",
+    author: "Owner, Pizza 4 You",
+    logo: "/images/markitbuddy_logo.png",
+  },
+  {
+    brand: "Shiv Shakti Foods",
+    role: "Vegetarian Cuisine & Catering, Wembley",
+    quote: "Their Gujarati content connects directly with our community, and we've seen more enquiries, more walk-ins, and increased awareness for both our restaurant and catering services. 10/10 rating.",
+    author: "Owner, Shiv Shakti Foods",
+    logo: "/images/markitbuddy_logo.png",
+  },
+  {
+    brand: "Bollywood Kingdom Events",
+    role: "Nightlife & Event Promotions, London",
+    quote: "Their creator network gives us exposure that traditional advertising simply can't achieve. Every campaign is professionally planned and consistently helps generate excitement before our events.",
+    author: "Founder, Bollywood Kingdom Events",
+    logo: "/images/markitbuddy_logo.png",
+  },
 ];
 
 const processSteps = [
@@ -159,8 +176,30 @@ const processSteps = [
 ];
 
 const featuredWork = [
-  { title: "BeeBlend UK", category: "Brand Expansion & Influencers", image: "/images/influencer_strategy.png", slug: "local-brand-lead-generation" },
-  { title: "Pizza 4 You", category: "App Launch & Footfall", image: "/images/restaurant_success.png", slug: "restaurant-visibility-growth" },
+  {
+    title: "Pizza 4 You",
+    category: "Restaurant Growth & Branch Launch",
+    image: "/images/restaurant_success.png",
+    slug: "pizza-4-you",
+    tagline: "150K+ organic views & 100K+ local accounts reached for the Wembley Bistro launch.",
+    metricBadge: "150,000+ Views",
+  },
+  {
+    title: "Shiv Shakti Foods",
+    category: "Gujarati UGC & Catering Growth",
+    image: "/images/ugc_creation.png",
+    slug: "shiv-shakti-foods",
+    tagline: "76K+ organic views & 97.6% non-follower reach driving dine-in & bulk catering bookings.",
+    metricBadge: "97.6% Discovery",
+  },
+  {
+    title: "Bollywood Kingdom Events",
+    category: "Influencer Marketing & Event Promotion",
+    image: "/images/influencer_strategy.png",
+    slug: "bollywood-kingdom-events",
+    tagline: "304K+ flagship views & high attendance across London's top venues and clubs.",
+    metricBadge: "304,000+ Views",
+  },
 ];
 
 function SectionTitle({ eyebrow, title, className = "" }: { eyebrow?: string; title: ReactNode, className?: string }) {
@@ -244,10 +283,20 @@ export default function Home() {
       {
         "@type": "Organization",
         "@id": "https://markitupgroup.com/#organization",
-        "name": "MarkitUp Group Limited",
+        "name": "MARKITUP GROUP LTD",
+        "alternateName": "MarkitUp Group Limited",
         "url": "https://markitupgroup.com",
         "logo": "https://markitupgroup.com/images/markitbuddy_logo.png",
-        "address": { "@type": "PostalAddress", "addressCountry": "GB" },
+        "email": "info@markitupgroup.com",
+        "telephone": "+44 7767 901263",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "24h Riverside Court, Beaufort Park Way",
+          "addressLocality": "Chepstow",
+          "addressRegion": "Wales",
+          "postalCode": "NP16 5UH",
+          "addressCountry": "GB"
+        },
         "sameAs": ["https://www.linkedin.com/company/markitupgroup"]
       },
       {
@@ -353,36 +402,66 @@ export default function Home() {
           <div className="relative z-20 mx-5 sm:mx-8 lg:mx-12 lg:-mt-12 xl:mx-[4.5rem]">
             <motion.div 
               initial="hidden" animate="visible" variants={fadeUp}
-              className="grid overflow-hidden rounded-[2rem] border border-[#E5E7EB] bg-white shadow-[0_20px_50px_rgba(15,23,42,0.06)] lg:grid-cols-[1.6fr_1fr]"
+              className="grid grid-cols-2 gap-y-4 gap-x-2 py-6 px-4 sm:gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-[#E5E7EB] lg:py-6 overflow-hidden rounded-[2rem] border border-[#E5E7EB] bg-white shadow-[0_20px_50px_rgba(15,23,42,0.06)]"
             >
-              <div className="grid grid-cols-2 gap-y-4 gap-x-2 py-5 sm:gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-[#E5E7EB] lg:py-0">
-                {stats.map(({ value, label, detail, icon: Icon, color }) => (
-                  <div key={label} className="group flex flex-col items-center justify-center gap-1.5 px-3 py-5 text-center transition-all duration-300">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 shadow-sm border border-slate-100 transition-transform duration-300 group-hover:scale-110 mb-1" style={{ color }}>
-                      <Icon size={20} />
-                    </div>
-                    <p className="text-2xl font-black leading-none text-[#0F172A]">{value}</p>
-                    <p className="mt-0.5 text-[11px] font-bold text-slate-500 uppercase tracking-wide">{label}</p>
+              {stats.map(({ value, label, detail, icon: Icon, color }) => (
+                <div key={label} className="group flex flex-col items-center justify-center gap-1.5 px-4 text-center transition-all duration-300">
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 shadow-xs border border-slate-100 transition-transform duration-300 group-hover:scale-110 mb-1" style={{ color }}>
+                    <Icon size={22} />
                   </div>
-                ))}
-              </div>
-              
-              <div className="relative flex flex-col justify-center border-t border-[#E5E7EB] bg-slate-50/50 px-6 py-6 overflow-hidden lg:border-l lg:border-t-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(108,59,255,0.03),transparent_100%)]" />
-                <p className="relative mb-4 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-[#64748B]">
-                  Trusted by Leading Brands
-                </p>
-                <div className="relative flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-                  {trustedBrands.map((brand) => (
-                    <div key={brand} className="group relative flex cursor-default items-center justify-center">
-                      <span className="relative text-lg font-black tracking-tight text-[#94A3B8] transition-colors duration-300 group-hover:text-slate-800">
-                        {brand}
-                      </span>
-                    </div>
-                  ))}
+                  <p className="text-2xl sm:text-3xl font-black leading-none text-[#0F172A]">{value}</p>
+                  <p className="mt-1 text-xs font-bold text-slate-500 uppercase tracking-wider">{label}</p>
                 </div>
-              </div>
+              ))}
             </motion.div>
+          </div>
+        </section>
+
+        {/* DEDICATED CLIENT LOGOS & NAMES CAROUSEL SECTION */}
+        <section className="py-14 sm:py-20 bg-white border-b border-slate-100 relative overflow-hidden">
+          <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+              <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#6C3BFF] bg-[#6C3BFF]/10 px-3.5 py-1 rounded-full">
+                Trusted By
+              </span>
+              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+                Trusted by Leading Brands & Businesses
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-slate-500 font-medium">
+                Proud to partner with ambitious businesses across London and the UK.
+              </p>
+            </div>
+          </div>
+
+          {/* Infinite Carousel Container */}
+          <div className="relative w-full overflow-hidden">
+            {/* Edge Fade Gradients */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
+
+            {/* Carousel Track */}
+            <div className="flex items-center gap-6 sm:gap-10 animate-marquee py-4">
+              {[...clientLogos, ...clientLogos, ...clientLogos].map((client, idx) => (
+                <div
+                  key={`${client.name}-${idx}`}
+                  className="group flex flex-col items-center justify-center shrink-0 w-36 sm:w-44 text-center cursor-pointer transition-all duration-300 select-none"
+                >
+                  {/* Uniform Circular Logo Container */}
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-white border-2 border-slate-200/90 shadow-[0_8px_24px_rgba(15,23,42,0.06)] flex items-center justify-center p-3 sm:p-4 overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:border-[#6C3BFF] group-hover:shadow-[0_14px_34px_rgba(108,59,255,0.18)]">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="w-full h-full object-contain rounded-full transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Client Name Below Logo */}
+                  <p className="mt-3 text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-tight w-full px-1 group-hover:text-[#6C3BFF] transition-colors">
+                    {client.name}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -495,19 +574,26 @@ export default function Home() {
               </Link>
             </div>
             
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer} className="grid gap-8 md:grid-cols-2">
-              {featuredWork.map(({ title, category, image, slug }) => (
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer} className="grid gap-6 md:grid-cols-3">
+              {featuredWork.map(({ title, category, image, slug, tagline, metricBadge }) => (
                 <Link key={title} href={`/case-studies#${slug}`} className="block h-full group">
                   <motion.article variants={fadeUp} className="relative overflow-hidden rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(15,23,42,0.12)] h-full flex flex-col">
-                    <div className="aspect-[16/9] overflow-hidden relative">
+                    <div className="aspect-[16/10] overflow-hidden relative">
                       <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                       <img src={image} alt={title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute top-4 right-4 z-20 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-[11px] font-bold text-white border border-white/20">
+                        {metricBadge}
+                      </div>
                     </div>
-                    <div className="p-8 flex-grow">
-                      <p className="mb-2 text-[11px] font-extrabold uppercase tracking-widest text-[#6C3BFF]">{category}</p>
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-2xl font-black text-slate-900">{title}</h3>
-                        <ArrowRight size={24} className="text-slate-300 transition-colors group-hover:text-[#6C3BFF]" />
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                      <div>
+                        <p className="mb-1.5 text-[11px] font-extrabold uppercase tracking-widest text-[#6C3BFF]">{category}</p>
+                        <h3 className="text-xl font-black text-slate-900 mb-2">{title}</h3>
+                        <p className="text-[13px] text-slate-600 font-medium leading-relaxed mb-4">{tagline}</p>
+                      </div>
+                      <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-[13px] font-bold text-[#6C3BFF] group-hover:text-[#5527D6]">
+                        <span>Read Case Study</span>
+                        <ArrowRight size={18} className="text-[#6C3BFF] transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
                   </motion.article>
@@ -561,7 +647,7 @@ export default function Home() {
             <SectionTitle title="What Our Clients Say" eyebrow="TESTIMONIALS" className="mb-10" />
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid gap-5 md:grid-cols-3 mb-16">
-              {testimonials.map(({ brand, quote }, index) => (
+              {testimonials.map(({ brand, role, quote, author, logo }) => (
                 <motion.article variants={fadeUp} key={brand} className="group flex flex-col rounded-[2rem] border border-slate-100 bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)]">
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <div className="flex gap-1 text-[#FFC400]">
@@ -569,20 +655,23 @@ export default function Home() {
                         <Star key={starIndex} size={16} fill="currentColor" />
                       ))}
                     </div>
+                    <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-700 uppercase tracking-wide border border-emerald-100">
+                      Verified Client
+                    </span>
                   </div>
-                  <p className="mb-6 text-[14px] leading-relaxed text-slate-600 font-medium italic flex-grow">"{quote}"</p>
+                  <p className="mb-6 text-[13.5px] leading-relaxed text-slate-600 font-medium italic flex-grow">"{quote}"</p>
                   
-                  <div className="flex items-center gap-3 mt-auto pt-5 border-t border-slate-50">
+                  <div className="flex items-center gap-3 mt-auto pt-5 border-t border-slate-100">
                     <div className="flex size-10 items-center justify-center rounded-full border border-slate-100 bg-slate-50 shadow-sm transition-transform group-hover:scale-105">
                       <img
-                        src={index === 1 ? "/images/discount_buddy_logo.png" : index === 2 ? "/images/it_buddy_logo.png" : "/images/markitbuddy_logo.png"}
+                        src={logo}
                         alt={`${brand} logo`}
                         className="h-6 w-6 object-contain"
                       />
                     </div>
                     <div>
                       <p className="text-[13px] font-extrabold text-slate-900">{brand}</p>
-                      <p className="text-[11px] font-bold text-slate-400">Verified Partner</p>
+                      <p className="text-[11px] font-bold text-slate-400">{role}</p>
                     </div>
                   </div>
                 </motion.article>

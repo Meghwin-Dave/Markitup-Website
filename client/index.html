@@ -11,13 +11,22 @@
     <meta name="revisit-after" content="7 days" />
     <link rel="canonical" href="https://markitupgroup.com/" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R93EWQKMF5"></script>
+    <!-- Google tag (gtag.js) with UK GDPR & PECR Consent Mode -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Default all non-essential cookies to denied until user consents
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R93EWQKMF5"></script>
+    <script>
       gtag('js', new Date());
-
       gtag('config', 'G-R93EWQKMF5');
     </script>
 
