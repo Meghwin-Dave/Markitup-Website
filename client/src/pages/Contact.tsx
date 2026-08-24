@@ -197,13 +197,13 @@ export default function Contact() {
                     {clientLogos.slice(0, 3).map((client) => (
                       <div
                         key={client.name}
-                        className="group flex flex-col items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200/80 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#6C3BFF]/40 hover:shadow-sm text-center"
+                        className="group flex flex-col items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-xs transition-all duration-300 hover:bg-white hover:border-[#6C3BFF]/40 hover:shadow-sm text-center"
                       >
-                        <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center p-1.5 overflow-hidden border border-slate-100 shadow-xs mb-1.5">
+                        <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center p-1.5 overflow-hidden border-2 border-slate-100 shadow-xs mb-1.5 transition-transform duration-300 group-hover:scale-105 group-hover:border-[#6C3BFF]">
                           <img
                             src={client.logo}
                             alt={`${client.name} logo`}
-                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                            className="w-full h-full object-contain rounded-full"
                             loading="lazy"
                           />
                         </div>

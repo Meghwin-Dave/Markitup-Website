@@ -180,27 +180,6 @@ const faqs = [
   { q: "What is your typical project timeline?", a: "Timelines vary depending on project complexity. A simple corporate website might take 3-4 weeks, while a comprehensive ERP system or complex mobile app could take 3-6 months. We provide clear milestone timelines during the Discovery phase." }
 ];
 
-const testimonials = [
-  {
-    quote: "ITBuddy transformed our idea into a powerful web application. Their team is professional, responsive and truly understands business needs.",
-    name: "Ravi Kumar",
-    role: "CEO, EcoWaste Solutions",
-    avatar: "https://i.pravatar.cc/100?img=11"
-  },
-  {
-    quote: "Our e-commerce store runs smoothly and sales have grown significantly. Great support and excellent communication throughout the project.",
-    name: "Neha Sharma",
-    role: "Founder, GreenHome Store",
-    avatar: "https://i.pravatar.cc/100?img=5"
-  },
-  {
-    quote: "Reliable, skilled and always available when we need them. ITBuddy is our go-to partner for all IT and development needs.",
-    name: "Vikram Patel",
-    role: "Operations Manager, RetailMax",
-    avatar: "https://i.pravatar.cc/100?img=8"
-  }
-];
-
 // --- Shared UI Components ---
 function GradientButton({ children, href, className = "" }: { children: React.ReactNode; href: string; className?: string; }) {
   return (
@@ -492,40 +471,129 @@ function IndustriesSection() {
   );
 }
 
-function TestimonialsSection() {
+function CaseStudySection() {
   return (
-    <section className="py-[clamp(3rem,5vw,4rem)] bg-white border-t border-slate-100">
-      <div className="container mx-auto px-[clamp(1.25rem,4vw,3rem)] max-w-[1440px]">
-        <SectionTitle eyebrow="Testimonials" title="What Our Clients Say" />
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[clamp(1.5rem,3vw,2rem)] mt-8">
-          {testimonials.map((test, i) => (
-            <div 
-              key={i}
-              className="bg-[#FAFAFA] rounded-[clamp(1rem,2vw,1.5rem)] p-[clamp(1.5rem,3vw,2rem)] shadow-sm border border-slate-100 flex flex-col h-full"
-            >
-              <div className="flex items-center gap-1 text-amber-400 mb-5">
-                {[1, 2, 3, 4, 5].map(star => (
-                  <Star key={star} size={16} className="fill-current" />
-                ))}
+    <section id="case-studies" className="py-[clamp(3.5rem,6vw,5rem)] bg-slate-900 text-white relative overflow-hidden border-t border-slate-800">
+      {/* Glow Effects */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#6C3BFF]/30 to-[#FF7A00]/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-[clamp(1.25rem,4vw,3rem)] max-w-[1440px] relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-purple-300 font-bold text-xs uppercase tracking-widest mb-4 border border-white/15 backdrop-blur-sm">
+              <Trophy size={14} className="text-amber-400" />
+              Featured Engineering Case Study
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Building <span className="brand-gradient-text">Discount Buddy</span>
+            </h2>
+            <p className="text-slate-300 text-base md:text-lg max-w-2xl mt-4 font-medium leading-relaxed">
+              How ITBuddy engineered a high-performance cross-platform mobile app, digital loyalty card system, real-time deals engine, and merchant QR validation platform from scratch.
+            </p>
+          </div>
+
+          <Link
+            href="/case-studies#discount-buddy"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all hover:scale-105 shrink-0"
+          >
+            Read Full Case Study <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-8 items-center bg-white/5 border border-white/10 rounded-[2.5rem] p-6 sm:p-8 lg:p-10 backdrop-blur-md shadow-2xl">
+          {/* Left Column - Product Graphic / Metrics */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="relative rounded-2xl bg-gradient-to-br from-purple-900/60 to-slate-900 p-6 border border-white/10 overflow-hidden">
+              <div className="flex items-center justify-between mb-6">
+                <img src="/images/discount_buddy_logo.png" alt="Discount Buddy Logo" className="h-10 object-contain" />
+                <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 font-bold text-xs border border-purple-400/30">
+                  Mobile App & SaaS Platform
+                </span>
               </div>
-              <p className="text-[clamp(0.875rem,1.1vw,1rem)] text-slate-700 font-bold leading-relaxed mb-8 flex-1">
-                "{test.quote}"
-              </p>
-              <div className="flex items-center gap-4 mt-auto">
-                <img 
-                  src={test.avatar} 
-                  alt={test.name}
-                  className="w-12 h-12 rounded-full object-cover bg-slate-200 border-2 border-white shadow-sm"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="text-[clamp(0.875rem,1vw,0.95rem)] font-bold text-slate-900">{test.name}</h4>
-                  <p className="text-[clamp(0.75rem,0.9vw,0.8rem)] text-slate-500 font-medium">{test.role}</p>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 p-4 rounded-xl border border-white/10">
+                  <p className="text-xl font-bold text-white">iOS & Android</p>
+                  <p className="text-xs text-slate-300 font-medium mt-1">Cross-Platform App</p>
+                </div>
+                <div className="bg-white/10 p-4 rounded-xl border border-white/10">
+                  <p className="text-xl font-bold text-amber-400">Onboarding</p>
+                  <p className="text-xs text-slate-300 font-medium mt-1">UK Merchant Partners</p>
+                </div>
+                <div className="bg-white/10 p-4 rounded-xl border border-white/10">
+                  <p className="text-xl font-bold text-emerald-400">QR Stamps</p>
+                  <p className="text-xs text-slate-300 font-medium mt-1">Digital Loyalty Engine</p>
+                </div>
+                <div className="bg-white/10 p-4 rounded-xl border border-white/10">
+                  <p className="text-xl font-bold text-purple-300">Cloud API</p>
+                  <p className="text-xs text-slate-300 font-medium mt-1">Scalable Architecture</p>
                 </div>
               </div>
             </div>
-          ))}
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {["Flutter & Dart", "Firebase FCM", "Digital Loyalty Cards", "QR Stamp Engine", "REST API", "Real-Time Geo"].map((tag, idx) => (
+                <span key={idx} className="px-3 py-1.5 rounded-lg bg-white/10 text-slate-300 text-xs font-semibold border border-white/10">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - Engineering Deliverables & Story */}
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="text-2xl font-extrabold text-white">Engineering Highlights & Features Delivered</h3>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-purple-400/50 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center mb-3">
+                  <Smartphone size={20} />
+                </div>
+                <h4 className="font-bold text-white text-base mb-1">Cross-Platform Flutter App</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">Single codebase delivering native-level performance on both iOS App Store and Google Play Store.</p>
+              </div>
+
+              <div className="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-purple-400/50 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center mb-3">
+                  <ShieldCheck size={20} />
+                </div>
+                <h4 className="font-bold text-white text-base mb-1">Digital Loyalty Card System</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">Digital stamp cards replacing paper punch cards with 2-second QR validation at restaurant tables.</p>
+              </div>
+
+              <div className="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-purple-400/50 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-3">
+                  <Database size={20} />
+                </div>
+                <h4 className="font-bold text-white text-base mb-1">Real-Time Deals Engine</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">Instant merchant offer publishing to manage off-peak restaurant capacity in real-time.</p>
+              </div>
+
+              <div className="bg-white/5 p-5 rounded-2xl border border-white/10 hover:border-purple-400/50 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center mb-3">
+                  <Rocket size={20} />
+                </div>
+                <h4 className="font-bold text-white text-base mb-1">Mystery Guest Feedback Module</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">Anonymous diner scorecard audit system with image upload & verifiable feedback workflows.</p>
+              </div>
+            </div>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="/discount-buddy"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6C3BFF] to-[#8A3FFC] text-white font-bold text-sm shadow-lg hover:shadow-purple-500/30 hover:scale-105 transition-all"
+              >
+                Explore Discount Buddy Platform <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/case-studies#discount-buddy"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/10 text-white font-bold text-sm border border-white/20 hover:bg-white/20 transition-all text-center"
+              >
+                Read Technical Breakdown
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -661,7 +729,7 @@ export default function ITBuddy() {
         <TechnologiesSection />
         <ProcessSection />
         <IndustriesSection />
-        <TestimonialsSection />
+        <CaseStudySection />
         <FAQSection />
         <FinalCTA />
 

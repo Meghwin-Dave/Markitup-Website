@@ -47,6 +47,117 @@ interface CaseStudyData {
 
 const caseStudies: CaseStudyData[] = [
   {
+    id: "discount-buddy",
+    client: "Discount Buddy Platform",
+    location: "London & UK Nationwide",
+    industry: "Software Engineering • Hospitality Tech • Mobile App & SaaS",
+    category: "Mobile App Engineering & Digital Loyalty Architecture",
+    timeline: "Platform Built & Merchant Onboarding Phase",
+    tagline: "Cross-Platform App Development, Digital Loyalty Stamp Wallet & Real-Time Deals",
+    overview:
+      "Discount Buddy is a flagship hospitality ecosystem engineered by ITBuddy. Built to bridge the gap between food lovers and local restaurants, ITBuddy designed and developed the cross-platform mobile application, automated digital loyalty stamp card system, real-time deals engine, and merchant QR validation infrastructure. The platform is currently in its partner restaurant onboarding phase ahead of public rollout.",
+    image: "/images/discount-buddy-phone-screen.png",
+    gradient: "from-[#8A3FFC] to-[#ec4899]",
+    textColor: "text-[#8A3FFC]",
+    bgLight: "bg-[#8A3FFC]/10",
+    borderColor: "border-[#8A3FFC]/30",
+    heroMetrics: [
+      { value: "iOS & Android", label: "Cross-Platform Apps", sub: "Flutter & Dart engine" },
+      { value: "Merchant Portal", label: "Onboarding Live", sub: "UK partner venues" },
+      { value: "QR Validation", label: "Table-Side Engine", sub: "2-second instant scans" },
+      { value: "Digital Stamps", label: "Loyalty Wallet Built", sub: "Automated retention" },
+    ],
+    challenge: [
+      "Traditional paper punch cards are easily lost, creating zero customer retention data for restaurant owners.",
+      "Restaurants lacked real-time digital tools to publish off-peak discounts and attract immediate walk-ins.",
+      "Vouchers required slow manual processing, slowing down table service during peak hours.",
+      "Need for a robust cross-platform mobile architecture capable of handling instant push notifications and high concurrency.",
+    ],
+    strategyOverview:
+      "ITBuddy engineered an end-to-end digital ecosystem combining a high-performance Flutter mobile application with a scalable cloud backend. We introduced an automated Digital Loyalty Stamp Wallet, instant merchant QR table scanning, real-time offer publishing, and an anonymous Mystery Guest feedback pipeline.",
+    strategyPoints: [
+      "Cross-platform mobile app development in Flutter & Dart for seamless iOS and Android execution.",
+      "6 Flexible Offer Management rules: Percentage Discounts, Fixed Amount, Combo Deals, 2-for-1s, Seasonal & Limited-Time offers.",
+      "Reservation Request Workflow allowing restaurants to review and Accept or Decline booking requests.",
+      "Digital Loyalty Stamp Card system with customisable merchant reward tiers and automated win-back alerts.",
+      "Instant 2-second QR code scan validation for waitstaff right at the dining table.",
+      "Business Intelligence analytics dashboard tracking views, clicks, booking activity, and revenue impact.",
+      "Complimentary £200 Professional Reel benefit integration for Founding Partner restaurants.",
+    ],
+    campaignHighlights: [
+      {
+        title: "Flexible Offer Engine (6 Types)",
+        desc: "Engineered full merchant control over percentage discounts, fixed savings, combo deals, 2-for-1s, seasonal campaigns, and limited-time promotions.",
+        iconEmoji: "🏷️",
+      },
+      {
+        title: "Reservation Request Workflow",
+        desc: "Built a 3-step Submit -> Review -> Accept/Decline table reservation system keeping restaurant owners in complete operational control.",
+        iconEmoji: "📅",
+      },
+      {
+        title: "Digital Loyalty Stamp Wallet Engine",
+        desc: "Engineered an in-app stamp card replacing paper punch cards, allowing diners to collect stamps and unlock rewards seamlessly.",
+        iconEmoji: "💳",
+      },
+      {
+        title: "Instant Table QR Validation Engine",
+        desc: "Built a high-speed camera QR verification feature allowing restaurant staff to validate deals and grant loyalty stamps in under 2 seconds.",
+        iconEmoji: "⚡",
+      },
+    ],
+    servicesDelivered: [
+      "Cross-Platform Mobile App Development",
+      "Digital Loyalty & Stamp Card Engine",
+      "UI/UX Mobile & Web Architecture",
+      "Real-Time Deals Engine",
+      "QR Code Verification Infrastructure",
+      "Cloud REST API & Backend Systems",
+      "Firebase Push Notification Engine",
+      "Merchant Admin Portal",
+      "Mystery Guest Workflow Module",
+      "Dedicated Infrastructure Architecture",
+    ],
+    contentDelivered: [
+      "iOS & Android Production App Builds",
+      "Merchant Admin & Analytics Web Portal",
+      "Staff QR Scanner Mobile Companion",
+      "API Documentation & Integration Specs",
+    ],
+    resultsPerformance: [
+      "Production-ready mobile applications built for both iOS App Store and Google Play.",
+      "Merchant onboarding portal live for partner restaurant registration.",
+      "Instant QR scanner validation engine tested and operational.",
+      "Digital Loyalty Stamp wallet integrated into customer app builds.",
+      "Scalable REST API architecture ready for multi-region dining traffic.",
+    ],
+    audienceQuality: [
+      "Engineered specifically for UK food lovers and dining enthusiasts.",
+      "Designed for multi-branch restaurant groups and independent dining venues across London.",
+    ],
+    businessImpact: [
+      "Engineered Discount Buddy from concept to a production-grade hospitality SaaS platform.",
+      "Equipped partner restaurants with modern retention analytics and customer re-engagement tools.",
+      "Demonstrated ITBuddy's ability to build complex, enterprise-grade mobile and SaaS solutions.",
+    ],
+    testimonial: {
+      quote:
+        "ITBuddy brought our vision for Discount Buddy to life with world-class technical execution. From the seamless mobile app experience to the digital loyalty stamp card system and table QR validation, everything runs fast, reliably, and effortlessly. Their engineering team is top-tier.",
+      author: "Product Director, Discount Buddy",
+      rating: "5.0 / 5.0",
+      satisfaction: "10/10",
+    },
+    seoKeywords: [
+      "Hospitality App Development",
+      "Digital Loyalty Card System",
+      "Flutter Mobile App UK",
+      "Restaurant Deals Platform Engineering",
+      "QR Validation App",
+      "Custom SaaS Development London",
+      "ITBuddy Software Engineering",
+    ],
+  },
+  {
     id: "pizza-4-you",
     client: "Pizza 4 You",
     location: "Wembley & London, UK",

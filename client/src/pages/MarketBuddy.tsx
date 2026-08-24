@@ -6,9 +6,10 @@ import SEOContentBlock from "@/components/SEOContentBlock";
 import { 
   ArrowRight, Video, Camera, Users, MessageSquare, 
   TrendingUp, Play, Heart, Send, Search, Star, ShieldCheck,
-  CheckCircle2, Instagram, Facebook, Youtube, Linkedin, Twitter, Target
+  CheckCircle2, Instagram, Facebook, Youtube, Linkedin, Sparkles,
+  Megaphone, FileText, Palette, Eye, ChevronRight
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { ReactNode } from "react";
 import emailjs from '@emailjs/browser';
@@ -16,14 +17,14 @@ import emailjs from '@emailjs/browser';
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "MarketBuddy - Social Media & Digital Marketing",
-  "description": "MarketBuddy provides end-to-end social media marketing, content creation, influencer strategies, and lead generation.",
+  "name": "MarketBuddy - Social Media Marketing Agency UK",
+  "description": "MarketBuddy by MarkitUp Group Ltd is a UK-based social media marketing agency providing content creation, social media management, influencer marketing, paid social advertising and SEO.",
   "provider": {
     "@type": "Organization",
     "name": "MarkitUp Group Limited",
     "url": "https://markitupgroup.com"
   },
-  "serviceType": "Digital Marketing",
+  "serviceType": "Social Media Marketing Agency",
   "areaServed": "GB"
 };
 
@@ -67,36 +68,50 @@ function SectionTitle({ eyebrow, title, description, align = "center" }: { eyebr
   );
 }
 
+// Custom TikTok Icon
+function TikTokIcon({ className = "w-6 h-6", size = 24 }: { className?: string; size?: number }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="currentColor" 
+      className={className}
+    >
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-1.18c.26 0 .5.04.73.1V9.38a6.32 6.32 0 0 0-1-.08 6.34 6.34 0 1 0 6.34 6.34V8.65a8.28 8.28 0 0 0 4.84 1.54V6.74a4.85 4.85 0 0 1-.8-.05z"/>
+    </svg>
+  );
+}
+
 function PlatformsSection() {
   const platforms = [
     { name: "Instagram", icon: Instagram, color: "text-[#E1306C]" },
+    { name: "TikTok", icon: TikTokIcon, color: "text-slate-900" },
     { name: "Facebook", icon: Facebook, color: "text-[#1877F2]" },
     { name: "YouTube", icon: Youtube, color: "text-[#FF0000]" },
     { name: "LinkedIn", icon: Linkedin, color: "text-[#0A66C2]" },
-    { name: "Twitter / X", icon: Twitter, color: "text-[#1DA1F2]" },
-    { name: "TikTok Ads", icon: Target, color: "text-[#000000]" },
   ];
-  const duplicatedPlatforms = [...platforms, ...platforms, ...platforms];
+  const duplicatedPlatforms = [...platforms, ...platforms, ...platforms, ...platforms];
 
   return (
     <section className="py-[clamp(3rem,5vw,4rem)] bg-white border-t border-slate-100 overflow-hidden">
       <div className="container mx-auto px-[clamp(1.25rem,4vw,3rem)] max-w-[1440px]">
         <SectionTitle 
-          eyebrow="Platforms We Master" 
-          title="Omnichannel Presence for Maximum Reach" 
-          description="We tailor your brand's voice and strategy across every major platform to capture attention where your audience spends their time."
+          eyebrow="Targeted Channels" 
+          title="Built for the Platforms Your Customers Actually Use" 
+          description="From short-form video and creator collaborations to paid campaigns and professional brand content, we build platform-specific strategies designed around where your audience spends its attention."
         />
         
-        <div className="mt-16 relative flex items-center w-full max-w-6xl mx-auto overflow-hidden">
+        <div className="mt-12 relative flex items-center w-full max-w-6xl mx-auto overflow-hidden">
           <motion.div
-            animate={{ x: ["0%", "-33.333333%"] }}
-            transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+            animate={{ x: ["0%", "-25%"] }}
+            transition={{ ease: "linear", duration: 25, repeat: Infinity }}
             className="flex gap-12 sm:gap-24 items-center pr-12 sm:pr-24 w-max"
           >
             {duplicatedPlatforms.map((platform, i) => (
               <div key={i} className="flex flex-col items-center justify-center gap-4 transition-all hover:scale-110 cursor-default shrink-0">
-                <platform.icon size={56} className={`${platform.color} drop-shadow-sm`} strokeWidth={1.5} />
-                <span className="text-[clamp(0.8rem,1vw,0.875rem)] font-bold text-slate-700 whitespace-nowrap">{platform.name}</span>
+                <platform.icon size={48} className={`${platform.color} drop-shadow-sm`} />
+                <span className="text-[clamp(0.85rem,1vw,0.95rem)] font-bold text-slate-800 whitespace-nowrap">{platform.name}</span>
               </div>
             ))}
           </motion.div>
@@ -127,7 +142,6 @@ export default function MarketBuddy() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Split name into first and last name for the email template
     const nameParts = formData.name.trim().split(" ");
     const firstName = nameParts[0] || "";
     const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
@@ -160,12 +174,188 @@ export default function MarketBuddy() {
     }
   };
 
+  const services = [
+    {
+      title: "Social Media Management",
+      desc: "End-to-end management built around consistent content, audience growth and a stronger brand presence.",
+      icon: MessageSquare,
+      color: "text-[#6C3BFF]",
+      bg: "bg-[#6C3BFF]/10",
+      features: [
+        "Content strategy & planning",
+        "Posting & scheduling",
+        "Community management",
+        "Performance reporting"
+      ]
+    },
+    {
+      title: "Reels & Video Production",
+      desc: "Short-form content built to capture attention and communicate the brand naturally.",
+      icon: Video,
+      color: "text-[#FF7A00]",
+      bg: "bg-[#FF7A00]/10",
+      features: [
+        "Concept development",
+        "Scriptwriting & hooks",
+        "Professional shooting",
+        "Editing & trend adaptation"
+      ]
+    },
+    {
+      title: "UGC Content Creation",
+      desc: "Creator-style content that makes brands feel authentic, relatable and native to social media.",
+      icon: Sparkles,
+      color: "text-[#C71888]",
+      bg: "bg-[#C71888]/10",
+      features: [
+        "UGC concepts & scripting",
+        "On-camera creators",
+        "Product/service storytelling",
+        "Organic & ad-ready creatives"
+      ]
+    },
+    {
+      title: "Influencer Marketing",
+      desc: "Connecting brands with relevant creators to reach targeted audiences through credible content.",
+      icon: Users,
+      color: "text-[#3B82F6]",
+      bg: "bg-[#3B82F6]/10",
+      features: [
+        "Influencer sourcing",
+        "Campaign planning",
+        "Creator coordination",
+        "Performance tracking"
+      ]
+    },
+    {
+      title: "Paid Social Advertising",
+      desc: "Targeted campaigns designed to increase reach, enquiries, conversions and customer acquisition.",
+      icon: Megaphone,
+      color: "text-[#10B981]",
+      bg: "bg-[#10B981]/10",
+      features: [
+        "Meta Ads",
+        "TikTok Ads",
+        "Creative testing",
+        "Retargeting & optimisation"
+      ]
+    },
+    {
+      title: "Photography & Product Content",
+      desc: "Professional visual assets for social media, websites, e-commerce and advertising.",
+      icon: Camera,
+      color: "text-[#8A3FFC]",
+      bg: "bg-[#8A3FFC]/10",
+      features: [
+        "Product photography",
+        "Food & lifestyle photography",
+        "Brand photoshoots",
+        "Social media assets"
+      ]
+    },
+    {
+      title: "Branding & Creative Design",
+      desc: "Visual content that gives businesses a consistent and professional identity across digital channels.",
+      icon: Palette,
+      color: "text-[#EC4899]",
+      bg: "bg-[#EC4899]/10",
+      features: [
+        "Social media creatives",
+        "Promotional graphics",
+        "Campaign assets",
+        "Brand consistency"
+      ]
+    },
+    {
+      title: "SEO Strategy",
+      desc: "Search-focused optimisation designed to improve online visibility and help potential customers discover the business.",
+      icon: Search,
+      color: "text-[#F59E0B]",
+      bg: "bg-[#F59E0B]/10",
+      features: [
+        "Keyword research",
+        "On-page optimisation",
+        "Content optimisation",
+        "SEO strategy"
+      ]
+    }
+  ];
+
+  const featuredCampaigns = [
+    {
+      client: "Taal & Trend Events",
+      metric: "74K+ views",
+      metricSub: "Organic Campaign Reach",
+      type: "Event Marketing Campaign",
+      services: ["Influencer Marketing", "Content Creation"],
+      image: "/images/influencer_strategy.png",
+      badgeColor: "bg-purple-100 text-purple-700 border-purple-200"
+    },
+    {
+      client: "Zanzibar",
+      metric: "18K+ views",
+      metricSub: "Targeted Local Views",
+      type: "Restaurant Content Campaign",
+      services: ["UGC", "Reels", "Local Awareness"],
+      image: "/images/restaurant_success.png",
+      badgeColor: "bg-orange-100 text-orange-700 border-orange-200"
+    },
+    {
+      client: "MakeMyCakes.co.uk",
+      metric: "12K+ views",
+      metricSub: "High Saves & Shares",
+      type: "Food Brand Campaign",
+      services: ["Influencer Marketing", "UGC"],
+      image: "/images/ugc_creation.png",
+      badgeColor: "bg-pink-100 text-pink-700 border-pink-200"
+    }
+  ];
+
+  const clientReviews = [
+    {
+      client: "Swad Sweets & Savouries",
+      rating: 5,
+      review: "MarketBuddy built our new social presence from scratch. Their Gujarati-language reels brought in strong local reach and we had customers visiting our shop saying they saw us on Instagram.",
+      focus: "New Social Presence & Footfall"
+    },
+    {
+      client: "MakeMyCakes.co.uk",
+      rating: 5,
+      review: "A single UGC and influencer marketing reel generated over 12K views with incredible saves and shares. Highly creative team!",
+      focus: "12K+ Reel Views & Viral Reach"
+    },
+    {
+      client: "Taal & Trend Events",
+      rating: 5,
+      review: "The Pre-Navratri giveaway campaign reached 74K+ targeted local viewers and drove massive event awareness across London.",
+      focus: "74K+ Views & Event Awareness"
+    },
+    {
+      client: "AR Events London",
+      rating: 5,
+      review: "Incredible influencer marketing collaboration with multiple creators, generating 79K+ campaign views for our London events.",
+      focus: "Multi-Creator 79K+ Views"
+    },
+    {
+      client: "Zanzibar",
+      rating: 5,
+      review: "The onboarding reel garnered 18K+ targeted local views. Excellent strategy and execution!",
+      focus: "18K+ Targeted Local Views"
+    },
+    {
+      client: "Cream & Curl London",
+      rating: 4,
+      review: "Great influencer marketing reel that reached ~9.5K views. Professional team and easy to work with.",
+      focus: "9.5K Views Influencer Campaign"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] font-sans selection:bg-[#6C3BFF]/20 selection:text-[#0F172A]">
       <SEOHead
-        title="Market Buddy by MarkitUp Group | Social Media Marketing Agency"
-        description="Looking to grow your business? MarketBuddy provides expert social media marketing, instagram reels, youtube vlogs, and influencer strategies to scale your brand."
-        keywords="social media influencer, instagram reels, youtube vlogs, grow your business, marketing, UGC content, influencer marketing"
+        title="MarketBuddy | Social Media Marketing Agency UK | MarkitUp Group"
+        description="MarketBuddy is a UK-based social media marketing agency providing content creation, social media management, influencer marketing, paid social advertising and SEO strategy."
+        keywords="Social Media Marketing Agency UK, social media management UK, UGC content creation, influencer marketing UK, Instagram marketing, TikTok marketing, content creation agency, paid social advertising"
         canonical="https://markitupgroup.com/market-buddy"
         structuredData={structuredData}
       />
@@ -185,69 +375,83 @@ export default function MarketBuddy() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,122,0,0.05),transparent_55%)] pointer-events-none" />
 
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
-            <div className="grid min-h-[clamp(400px,50vh,600px)] w-full items-center lg:grid-cols-[55%_45%] gap-8 lg:gap-6">
+            <div className="grid min-h-[clamp(420px,50vh,620px)] w-full items-center lg:grid-cols-[55%_45%] gap-8 lg:gap-6">
               
               <motion.div 
                 initial="hidden" animate="visible" variants={staggerContainer}
                 className="relative z-10 lg:pr-8"
               >
-                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#E7D8FF] bg-white px-4 py-2 text-sm font-bold text-[#6C3BFF] shadow-sm mb-6">
-                  <TrendingUp size={16} /> Your Growth, Our Mission
+                <motion.div variants={fadeUp} className="inline-flex items-center gap-2 rounded-full border border-[#E7D8FF] bg-white px-4 py-2 text-xs font-bold text-[#6C3BFF] shadow-sm mb-6">
+                  <span className="w-2 h-2 rounded-full bg-[#6C3BFF] animate-pulse"></span>
+                  A MarkitUp Group Venture
                 </motion.div>
                 
-                <motion.h1 variants={fadeUp} className="text-[clamp(2.75rem,5.5vw,5.25rem)] font-extrabold leading-[1.02] text-[#0F172A] tracking-tighter mb-6">
-                  <span className="text-[#6C3BFF]">MarketBuddy</span> –<br/>
-                  Social Media Marketing That Drives Growth
+                <motion.h1 variants={fadeUp} className="text-[clamp(2.5rem,4.8vw,4.75rem)] font-extrabold leading-[1.06] text-[#0F172A] tracking-tight mb-6">
+                  Social Media Marketing Built to <span className="brand-gradient-text">Get Your Brand Seen.</span>
                 </motion.h1>
 
-                <motion.p variants={fadeUp} className="max-w-[560px] text-[clamp(1.125rem,1.5vw,1.375rem)] leading-relaxed text-slate-600 mb-10 font-medium">
-                  We create scroll-stopping content, build powerful brands and turn followers into loyal customers.
+                <motion.p variants={fadeUp} className="max-w-[580px] text-[clamp(1.05rem,1.4vw,1.25rem)] leading-relaxed text-slate-600 mb-8 font-medium">
+                  We help UK businesses grow through scroll-stopping content, strategic social media and creator-led campaigns designed to reach the right audience and turn attention into action.
                 </motion.p>
                 
-                <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6">
-                  <GradientButton href="/contact">
-                    <Send size={18} /> Talk to Our Team
-                  </GradientButton>
+                {/* Service Line Pills */}
+                <motion.div variants={fadeUp} className="mb-8 flex flex-wrap gap-2 text-xs font-bold text-slate-700">
+                  <span className="bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">Content Creation</span>
+                  <span className="bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">Influencer Marketing</span>
+                  <span className="bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">Social Media Management</span>
+                  <span className="bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">Paid Advertising</span>
                 </motion.div>
 
-                <motion.div variants={fadeUp} className="mt-12 flex items-center gap-4">
-                  <div className="flex -space-x-3">
-                    {["AB", "CD", "EF", "GH"].map((initials, i) => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white shadow-sm bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">
-                        {initials}
-                      </div>
-                    ))}
-                  </div>
-                  <div>
-                    <div className="flex items-center text-[#FFB800] mb-0.5">
-                      {[1,2,3,4,5].map(star => <Star key={star} size={14} fill="currentColor" />)}
-                    </div>
-                    <p className="text-sm font-medium text-slate-600">Trusted by 200+ brands</p>
-                  </div>
+                <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
+                  <GradientButton href="/contact" className="px-8 py-4">
+                    Let's Grow Your Brand <ArrowRight size={18} />
+                  </GradientButton>
+                  <Link
+                    href="/case-studies"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0F172A] border border-slate-200 shadow-sm rounded-full font-bold hover:border-[#6C3BFF] hover:text-[#6C3BFF] transition-all hover:-translate-y-0.5"
+                  >
+                    View Our Work
+                  </Link>
                 </motion.div>
               </motion.div>
 
-              {/* HERO IMAGE */}
+              {/* HERO REEL / PORTFOLIO DISPLAY */}
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative flex justify-center lg:justify-end w-full"
+                className="relative flex justify-center lg:justify-end w-full mt-8 lg:mt-0"
               >
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-[#6C3BFF]/20 to-[#FF7A00]/20 blur-[100px] rounded-full z-0 pointer-events-none hidden lg:block"></div>
-                <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl z-10 border border-slate-100 group mt-10 lg:mt-0">
-                  <img src="/images/social_media_hero.png" alt="Marketing Agency" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                  
-                  {/* Floating Analytics Card */}
-                  <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#6C3BFF]/10 flex items-center justify-center text-[#6C3BFF]">
-                      <TrendingUp size={24} />
+                
+                {/* Reel Grid Layout Visual */}
+                <div className="relative w-full max-w-[500px] grid grid-cols-12 gap-3 z-10">
+                  <div className="col-span-7 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 aspect-[3/4] group">
+                    <img src="/images/ugc_creation.png" alt="MarketBuddy UGC Content Creation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <span className="px-2 py-0.5 rounded bg-[#6C3BFF] text-[10px] font-bold uppercase">UGC & Reels</span>
+                      <p className="text-sm font-bold mt-1">Scroll-stopping Short Form</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-bold text-slate-900">+124% Growth</p>
-                      <p className="text-xs font-medium text-slate-500">This Month</p>
+                  </div>
+
+                  <div className="col-span-5 flex flex-col gap-3">
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-[4/3] group">
+                      <img src="/images/influencer_strategy.png" alt="MarketBuddy Influencer Campaign" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                      <div className="absolute bottom-2 left-2 right-2 text-white">
+                        <p className="text-[11px] font-bold">Creator Campaigns</p>
+                      </div>
+                    </div>
+
+                    <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-100 aspect-[4/3] group">
+                      <img src="/images/restaurant_success.png" alt="MarketBuddy Restaurant Marketing" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+                      <div className="absolute bottom-2 left-2 right-2 text-white">
+                        <p className="text-[11px] font-bold">Brand Growth</p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </motion.div>
             </div>
           </div>
@@ -255,66 +459,35 @@ export default function MarketBuddy() {
 
         <PlatformsSection />
 
-        {/* SERVICES SECTION */}
-        <section className="py-16 md:py-24 bg-white relative z-10 border-y border-slate-100">
+        {/* SERVICES SECTION - WHAT WE DO (8 APPROVED CATEGORIES) */}
+        <section id="services" className="py-16 md:py-24 bg-white relative z-10 border-y border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
               eyebrow="WHAT WE DO" 
-              title="End-to-end Solutions for Your Brand Growth" 
-              description="From viral video creation to full-funnel ad campaigns, we handle every aspect of your digital presence."
+              title="Full-Service Social Media & Digital Marketing" 
+              description="Strategic, creative, and performance-focused services tailored to help UK businesses build awareness and drive customer acquisition."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[clamp(1.5rem,2.5vw,2rem)] mt-16">
-              {[
-                { 
-                  icon: Video, title: "UGC Content Creation", desc: "Authentic content that builds trust and drives real engagement across social platforms.", 
-                  color: "text-[#6C3BFF]", bg: "bg-[#6C3BFF]/10", borderHover: "hover:border-[#6C3BFF]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(108,59,255,0.15)]",
-                  features: ["Sourcing authentic creators", "Scripting & storyboarding", "High-conversion hooks"]
-                },
-                { 
-                  icon: Camera, title: "Reels & Photoshoots", desc: "High-quality reels and product photos that stop the scroll and elevate your brand image.", 
-                  color: "text-[#FF7A00]", bg: "bg-[#FF7A00]/10", borderHover: "hover:border-[#FF7A00]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(255,122,0,0.15)]",
-                  features: ["Viral trend adaptation", "Professional lighting & editing", "Consistent aesthetic"]
-                },
-                { 
-                  icon: Users, title: "Influencer Marketing", desc: "Collaborate with the right influencers to amplify your brand and reach new demographics.", 
-                  color: "text-[#C71888]", bg: "bg-[#C71888]/10", borderHover: "hover:border-[#C71888]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(199,24,136,0.15)]",
-                  features: ["Vetted creator networks", "Campaign negotiation", "Performance tracking"]
-                },
-                { 
-                  icon: MessageSquare, title: "Social Media Management", desc: "End-to-end strategy, content calendar, posting and community management – we handle it all.", 
-                  color: "text-[#3B82F6]", bg: "bg-[#3B82F6]/10", borderHover: "hover:border-[#3B82F6]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(59,130,246,0.15)]",
-                  features: ["30-day content calendars", "Daily community engagement", "Analytics & reporting"]
-                },
-                { 
-                  icon: TrendingUp, title: "Performance Ads", desc: "Rank higher, reach more and convert better with highly targeted Meta & TikTok ads.", 
-                  color: "text-[#10B981]", bg: "bg-[#10B981]/10", borderHover: "hover:border-[#10B981]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(16,185,129,0.15)]",
-                  features: ["A/B testing creatives", "Audience retargeting", "ROAS optimization"]
-                },
-                { 
-                  icon: Search, title: "SEO Strategy", desc: "Data-driven organic search optimization to ensure your brand is found when it matters most.", 
-                  color: "text-[#F59E0B]", bg: "bg-[#F59E0B]/10", borderHover: "hover:border-[#F59E0B]/30", shadowHover: "hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.15)]",
-                  features: ["Keyword intent mapping", "On-page optimization", "High-authority link building"]
-                }
-              ].map((service, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+              {services.map((service, i) => (
                 <motion.div 
                   key={i} 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`bg-white rounded-[clamp(1.25rem,2vw,1.5rem)] p-[clamp(1.5rem,2.5vw,2.5rem)] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-slate-100 transition-all flex flex-col h-full group ${service.shadowHover} ${service.borderHover} hover:-translate-y-1`}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="bg-white rounded-3xl p-6 border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-xl hover:border-[#6C3BFF]/30 hover:-translate-y-1 transition-all flex flex-col h-full group"
                 >
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${service.bg} mb-6 transition-transform duration-300 group-hover:scale-110`}>
-                    <service.icon size={32} className={service.color} />
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.bg} mb-5 transition-transform duration-300 group-hover:scale-110`}>
+                    <service.icon size={28} className={service.color} />
                   </div>
-                  <h3 className="text-[clamp(1.25rem,1.5vw,1.5rem)] font-extrabold text-slate-900 mb-3">{service.title}</h3>
-                  <p className="text-[clamp(0.875rem,1vw,1rem)] text-slate-600 mb-6 leading-relaxed flex-1 font-medium">{service.desc}</p>
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-2">{service.title}</h3>
+                  <p className="text-xs text-slate-600 mb-5 leading-relaxed flex-1 font-medium">{service.desc}</p>
                   
-                  <ul className="space-y-3 mt-auto pt-6 border-t border-slate-50">
+                  <ul className="space-y-2.5 mt-auto pt-4 border-t border-slate-100">
                     {service.features.map((feat, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-[clamp(0.8rem,0.9vw,0.875rem)] font-bold text-slate-700">
-                        <CheckCircle2 size={16} className={`${service.color} shrink-0`} />
+                      <li key={j} className="flex items-start gap-2 text-xs font-bold text-slate-700">
+                        <CheckCircle2 size={14} className={`${service.color} shrink-0 mt-0.5`} />
                         {feat}
                       </li>
                     ))}
@@ -325,105 +498,119 @@ export default function MarketBuddy() {
           </div>
         </section>
 
-        {/* CONTENT THAT CONVERTS - REDESIGNED */}
-        <section className="py-12 md:py-16 bg-[#FAFAFA] relative">
+        {/* OUR WORK IN ACTION - REAL CAMPAIGN PROOF */}
+        <section className="py-16 md:py-24 bg-[#FAFBFF] relative">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
-            <div className="grid lg:grid-cols-[40%_60%] gap-8 lg:gap-10 items-center">
-              
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-                <SectionTitle 
-                  eyebrow="OUR APPROACH" 
-                  title={<>Content That <span className="brand-gradient-text">Converts</span></>} 
-                  align="left" 
-                />
-                <motion.p variants={fadeUp} className="text-[clamp(1rem,1.5vw,1.125rem)] text-slate-600 leading-relaxed mb-12 font-medium">
-                  We blend creativity, strategy and data to create content that not only looks amazing but delivers real results. Every post is designed to build trust and drive action.
-                </motion.p>
+            <SectionTitle 
+              eyebrow="OUR WORK IN ACTION" 
+              title={<>Content Made to <span className="brand-gradient-text">Get People Talking.</span></>} 
+              description="From local businesses to events, we create social-first content designed to capture attention, build awareness and drive engagement."
+            />
 
-                <div className="flex flex-wrap gap-8 sm:gap-12">
-                  {[
-                    { icon: Play, num: "500+", label: "Reels Created", color: "text-[#6C3BFF]" },
-                    { icon: TrendingUp, num: "3X", label: "Avg. Engagement", color: "text-[#FF7A00]" },
-                    { icon: Heart, num: "200+", label: "Happy Brands", color: "text-[#C71888]" }
-                  ].map((stat, i) => (
-                    <motion.div key={i} variants={fadeUp} className="flex flex-col items-start w-[calc(50%-1rem)] sm:w-auto">
-                      <div className={`w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center ${stat.color} mb-4`}>
-                        <stat.icon size={20} fill={stat.icon === Heart || stat.icon === Play ? "currentColor" : "none"} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              {featuredCampaigns.map((camp, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] hover:shadow-2xl transition-all duration-300 flex flex-col group"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <img 
+                      src={camp.image} 
+                      alt={`${camp.client} campaign`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                    <div className="absolute top-4 left-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold border ${camp.badgeColor}`}>
+                        {camp.type}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4 text-white flex items-end justify-between">
+                      <div>
+                        <p className="text-2xl font-black text-white">{camp.metric}</p>
+                        <p className="text-xs text-slate-300 font-medium">{camp.metricSub}</p>
                       </div>
-                      <p className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{stat.num}</p>
-                      <p className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">{stat.label}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                    </div>
+                  </div>
 
-              {/* Bento Box Grid */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full"
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-3">{camp.client}</h3>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {camp.services.map((srv, idx) => (
+                          <span key={idx} className="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-1 rounded-md">
+                            {srv}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <Link
+                      href="/case-studies"
+                      className="inline-flex items-center gap-2 text-xs font-extrabold text-[#6C3BFF] group-hover:text-purple-700 transition-colors pt-3 border-t border-slate-100 mt-2"
+                    >
+                      View Campaign Details <ChevronRight size={14} />
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link
+                href="/case-studies"
+                className="gradient-button inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-sm font-bold text-white transition-transform duration-300 hover:-translate-y-1 shadow-md"
               >
-                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[18.75rem] sm:h-[25rem]">
-                  <img src="/images/ugc_creation.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="UGC Content Creation" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="flex items-center gap-2 text-white mb-2">
-                      <Video size={20} />
-                      <span className="font-bold text-lg">UGC Production</span>
-                    </div>
-                    <p className="text-sm text-slate-200 font-medium">Authentic videos that stop the scroll.</p>
-                  </div>
-                </div>
-                
-                <div className="relative rounded-[2rem] overflow-hidden shadow-lg group h-[18.75rem] sm:h-[25rem]">
-                  <img src="/images/influencer_strategy.png" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Influencer Strategy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="flex items-center gap-2 text-white mb-2">
-                      <Users size={20} />
-                      <span className="font-bold text-lg">Influencer Strategy</span>
-                    </div>
-                    <p className="text-sm text-slate-200 font-medium">Connecting you with the right audience.</p>
-                  </div>
-                </div>
-              </motion.div>
-
+                View More of Our Work <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* TESTIMONIALS */}
-        <section className="py-12 md:py-16 bg-white relative">
+        {/* CLIENT REVIEWS / REAL SOCIAL PROOF */}
+        <section className="py-16 md:py-24 bg-white relative border-t border-slate-100">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <SectionTitle 
-              eyebrow="LOVE FROM OUR CLIENTS" 
-              title={<>What <span className="text-[#6C3BFF]">Brands</span> Say About <span className="text-[#FF7A00]">Us</span></>}
+              eyebrow="CLIENT REVIEWS" 
+              title={<>What <span className="text-[#6C3BFF]">Brands Say</span> About MarketBuddy</>}
+              description="Real feedback from UK business owners and brand managers who partnered with us for growth."
             />
 
-            <div className="grid md:grid-cols-3 gap-6 mt-12">
-              {[
-                { name: "Ananya Sharma", role: "Co-founder, Glowera", initials: "AS", review: "MarketBuddy understood our brand perfectly. Their content and strategy helped us scale our social media like never before.", color: "text-[#6C3BFF]" },
-                { name: "Rohit Mehta", role: "Marketing Head, FitFuel", initials: "RM", review: "From reels to influencer campaigns, everything was top-notch. We saw amazing engagement and real business growth.", color: "text-[#FF7A00]" },
-                { name: "Neha Kapoor", role: "Founder, Posh Essentials", initials: "NK", review: "Professional, creative and result-driven team. Highly recommended for any brand serious about growth!", color: "text-[#C71888]" }
-              ].map((t, i) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+              {clientReviews.map((rev, i) => (
                 <motion.div 
                   key={i} 
                   initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                  className="bg-white rounded-[2rem] p-8 border border-slate-100 shadow-[0_8px_30px_rgba(15,23,42,0.04)] relative flex flex-col h-full"
+                  className="bg-white rounded-3xl p-7 border border-slate-100 shadow-[0_8px_30px_rgba(15,23,42,0.04)] hover:shadow-lg transition-shadow relative flex flex-col justify-between"
                 >
-                  <div className="flex gap-1 mb-6 text-[#FFB800]">
-                    {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
-                  </div>
-                  <MessageSquare size={32} className={`absolute top-8 right-8 opacity-10 ${t.color}`} fill="currentColor" />
-                  
-                  <p className="text-slate-700 leading-relaxed font-medium mb-8 flex-grow">"{t.review}"</p>
-                  
-                  <div className="flex items-center gap-4 mt-auto">
-                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-500">
-                      {t.initials}
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex gap-1 text-amber-400">
+                        {Array.from({ length: rev.rating }).map((_, star) => (
+                          <Star key={star} size={16} fill="currentColor" />
+                        ))}
+                      </div>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">
+                        {rev.focus}
+                      </span>
                     </div>
+
+                    <p className="text-slate-700 text-sm leading-relaxed font-medium mb-6">
+                      "{rev.review}"
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
-                      <p className="text-xs font-medium text-slate-500">{t.role}</p>
+                      <h4 className="font-extrabold text-slate-900 text-sm">{rev.client}</h4>
+                      <p className="text-[11px] text-slate-500 font-medium">Verified Partner</p>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-purple-50 text-[#6C3BFF] flex items-center justify-center font-black text-xs">
+                      5.0
                     </div>
                   </div>
                 </motion.div>
@@ -432,8 +619,8 @@ export default function MarketBuddy() {
           </div>
         </section>
 
-        {/* CONTACT / LEAD FORM */}
-        <section className="py-12 md:py-16 bg-[#FAFAFA]">
+        {/* ENQUIRY SECTION (UNCHANGED AS SPECIFIED) */}
+        <section id="enquiry" className="py-16 md:py-24 bg-[#FAFAFA]">
           <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[4.5rem]">
             <div className="grid lg:grid-cols-[40%_60%] gap-8 bg-white rounded-[2.5rem] p-8 md:p-12 lg:p-16 shadow-[0_20px_60px_rgba(15,23,42,0.04)] border border-slate-100">
               
@@ -527,24 +714,49 @@ export default function MarketBuddy() {
           </div>
         </section>
 
-        {/* SEO CONTENT & FAQ SECTION */}
-        <SEOContentBlock title="Your Partner for Social Media Marketing and Business Growth in the UK">
+        {/* BOTTOM SEO SECTION - APPROVED VERBATIM COPY */}
+        <SEOContentBlock title="Social Media Marketing Agency for UK Businesses">
           <p>
-            If you are looking for a reliable partner to <strong>grow your business</strong>, MarketBuddy is the ultimate destination for all <strong>marketing related items</strong>. We specialize in connecting brands with the right <strong>social media influencer</strong> networks to maximize reach, authenticity, and ROI across London and the UK.
+            MarketBuddy, a venture of MarkitUp Group Ltd, is a UK-based social media marketing agency helping businesses build visibility, engage the right audiences and grow through strategic digital marketing.
           </p>
           <p>
-            In today's digital landscape, video content is king. Our team excels in producing viral <strong>instagram reels</strong> and engaging <strong>youtube vlogs</strong> that capture your audience's attention and drive conversions. Whether you need end-to-end social media management or targeted ad campaigns, we provide the marketing horsepower needed to scale your brand. Need a website to match your new traffic? Check out our <Link href="/it-buddy">ITBuddy</Link> services for expert web and app development.
+            We combine social media management, content creation, UGC, influencer marketing, short-form video production, paid social advertising, photography, creative design and SEO strategy to create campaigns tailored to each brand and its customers.
           </p>
 
-          <h3>Frequently Asked Questions</h3>
-          <div>
-            <h4>What makes a successful social media influencer campaign?</h4>
-            <p>A successful campaign relies on authentic alignment between the brand and the creator. We vet influencers thoroughly to ensure their audience demographic matches your target market, ensuring high engagement for your <strong>instagram reels</strong> and TikTok content.</p>
-          </div>
-          <div>
-            <h4>Do you offer B2B marketing services?</h4>
-            <p>Absolutely. While we excel in consumer-facing UGC content, we also deploy robust LinkedIn and B2B lead generation strategies to help enterprise clients <strong>grow their business</strong>.</p>
-          </div>
+          <h3>Social Media Marketing Built Around Your Business</h3>
+          <p>
+            Every business needs a different approach. Instead of relying on generic content plans, MarketBuddy develops strategies around your audience, location, industry and commercial goals. From Instagram Reels and TikTok content to creator collaborations and paid campaigns, we create content designed specifically for the platforms where your customers spend their attention.
+          </p>
+
+          <h3>Content Creation & UGC</h3>
+          <p>
+            We produce social-first content including Instagram Reels, TikTok videos, UGC, promotional videos, product content, food content, photography and campaign creatives. Our process covers everything from concepts, hooks and scripting through to filming, editing and final delivery, helping businesses maintain a consistent and professional presence across social media.
+          </p>
+
+          <h3>Influencer Marketing & Creator Campaigns</h3>
+          <p>
+            MarketBuddy connects businesses with relevant creators and influencers for campaigns designed to build awareness and reach targeted communities. We support the full process, including creator sourcing, campaign concepts, collaboration coordination, content production and campaign execution.
+          </p>
+
+          <h3>Social Media Management</h3>
+          <p>
+            For businesses looking for ongoing support, MarketBuddy provides end-to-end social media management covering content strategy, planning, creation, publishing, community engagement and performance monitoring. This allows businesses to maintain an active digital presence while focusing on running their operations.
+          </p>
+
+          <h3>Paid Social Advertising</h3>
+          <p>
+            Organic content and paid advertising can work together to accelerate growth. MarketBuddy supports businesses with Meta Ads and TikTok advertising, including campaign strategy, audience targeting, creative development, testing, retargeting and ongoing optimisation.
+          </p>
+
+          <h3>Supporting Businesses Across the UK</h3>
+          <p>
+            Based in the UK, MarketBuddy works with businesses across sectors including restaurants, food and hospitality brands, events, retail businesses, e-commerce brands and local service businesses. Our approach combines creative content with practical marketing strategy—helping brands turn social media attention into meaningful business opportunities.
+          </p>
+
+          <h3>See What MarketBuddy Can Do for Your Brand</h3>
+          <p>
+            Explore our real campaigns, content and client results in <Link href="/case-studies">Our Work</Link>, or get in touch with <Link href="/">MarkitUp Group</Link> to discuss the right marketing strategy for your business.
+          </p>
         </SEOContentBlock>
       </main>
       
